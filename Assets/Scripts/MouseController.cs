@@ -31,14 +31,12 @@ public class MouseController : MonoBehaviour {
 
 	public ParallaxScroll parallax;
 
+    public GameObject RestartButtonObject;
+
 	// Use this for initialization
 	void Start () {
-		animator = GetComponent<Animator>();	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		animator = GetComponent<Animator>();
+        RestartButtonObject.SetActive(false);
 	}
 
 	void FixedUpdate () 
@@ -135,11 +133,7 @@ public class MouseController : MonoBehaviour {
 	{
 		if (dead && grounded)
 		{
-			Rect buttonRect = new Rect(Screen.width * 0.35f, Screen.height * 0.45f, Screen.width * 0.30f, Screen.height * 0.1f);
-			if (GUI.Button(buttonRect, "Tap to restart!"))
-			{
-				Application.LoadLevel (Application.loadedLevelName);
-			};
+            RestartButtonObject.SetActive(true);
 		}
 	}
 
@@ -150,5 +144,10 @@ public class MouseController : MonoBehaviour {
 		jetpackAudio.enabled =  !dead && !grounded;
 		jetpackAudio.volume = jetpackActive ? 1.0f : 0.5f;        
 	}
+
+    public void RestartGame()
+    {
+        Application.LoadLevel(Application.loadedLevelName);
+    }
 
 }

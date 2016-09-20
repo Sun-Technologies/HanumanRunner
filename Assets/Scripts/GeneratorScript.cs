@@ -129,7 +129,10 @@ public class GeneratorScript : MonoBehaviour {
 		
 		//4
 		float rotation = Random.Range(objectsMinRotation, objectsMaxRotation);
-		obj.transform.rotation = Quaternion.Euler(Vector3.forward * rotation);
+        if (!obj.name.Equals("laser(Clone)"))
+        {
+            obj.transform.rotation = Quaternion.Euler(Vector3.forward * rotation);
+        }
 		
 		//5
 		objects.Add(obj);            
