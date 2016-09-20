@@ -85,21 +85,28 @@ public class GeneratorScript : MonoBehaviour {
 		
 		foreach(var room in currentRooms)
 		{
-			//7
-			float roomWidth = room.transform.FindChild("floor").localScale.x;
-			float roomStartX = room.transform.position.x - (roomWidth * 0.5f);    
-			float roomEndX = roomStartX + roomWidth;                            
-			
-			//8
-			if (roomStartX > addRoomX)
-				addRooms = false;
-			
-			//9
-			if (roomEndX < removeRoomX)
-				roomsToRemove.Add(room);
-			
-			//10
-			farhtestRoomEndX = Mathf.Max(farhtestRoomEndX, roomEndX);
+            try
+            {
+                //7
+                float roomWidth = room.transform.FindChild("floor").localScale.x;
+                float roomStartX = room.transform.position.x - (roomWidth * 0.5f);
+                float roomEndX = roomStartX + roomWidth;
+
+                //8
+                if (roomStartX > addRoomX)
+                    addRooms = false;
+
+                //9
+                if (roomEndX < removeRoomX)
+                    roomsToRemove.Add(room);
+
+                //10
+                farhtestRoomEndX = Mathf.Max(farhtestRoomEndX, roomEndX);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.Log("ERROR: " + ex.Message);
+            }
 		}
 		
 		//11
