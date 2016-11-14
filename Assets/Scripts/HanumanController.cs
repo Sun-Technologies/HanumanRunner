@@ -30,8 +30,6 @@ public class HanumanController : MonoBehaviour {
 
 	public ParallaxScroll parallax;
 
-    public GameObject GameOverScreen;
-
     public Transform scorePos;
 
     public GameObject ImpactSprite;
@@ -45,7 +43,6 @@ public class HanumanController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		animator = GetComponent<Animator>();
-        GameOverScreen.SetActive(false);
         ImpactSprite.SetActive(false);
 	}
 
@@ -112,7 +109,15 @@ public class HanumanController : MonoBehaviour {
         PlayerPrefsStorage.SaveData(UiManager.LivesKey, UiManager.instance.lives);
         animator.SetBool("dead", true);
         gameState = GameState.GameOver;
-	}
+        Debug.Log("Dead");
+        StartCoroutine(ShowGameOver());
+    }
+
+    IEnumerator ShowGameOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+        UiManager.instance.SwitchGameState(GameState.GameOver);
+    }
 
     IEnumerator FlashImpactSprite()
     {
@@ -150,11 +155,11 @@ public class HanumanController : MonoBehaviour {
 
 	void DisplayRestartButton()
 	{
-		if (dead && grounded)
-		{
-            //GameOverScreen.SetActive(true);
-            UiManager.instance.SwitchGameState(GameState.GameOver);
-		}
+		//if (dead && grounded)
+		//{
+  //          //GameOverScreen.SetActive(true);
+  //          UiManager.instance.SwitchGameState(GameState.GameOver);
+		//}
 	}
 
 	void AdjustFootstepsAndJetpackSound(bool jetpackActive)    

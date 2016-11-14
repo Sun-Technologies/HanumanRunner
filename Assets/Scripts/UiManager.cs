@@ -9,7 +9,7 @@ public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
-    public GameState gameState;
+    public static GameState gameState = GameState.MainMenu;
 
     public int coins = 0;
 
@@ -75,18 +75,23 @@ public class UiManager : MonoBehaviour
      
     #endregion
 
+    void OnEnable()
+    {
+        //SwitchGameState(GameState.MainMenu);
+    }
+
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //DontDestroyOnLoad(gameObject);
+        Debug.Log("State = " + gameState);
         SetInit();
     }
 
@@ -95,7 +100,15 @@ public class UiManager : MonoBehaviour
         coins = PlayerPrefsStorage.GetIntData(ScoreKey);
         lives = PlayerPrefsStorage.GetIntData(LivesKey);
         shareCount = PlayerPrefsStorage.GetIntData(FbShareKey);
-        SwitchGameState(GameState.MainMenu);
+        if (gameState == GameState.MainMenu)
+        {
+            SwitchGameState(GameState.MainMenu);
+        }
+        else
+        {
+            SwitchGameState(GameState.InGame);
+        }
+        
     }
 
     public void PostToFacebook()
@@ -158,7 +171,11 @@ public class UiManager : MonoBehaviour
     private void SetInit()
     {
         FacebookLog("SetInit");
-        FB.Init(OnInitComplete, OnHideUnity);
+        if (!FB.IsInitialized)
+        {
+            FB.Init(OnInitComplete, OnHideUnity);
+        }
+        
         FacebookLog("FB.Init() called with " + FB.AppId);
         if (FB.IsLoggedIn)
         {
@@ -201,6 +218,7 @@ public class UiManager : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameState = GameState.InGame;
         SwitchGameState(GameState.InGame);
     }
@@ -213,7 +231,9 @@ public class UiManager : MonoBehaviour
 
     public void QuitToMainMenu()
     {
-        QuitConfirmation.SetActive(true);
+        //gameState = GameState.MainMenu;
+        SwitchGameState(GameState.MainMenu);
+        //QuitConfirmation.SetActive(true);
     }
 
     public void QuitConfirmYes()
@@ -230,8 +250,10 @@ public class UiManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SwitchGameState(GameState.InGame);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameState = GameState.InGame;
+        SwitchGameState(GameState.InGame);
+        ToggleGamePauseState(false);
     }
 
     public void ToggleMusic()
@@ -255,12 +277,11 @@ public class UiManager : MonoBehaviour
         GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);
         HUDScreen.SetActive(false);
-        QuitConfirmation.SetActive(false);
         ToggleGamePauseState(true);
-
         if (state == GameState.MainMenu)
         {
             MainMenuScreen.SetActive(true);
+            gameState = GameState.MainMenu;
         }
 
         if (state == GameState.GameOver)

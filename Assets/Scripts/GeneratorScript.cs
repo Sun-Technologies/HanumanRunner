@@ -30,11 +30,6 @@ public class GeneratorScript : MonoBehaviour {
 		float height = 2.0f * Camera.main.orthographicSize;
 		screenWidthInPoints = height * Camera.main.aspect;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	void FixedUpdate () {
 		

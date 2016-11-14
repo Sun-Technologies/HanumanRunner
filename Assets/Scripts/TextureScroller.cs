@@ -22,6 +22,13 @@ public class TextureScroller : MonoBehaviour
             bgObj.position = startPosition;
         }
 
-        bgObj.position += Vector3.left * scrollSpeed;
+        if (Time.timeScale == 1)
+        {
+            bgObj.position += Vector3.left * scrollSpeed;
+        }
+        else
+        {
+            scrollSpeed = 0;
+        }
     }
 }
