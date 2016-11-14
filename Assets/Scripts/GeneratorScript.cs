@@ -20,7 +20,9 @@ public class GeneratorScript : MonoBehaviour {
 	public float objectsMaxY = 1.4f;
 	
 	public float objectsMinRotation = -45.0f;
-	public float objectsMaxRotation = 45.0f; 
+	public float objectsMaxRotation = 45.0f;
+
+    private Vector3 laserPos = new Vector3(0, -0.99f, 0);
 
 
 	// Use this for initialization
@@ -131,18 +133,26 @@ public class GeneratorScript : MonoBehaviour {
 		
 		//3
 		float objectPositionX = lastObjectX + Random.Range(objectsMinDistance, objectsMaxDistance);
-		float randomY = Random.Range(objectsMinY, objectsMaxY);
-		obj.transform.position = new Vector3(objectPositionX,randomY,0); 
-		
-		//4
-		float rotation = Random.Range(objectsMinRotation, objectsMaxRotation);
-        if (!obj.name.Equals("laser(Clone)"))
+        float rotation = Random.Range(objectsMinRotation, objectsMaxRotation);
+
+        float randomY = Random.Range(objectsMinY, objectsMaxY);
+        obj.transform.position = new Vector3(objectPositionX, randomY, 0);
+        if (!obj.name.Equals("laser(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)"))
         {
             obj.transform.rotation = Quaternion.Euler(Vector3.forward * rotation);
+            
         }
-		
-		//5
-		objects.Add(obj);            
+        if (obj.name.Equals("laser(Clone)"))
+        {
+            obj.transform.position = new Vector3(objectPositionX, -0.99f, 0);
+        }
+
+        if (obj.name.Equals("Rakshas_Ground(Clone)"))
+        {
+            obj.transform.position = new Vector3(objectPositionX, -1.96f, 0);
+        }
+
+        objects.Add(obj);            
 	}
 
 	void GenerateObjectsIfRequired()
