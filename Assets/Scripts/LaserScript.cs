@@ -42,26 +42,26 @@ public class LaserScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        timeUntilNextToggle -= Time.fixedDeltaTime;
+        //timeUntilNextToggle -= Time.fixedDeltaTime;
 
-        if (obstacleType == ObstacleType.Laser)
-        {
-            if (timeUntilNextToggle <= 0)
-            {
+        //if (obstacleType == ObstacleType.Laser)
+        //{
+        //    if (timeUntilNextToggle <= 0)
+        //    {
 
-                isLaserOn = !isLaserOn;
+        //        isLaserOn = !isLaserOn;
 
-                GetComponent<Collider2D>().enabled = isLaserOn;
+        //        GetComponent<Collider2D>().enabled = isLaserOn;
 
-                SpriteRenderer spriteRenderer = ((SpriteRenderer)this.GetComponent<Renderer>());
-                if (isLaserOn)
-                    spriteRenderer.sprite = laserOnSprite;
-                else
-                    spriteRenderer.sprite = laserOffSprite;
+        //        SpriteRenderer spriteRenderer = ((SpriteRenderer)this.GetComponent<Renderer>());
+        //        if (isLaserOn)
+        //            spriteRenderer.sprite = laserOnSprite;
+        //        else
+        //            spriteRenderer.sprite = laserOffSprite;
 
-                timeUntilNextToggle = interval;
-            }
-        }
+        //        timeUntilNextToggle = interval;
+        //    }
+        //}
 
         if (obstacleType == ObstacleType.RotatingSpike)
         {

@@ -20,9 +20,7 @@ public class HanumanController : MonoBehaviour {
 
 	private bool dead = false;
 
-	private uint coins = 0;
-
-	public Texture2D coinIconTexture;
+    public Texture2D coinIconTexture;
 
 	public AudioClip coinCollectSound;
 
@@ -36,14 +34,19 @@ public class HanumanController : MonoBehaviour {
 
     public Transform scorePos;
 
+    public GameObject ImpactSprite;
+
     public Text ScoreText;
 
     public Text LivesText;
+
+    GameState gameState;
 
     // Use this for initialization
     void Start () {
 		animator = GetComponent<Animator>();
         GameOverScreen.SetActive(false);
+        ImpactSprite.SetActive(false);
 	}
 
 	void FixedUpdate () 
@@ -93,23 +96,34 @@ public class HanumanController : MonoBehaviour {
 		if (collider.gameObject.CompareTag("Coins"))
 			CollectCoin(collider);
 		else
-			HitByLaser(collider);
+			HitByObstacle(collider);
 	}
 		
-	void HitByLaser(Collider2D laserCollider)
+	void HitByObstacle(Collider2D laserCollider)
 	{
 		if (!dead)
 			laserCollider.gameObject.GetComponent<AudioSource>().Play();
 
 		dead = true;
-
-		animator.SetBool("dead", true);
+        StartCoroutine(FlashImpactSprite());
+        UiManager.instance.lives--;
+        LivesText.text = "x " + UiManager.instance.lives.ToString();
+        PlayerPrefsStorage.SaveData(UiManager.ScoreKey, UiManager.instance.coins);
+        PlayerPrefsStorage.SaveData(UiManager.LivesKey, UiManager.instance.lives);
+        animator.SetBool("dead", true);
+        gameState = GameState.GameOver;
 	}
+
+    IEnumerator FlashImpactSprite()
+    {
+        ImpactSprite.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        ImpactSprite.SetActive(false);
+    }
 
 	void CollectCoin(Collider2D coinCollider)
 	{
-		coins++;
-        //AnimateCoin(coinCollider.gameObject.transform);
+		UiManager.instance.coins++;
         Destroy(coinCollider.gameObject);
         AudioSource.PlayClipAtPoint(coinCollectSound, transform.position);
 	}
@@ -131,14 +145,15 @@ public class HanumanController : MonoBehaviour {
 
 	void DisplayCoinsCount()
 	{
-        ScoreText.text = coins.ToString();
+        ScoreText.text = UiManager.instance.coins.ToString();
     }
 
 	void DisplayRestartButton()
 	{
 		if (dead && grounded)
 		{
-            GameOverScreen.SetActive(true);
+            //GameOverScreen.SetActive(true);
+            UiManager.instance.SwitchGameState(GameState.GameOver);
 		}
 	}
 

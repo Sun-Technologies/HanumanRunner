@@ -1,0 +1,339 @@
+fileFormatVersion: 2
+guid: 895bd3187a3a7d04e8d8eec04f167ed8
+timeCreated: 1479116442
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Hanuman Stun_Spritesheet5x4_0
+    21300002: Hanuman Stun_Spritesheet5x4_1
+    21300004: Hanuman Stun_Spritesheet5x4_2
+    21300006: Hanuman Stun_Spritesheet5x4_3
+    21300008: Hanuman Stun_Spritesheet5x4_4
+    21300010: Hanuman Stun_Spritesheet5x4_5
+    21300012: Hanuman Stun_Spritesheet5x4_6
+    21300014: Hanuman Stun_Spritesheet5x4_7
+    21300016: Hanuman Stun_Spritesheet5x4_8
+    21300018: Hanuman Stun_Spritesheet5x4_9
+    21300020: Hanuman Stun_Spritesheet5x4_10
+    21300022: Hanuman Stun_Spritesheet5x4_11
+    21300024: Hanuman Stun_Spritesheet5x4_12
+    21300026: Hanuman Stun_Spritesheet5x4_13
+    21300028: Hanuman Stun_Spritesheet5x4_14
+    21300030: Hanuman Stun_Spritesheet5x4_15
+    21300032: Hanuman Stun_Spritesheet5x4_16
+    21300034: Hanuman Stun_Spritesheet5x4_17
+    21300036: Hanuman Stun_Spritesheet5x4_18
+    21300038: Hanuman Stun_Spritesheet5x4_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_2
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_3
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_4
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_9
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_13
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_14
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1000
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_17
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_18
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman Stun_Spritesheet5x4_19
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 1200
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -2,12 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public enum GameState { MainMenu, InGame, GameOver, Pause };
+public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
-    GameState gameState;
+    public GameState gameState;
+
+    public int coins = 0;
+
+    public int lives = 5;
+
+    public int shareCount = 0;
+
+    public const string ScoreKey = "ScoreKey";
+
+    public const string LivesKey = "LivesKey";
+
+    public const string FbShareKey = "FbShareKey";
+
+    public bool isGamePaused = false;
+
+    #region UI Screens
+
+    public GameObject MainMenuScreen;
+    public GameObject PauseScreen;
+    public GameObject GameOverScreen;
+    public GameObject InfoScreen;
+    public GameObject HUDScreen;
+    public GameObject QuitConfirmation;
+
+    #endregion
+
+
+    #region Game over screen items
+
+    public GameObject HighScore_Panel;
+    public GameObject NewBest_TextObj;
+    public Text HighScore_Text;
+    public Text Lives_Text;
+    public Text Score_Text;
+    public Button Restart_Button;
+    public Button Home_Button;
+    public Text GameShare_Text;
+    public Text ScoreShare_Text;
+
+    #endregion
+
+    #region PauseScreen items
+
+    public Toggle MusicToggle_PauseMenu;
+
+    #endregion
+
+    #region MainMenu Screen items
+
+    public Toggle MusicToggle_MainMenu;
+
+    #endregion
 
     #region FacebookVariables
     // Custom Feed Share
@@ -34,6 +88,14 @@ public class UiManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SetInit();
+    }
+
+    void Start()
+    {
+        coins = PlayerPrefsStorage.GetIntData(ScoreKey);
+        lives = PlayerPrefsStorage.GetIntData(LivesKey);
+        shareCount = PlayerPrefsStorage.GetIntData(FbShareKey);
+        SwitchGameState(GameState.MainMenu);
     }
 
     public void PostToFacebook()
@@ -82,6 +144,8 @@ public class UiManager : MonoBehaviour
         }
         else if (!string.IsNullOrEmpty(result.RawResult))
         {
+            shareCount++;
+            PlayerPrefsStorage.SaveData(FbShareKey, shareCount);
             FacebookLog("Success Response:\n" + result.RawResult);
         }
         else
@@ -131,37 +195,43 @@ public class UiManager : MonoBehaviour
 
     public void PauseGame()
     {
-
+        gameState = GameState.Pause;
+        SwitchGameState(GameState.Pause);
     }
 
     public void StartGame()
     {
-
+        gameState = GameState.InGame;
+        SwitchGameState(GameState.InGame);
     }
 
     public void ResumeGame()
     {
-
+        gameState = GameState.InGame;
+        SwitchGameState(GameState.InGame);
     }
 
     public void QuitToMainMenu()
     {
-
+        QuitConfirmation.SetActive(true);
     }
 
     public void QuitConfirmYes()
     {
-
+        gameState = GameState.MainMenu;
+        SwitchGameState(GameState.MainMenu);
     }
 
     public void QuitConfirmNo()
     {
-
+        gameState = GameState.InGame;
+        SwitchGameState(GameState.InGame);
     }
 
     public void RestartGame()
     {
-
+        SwitchGameState(GameState.InGame);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ToggleMusic()
@@ -169,13 +239,58 @@ public class UiManager : MonoBehaviour
 
     }
 
-    public void InfoScreen()
+    public void InfoScreen_Button()
     {
-
+        InfoScreen.SetActive(true);
     }
 
     public void CloseInfoScreen()
     {
+        InfoScreen.SetActive(false);
+    }
 
+    public void SwitchGameState(GameState state)
+    {
+        MainMenuScreen.SetActive(false);
+        GameOverScreen.SetActive(false);
+        PauseScreen.SetActive(false);
+        HUDScreen.SetActive(false);
+        QuitConfirmation.SetActive(false);
+        ToggleGamePauseState(true);
+
+        if (state == GameState.MainMenu)
+        {
+            MainMenuScreen.SetActive(true);
+        }
+
+        if (state == GameState.GameOver)
+        {
+            GameOverScreen.SetActive(true);
+        }
+
+        if (state == GameState.InGame)
+        {
+            HUDScreen.SetActive(true);
+            ToggleGamePauseState(false);
+        }
+
+        if (state == GameState.Pause)
+        {
+            PauseScreen.SetActive(true);
+        }
+    }
+
+    public void ToggleGamePauseState(bool isPaused)
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            isGamePaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            isGamePaused = false;
+        }
     }
 }
