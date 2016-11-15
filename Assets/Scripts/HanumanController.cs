@@ -63,8 +63,9 @@ public class HanumanController : MonoBehaviour {
 			newVelocity.x = forwardMovementSpeed;
 			GetComponent<Rigidbody2D>().velocity = newVelocity;
 		}
-		
-		UpdateGroundedStatus();
+        DisplayCoinsCount();
+
+        UpdateGroundedStatus();
 		
 		AdjustJetpack(jetpackActive);
 
@@ -141,26 +142,10 @@ public class HanumanController : MonoBehaviour {
         Destroy(obj.gameObject);
     }
 
-	void OnGUI()
-	{
-		DisplayCoinsCount();
-
-		DisplayRestartButton();
-	}
-
 	void DisplayCoinsCount()
 	{
         ScoreText.text = UiManager.instance.coins.ToString();
     }
-
-	void DisplayRestartButton()
-	{
-		//if (dead && grounded)
-		//{
-  //          //GameOverScreen.SetActive(true);
-  //          UiManager.instance.SwitchGameState(GameState.GameOver);
-		//}
-	}
 
 	void AdjustFootstepsAndJetpackSound(bool jetpackActive)    
 	{
