@@ -7,7 +7,7 @@ public enum ObstacleType { RotatingSpike, SpikeWall, GroundedRakhshas, FlyingRak
 public class LaserScript : MonoBehaviour
 {
     public ObstacleType obstacleType;
-
+    public GameObject FireballObj;
     public Sprite laserOnSprite;
     public Sprite laserOffSprite;
 
@@ -26,7 +26,23 @@ public class LaserScript : MonoBehaviour
     void Start()
     {
         timeUntilNextToggle = interval;
-        
+        StartCoroutine(SpitFireball());
+    }
+
+    IEnumerator SpitFireball()
+    {
+        if (obstacleType == ObstacleType.FlyingRakhshas)
+        {
+            yield return new WaitForSeconds(Random.Range(1.5f, 3));
+            if (FireballObj != null)
+            {
+                Instantiate(FireballObj, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Fireball object not found.");
+            }
+        }
     }
 
     void DoVerticalAnimation(Transform obj)
@@ -41,28 +57,6 @@ public class LaserScript : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        //timeUntilNextToggle -= Time.fixedDeltaTime;
-
-        //if (obstacleType == ObstacleType.Laser)
-        //{
-        //    if (timeUntilNextToggle <= 0)
-        //    {
-
-        //        isLaserOn = !isLaserOn;
-
-        //        GetComponent<Collider2D>().enabled = isLaserOn;
-
-        //        SpriteRenderer spriteRenderer = ((SpriteRenderer)this.GetComponent<Renderer>());
-        //        if (isLaserOn)
-        //            spriteRenderer.sprite = laserOnSprite;
-        //        else
-        //            spriteRenderer.sprite = laserOffSprite;
-
-        //        timeUntilNextToggle = interval;
-        //    }
-        //}
-
         if (obstacleType == ObstacleType.RotatingSpike)
         {
             transform.RotateAround(transform.position,

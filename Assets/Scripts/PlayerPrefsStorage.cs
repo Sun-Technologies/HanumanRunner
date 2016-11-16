@@ -16,11 +16,11 @@ public class PlayerPrefsStorage : MonoBehaviour
         }
     }
 
-    public static int GetIntData(string key)
+    public static int GetIntData(string key, int defaultValue)
     {
         if (PlayerPrefs.HasKey(key))
         {
-            return PlayerPrefs.GetInt(key);
+            return PlayerPrefs.GetInt(key, defaultValue);
         }
         else
         {

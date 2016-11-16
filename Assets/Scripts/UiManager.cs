@@ -6,12 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
+enum DateTimer { SameDay, NewDay, Backdated};
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
     public static GameState gameState = GameState.MainMenu;
-
-    public int coins = 0;
+    public AudioListener listener;
+    public int Score = 0;
 
     public int lives = 5;
 
@@ -23,7 +24,12 @@ public class UiManager : MonoBehaviour
 
     public const string FbShareKey = "FbShareKey";
 
+    public const string DateTimeKey = "DateTimeKey";
+
     public bool isGamePaused = false;
+
+    DateTime SavedDateTime = DateTime.Today;
+    DateTimer dateTimer;
 
     #region UI Screens
 
@@ -82,6 +88,7 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
+        listener = FindObjectOfType<AudioListener>();
         if (instance == null)
         {
             instance = this;
@@ -97,9 +104,27 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        coins = PlayerPrefsStorage.GetIntData(ScoreKey);
-        lives = PlayerPrefsStorage.GetIntData(LivesKey);
-        shareCount = PlayerPrefsStorage.GetIntData(FbShareKey);
+        Debug.Log(SavedDateTime);
+
+        if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(DateTimeKey)))
+        {
+            PlayerPrefsStorage.SaveData(DateTimeKey, SavedDateTime.ToString());
+        }
+
+        if (SavedDateTime.CompareTo(DateTime.Today) > 0)
+        {
+            dateTimer = DateTimer.NewDay;
+            Debug.Log("Date changer. Updating timer.");
+            SavedDateTime.AddDays(1);
+        }
+        if (SavedDateTime.CompareTo(DateTime.Today) == 0)
+        {
+            dateTimer = DateTimer.SameDay;
+        }
+
+        Score = PlayerPrefsStorage.GetIntData(ScoreKey, 0);
+        lives = PlayerPrefsStorage.GetIntData(LivesKey, 5);
+        shareCount = PlayerPrefsStorage.GetIntData(FbShareKey, 0);
         if (gameState == GameState.MainMenu)
         {
             SwitchGameState(GameState.MainMenu);
@@ -256,9 +281,28 @@ public class UiManager : MonoBehaviour
         ToggleGamePauseState(false);
     }
 
-    public void ToggleMusic()
+    public void ToggleMusicMainMenu()
     {
+        if (MusicToggle_MainMenu.isOn)
+        {
+            listener.enabled = true;
+        }
+        else
+        {
+            listener.enabled = false;
+        }
+    }
 
+    public void ToggleMusicPauseMenu()
+    {
+        if (MusicToggle_PauseMenu.isOn)
+        {
+            listener.enabled = true;
+        }
+        else
+        {
+            listener.enabled = false;
+        }
     }
 
     public void InfoScreen_Button()
@@ -287,6 +331,7 @@ public class UiManager : MonoBehaviour
         if (state == GameState.GameOver)
         {
             GameOverScreen.SetActive(true);
+            DisplayGameOverItems();
         }
 
         if (state == GameState.InGame)
@@ -313,5 +358,30 @@ public class UiManager : MonoBehaviour
             Time.timeScale = 1;
             isGamePaused = false;
         }
+    }
+
+    void DisplayGameOverItems()
+    {
+        if (HanumanController.currentScore > Score)     //New high score
+        {
+            Score = HanumanController.currentScore;
+            PlayerPrefsStorage.SaveData(ScoreKey, Score);
+            NewBest_TextObj.SetActive(true);
+        }
+        else
+        {
+            NewBest_TextObj.SetActive(false);
+        }
+
+        HighScore_Text.text = Score.ToString();
+        Score_Text.text = HanumanController.currentScore.ToString();
+
+        if (lives > 0)
+        {
+            lives--;
+        }
+        
+        Lives_Text.text = lives.ToString();
+        PlayerPrefsStorage.SaveData(LivesKey, lives);
     }
 }

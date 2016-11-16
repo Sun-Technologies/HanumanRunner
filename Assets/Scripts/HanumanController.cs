@@ -38,12 +38,18 @@ public class HanumanController : MonoBehaviour {
 
     public Text LivesText;
 
+    public static int currentScore;
+
     GameState gameState;
+
+    public float speedTimer = 30;
 
     // Use this for initialization
     void Start () {
 		animator = GetComponent<Animator>();
         ImpactSprite.SetActive(false);
+        currentScore = 0;
+        forwardMovementSpeed = 3;
 	}
 
 	void FixedUpdate () 
@@ -54,11 +60,26 @@ public class HanumanController : MonoBehaviour {
 		
 		if (jetpackActive)
 		{
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jetpackForce));
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jetpackForce), ForceMode2D.Force);
 		}
 		
 		if (!dead)
 		{
+            speedTimer -= Time.deltaTime;
+
+            if (speedTimer <= 0)
+            {
+                if (forwardMovementSpeed < 9)
+                {
+                    forwardMovementSpeed++;
+                }
+            }
+
+            if (speedTimer < 0)
+            {
+                speedTimer = 30;
+            }
+
 			Vector2 newVelocity = GetComponent<Rigidbody2D>().velocity;
 			newVelocity.x = forwardMovementSpeed;
 			GetComponent<Rigidbody2D>().velocity = newVelocity;
@@ -72,6 +93,11 @@ public class HanumanController : MonoBehaviour {
 		AdjustFootstepsAndJetpackSound(jetpackActive);
 
 		parallax.offset = transform.position.x;
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlayerPrefsStorage.ClearLocalStorageData(true);
+        }
 	} 
 
 	void UpdateGroundedStatus()
@@ -95,6 +121,11 @@ public class HanumanController : MonoBehaviour {
 			CollectCoin(collider);
 		else
 			HitByObstacle(collider);
+
+        if (collider.gameObject.name.Contains("Fireball"))
+        {
+            Destroy(collider.gameObject);
+        }
 	}
 		
 	void HitByObstacle(Collider2D laserCollider)
@@ -104,10 +135,7 @@ public class HanumanController : MonoBehaviour {
 
 		dead = true;
         StartCoroutine(FlashImpactSprite());
-        UiManager.instance.lives--;
-        LivesText.text = "x " + UiManager.instance.lives.ToString();
-        PlayerPrefsStorage.SaveData(UiManager.ScoreKey, UiManager.instance.coins);
-        PlayerPrefsStorage.SaveData(UiManager.LivesKey, UiManager.instance.lives);
+       
         animator.SetBool("dead", true);
         gameState = GameState.GameOver;
         Debug.Log("Dead");
@@ -129,9 +157,10 @@ public class HanumanController : MonoBehaviour {
 
 	void CollectCoin(Collider2D coinCollider)
 	{
-		UiManager.instance.coins++;
+        currentScore++;
         Destroy(coinCollider.gameObject);
-        AudioSource.PlayClipAtPoint(coinCollectSound, transform.position);
+        AudioSource.PlayClipAtPoint(coinCollectSound, transform.position, 0.3f);
+        
 	}
 
     IEnumerator AnimateCoin(Transform obj)
@@ -144,7 +173,7 @@ public class HanumanController : MonoBehaviour {
 
 	void DisplayCoinsCount()
 	{
-        ScoreText.text = UiManager.instance.coins.ToString();
+        ScoreText.text = currentScore.ToString();
     }
 
 	void AdjustFootstepsAndJetpackSound(bool jetpackActive)    
