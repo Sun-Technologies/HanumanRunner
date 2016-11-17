@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
-enum DateTimer { SameDay, NewDay, Backdated};
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
@@ -18,18 +17,19 @@ public class UiManager : MonoBehaviour
 
     public int shareCount = 0;
 
-    public const string ScoreKey = "ScoreKey";
+    public const string SCOREKEY = "ScoreKey";
 
-    public const string LivesKey = "LivesKey";
+    public const string LIVESKEY = "LivesKey";
 
-    public const string FbShareKey = "FbShareKey";
+    public const string FBSHAREKEY = "FbShareKey";
 
-    public const string DateTimeKey = "DateTimeKey";
+    public const string DATETIMEKEY = "DateTimeKey";
+
+    const int DAILYLIVES = 20;
 
     public bool isGamePaused = false;
 
     DateTime SavedDateTime = DateTime.Today;
-    DateTimer dateTimer;
 
     bool isMainMenuScreen = false;
 
@@ -84,9 +84,9 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-        if (!PlayerPrefs.HasKey(LivesKey))
+        if (!PlayerPrefs.HasKey(LIVESKEY))
         {
-            PlayerPrefsStorage.SaveData(LivesKey, 20);
+            PlayerPrefsStorage.SaveData(LIVESKEY, DAILYLIVES);
         }
         listener = FindObjectOfType<AudioListener>();
         if (instance == null)
@@ -103,25 +103,23 @@ public class UiManager : MonoBehaviour
         Debug.Log(SavedDateTime);
         //PlayerPrefsStorage.SaveData(LivesKey, 1);
 
-        if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(DateTimeKey)))
+        if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(DATETIMEKEY)))
         {
-            PlayerPrefsStorage.SaveData(DateTimeKey, SavedDateTime.ToString());
+            PlayerPrefsStorage.SaveData(DATETIMEKEY, SavedDateTime.ToString());
         }
+
+        SavedDateTime = DateTime.Parse(PlayerPrefsStorage.GetStringData(DATETIMEKEY));
 
         if (SavedDateTime.CompareTo(DateTime.Today) > 0)
         {
-            dateTimer = DateTimer.NewDay;
             Debug.Log("Date changer. Updating timer.");
             SavedDateTime.AddDays(1);
-        }
-        if (SavedDateTime.CompareTo(DateTime.Today) == 0)
-        {
-            dateTimer = DateTimer.SameDay;
+            PlayerPrefsStorage.SaveData(LIVESKEY, DAILYLIVES);
         }
 
-        Score = PlayerPrefsStorage.GetIntData(ScoreKey, 0);
-        lives = PlayerPrefsStorage.GetIntData(LivesKey, 20);
-        shareCount = PlayerPrefsStorage.GetIntData(FbShareKey, 0);
+        Score = PlayerPrefsStorage.GetIntData(SCOREKEY, 0);
+        lives = PlayerPrefsStorage.GetIntData(LIVESKEY, DAILYLIVES);
+        shareCount = PlayerPrefsStorage.GetIntData(FBSHAREKEY, 0);
         if (gameState == GameState.MainMenu)
         {
             SwitchGameState(GameState.MainMenu);
@@ -186,9 +184,9 @@ public class UiManager : MonoBehaviour
         else if (!string.IsNullOrEmpty(result.RawResult))
         {
             shareCount++;
-            PlayerPrefsStorage.SaveData(FbShareKey, shareCount);
+            PlayerPrefsStorage.SaveData(FBSHAREKEY, shareCount);
             FacebookLog("Success Response:\n" + result.RawResult);
-            PlayerPrefsStorage.SaveData(LivesKey, -1);
+            PlayerPrefsStorage.SaveData(LIVESKEY, -1);
             ToggleShareText();
             Restart_Button.interactable = true;
             Home_Button.interactable = true;
@@ -420,7 +418,7 @@ public class UiManager : MonoBehaviour
         if (HanumanController.currentScore > Score)     //New high score
         {
             Score = HanumanController.currentScore;
-            PlayerPrefsStorage.SaveData(ScoreKey, Score);
+            PlayerPrefsStorage.SaveData(SCOREKEY, Score);
             NewBest_TextObj.SetActive(true);
         }
         else
@@ -434,7 +432,7 @@ public class UiManager : MonoBehaviour
         if (lives > 0)
         {
             lives--;
-            PlayerPrefsStorage.SaveData(LivesKey, lives);
+            PlayerPrefsStorage.SaveData(LIVESKEY, lives);
         }
 
         if (lives > 0 || lives == -1)
