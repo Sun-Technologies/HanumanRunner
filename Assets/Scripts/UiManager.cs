@@ -31,6 +31,8 @@ public class UiManager : MonoBehaviour
     DateTime SavedDateTime = DateTime.Today;
     DateTimer dateTimer;
 
+    bool isMainMenuScreen = false;
+
     #region UI Screens
 
     public GameObject MainMenuScreen;
@@ -66,38 +68,32 @@ public class UiManager : MonoBehaviour
     #region MainMenu Screen items
 
     public Toggle MusicToggle_MainMenu;
+    public GameObject PlayButtonObj;
+    public GameObject ShareTextObj;
 
     #endregion
 
     #region FacebookVariables
-    // Custom Feed Share
-    private string feedTo = string.Empty;
-    private string feedLink = "http://ragemaker.net/images/treecomics/stoned%20what.png";
-    private string feedTitle = "Jai Hanuman";
-    private string feedCaption = "Share and get good news in 5 days";
-    private string feedDescription = "If you don't like and share this, you'll lose all your gainz #RepsForJesus";
-    private string feedImage = "http://i.imgur.com/zkYlB.jpg";
-    private string feedMediaSource = string.Empty;
-     
-    #endregion
 
-    void OnEnable()
-    {
-        //SwitchGameState(GameState.MainMenu);
-    }
+    private string shareLink = "http://www.aavegainteractive.com/";
+    private string shareTitle = "Hanuman The Run HD";
+    private string shareImage = "https://s3.amazonaws.com/hanumanrun/facebookshare/facebookshare.png";
+    private string feedMediaSource = string.Empty;
+
+    #endregion
 
     void Awake()
     {
+        if (!PlayerPrefs.HasKey(LivesKey))
+        {
+            PlayerPrefsStorage.SaveData(LivesKey, 20);
+        }
         listener = FindObjectOfType<AudioListener>();
         if (instance == null)
         {
             instance = this;
         }
-        //else if (instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-        //DontDestroyOnLoad(gameObject);
+
         Debug.Log("State = " + gameState);
         SetInit();
     }
@@ -105,6 +101,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         Debug.Log(SavedDateTime);
+        //PlayerPrefsStorage.SaveData(LivesKey, 1);
 
         if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(DateTimeKey)))
         {
@@ -123,7 +120,7 @@ public class UiManager : MonoBehaviour
         }
 
         Score = PlayerPrefsStorage.GetIntData(ScoreKey, 0);
-        lives = PlayerPrefsStorage.GetIntData(LivesKey, 5);
+        lives = PlayerPrefsStorage.GetIntData(LivesKey, 20);
         shareCount = PlayerPrefsStorage.GetIntData(FbShareKey, 0);
         if (gameState == GameState.MainMenu)
         {
@@ -133,11 +130,20 @@ public class UiManager : MonoBehaviour
         {
             SwitchGameState(GameState.InGame);
         }
-        
+
+        ToggleShareText();
     }
 
-    public void PostToFacebook()
+    public void PostToFacebook(bool isMainMenu)
     {
+        if (isMainMenu)
+        {
+            isMainMenuScreen = true;
+        }
+        else
+        {
+            isMainMenuScreen = false;
+        }
         if (FB.IsInitialized)
         {
             if (!FB.IsLoggedIn)
@@ -146,14 +152,11 @@ public class UiManager : MonoBehaviour
             }
             else
             {
-                FB.FeedShare(
-                    feedTo,
-                    string.IsNullOrEmpty(feedLink) ? null : new Uri(feedLink),
-                    feedTitle,
-                    feedCaption,
-                    feedDescription,
-                    string.IsNullOrEmpty(feedImage) ? null : new Uri(feedImage),
-                    feedMediaSource,
+                FB.ShareLink(
+                    new Uri(shareLink),
+                    shareTitle,
+                    string.Format("I have collected {0} Suns. Can you beat my score?", Score),
+                    new Uri(shareImage),
                     HandleResult);
             }
         }
@@ -185,12 +188,36 @@ public class UiManager : MonoBehaviour
             shareCount++;
             PlayerPrefsStorage.SaveData(FbShareKey, shareCount);
             FacebookLog("Success Response:\n" + result.RawResult);
+            PlayerPrefsStorage.SaveData(LivesKey, -1);
+            ToggleShareText();
+            Restart_Button.interactable = true;
+            Home_Button.interactable = true;
+            Lives_Text.text = 8.ToString();
+            Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
+            if (isMainMenuScreen)
+            {
+                PlayButtonObj.SetActive(true);
+                ShareTextObj.SetActive(false);
+            }
         }
         else
         {
             FacebookLog("Empty Response\n");
         }
+    }
 
+    private void ToggleShareText()
+    {
+        if (shareCount > 0)
+        {
+            ScoreShare_Text.gameObject.SetActive(true);
+            GameShare_Text.gameObject.SetActive(false);
+        }
+        else
+        {
+            GameShare_Text.gameObject.SetActive(true);
+            ScoreShare_Text.gameObject.SetActive(false);
+        }
     }
 
     private void SetInit()
@@ -200,7 +227,7 @@ public class UiManager : MonoBehaviour
         {
             FB.Init(OnInitComplete, OnHideUnity);
         }
-        
+
         FacebookLog("FB.Init() called with " + FB.AppId);
         if (FB.IsLoggedIn)
         {
@@ -285,11 +312,22 @@ public class UiManager : MonoBehaviour
     {
         if (MusicToggle_MainMenu.isOn)
         {
-            listener.enabled = true;
+            if (listener == null)
+            {
+                Debug.Log("Listener is null");
+            }
+
+            if (MusicToggle_MainMenu == null)
+            {
+                Debug.Log("MusicToggle_MainMenu is null");
+            }
+            //listener.enabled = true;
+            AudioListener.volume = 1;
         }
         else
         {
-            listener.enabled = false;
+            //listener.enabled = false;
+            AudioListener.volume = 0;
         }
     }
 
@@ -297,11 +335,13 @@ public class UiManager : MonoBehaviour
     {
         if (MusicToggle_PauseMenu.isOn)
         {
-            listener.enabled = true;
+            //listener.enabled = true;
+            AudioListener.volume = 1;
         }
         else
         {
-            listener.enabled = false;
+            //listener.enabled = false;
+            AudioListener.volume = 0;
         }
     }
 
@@ -326,6 +366,7 @@ public class UiManager : MonoBehaviour
         {
             MainMenuScreen.SetActive(true);
             gameState = GameState.MainMenu;
+            DisplayMainMenuItems();
         }
 
         if (state == GameState.GameOver)
@@ -360,6 +401,20 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    void DisplayMainMenuItems()
+    {
+        if (lives == 0)
+        {
+            PlayButtonObj.SetActive(false);
+            ShareTextObj.SetActive(true);
+        }
+        else
+        {
+            PlayButtonObj.SetActive(true);
+            ShareTextObj.SetActive(false);
+        }
+    }
+
     void DisplayGameOverItems()
     {
         if (HanumanController.currentScore > Score)     //New high score
@@ -379,9 +434,29 @@ public class UiManager : MonoBehaviour
         if (lives > 0)
         {
             lives--;
+            PlayerPrefsStorage.SaveData(LivesKey, lives);
         }
-        
-        Lives_Text.text = lives.ToString();
-        PlayerPrefsStorage.SaveData(LivesKey, lives);
+
+        if (lives > 0 || lives == -1)
+        {
+            Restart_Button.interactable = true;
+            Home_Button.interactable = true;
+        }
+        else
+        {
+            Restart_Button.interactable = false;
+            Home_Button.interactable = false;
+        }
+
+        if (lives == -1)
+        {
+            Lives_Text.text = 8.ToString();
+            Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
+        }
+        else
+        {
+            Lives_Text.text = lives.ToString();
+            Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
+        }
     }
 }
