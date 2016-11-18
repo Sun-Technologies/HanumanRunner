@@ -10,12 +10,15 @@ public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
     public static GameState gameState = GameState.MainMenu;
-    public AudioListener listener;
+
+    public GameObject TapToPlayObj;
     public int Score = 0;
 
     public int lives = 5;
 
     public int shareCount = 0;
+
+    public int TapToPlayCount = 0;
 
     public const string SCOREKEY = "ScoreKey";
 
@@ -24,6 +27,8 @@ public class UiManager : MonoBehaviour
     public const string FBSHAREKEY = "FbShareKey";
 
     public const string DATETIMEKEY = "DateTimeKey";
+
+    public const string TAPTOPLAYKEY = "TapToPlayKey";
 
     const int DAILYLIVES = 20;
 
@@ -88,7 +93,6 @@ public class UiManager : MonoBehaviour
         {
             PlayerPrefsStorage.SaveData(LIVESKEY, DAILYLIVES);
         }
-        listener = FindObjectOfType<AudioListener>();
         if (instance == null)
         {
             instance = this;
@@ -120,6 +124,7 @@ public class UiManager : MonoBehaviour
         Score = PlayerPrefsStorage.GetIntData(SCOREKEY, 0);
         lives = PlayerPrefsStorage.GetIntData(LIVESKEY, DAILYLIVES);
         shareCount = PlayerPrefsStorage.GetIntData(FBSHAREKEY, 0);
+        TapToPlayCount = PlayerPrefsStorage.GetIntData(TAPTOPLAYKEY, 0);
         if (gameState == GameState.MainMenu)
         {
             SwitchGameState(GameState.MainMenu);
@@ -128,7 +133,6 @@ public class UiManager : MonoBehaviour
         {
             SwitchGameState(GameState.InGame);
         }
-
         ToggleShareText();
     }
 
@@ -183,19 +187,23 @@ public class UiManager : MonoBehaviour
         }
         else if (!string.IsNullOrEmpty(result.RawResult))
         {
-            shareCount++;
-            PlayerPrefsStorage.SaveData(FBSHAREKEY, shareCount);
-            FacebookLog("Success Response:\n" + result.RawResult);
-            PlayerPrefsStorage.SaveData(LIVESKEY, -1);
-            ToggleShareText();
-            Restart_Button.interactable = true;
-            Home_Button.interactable = true;
-            Lives_Text.text = 8.ToString();
-            Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
-            if (isMainMenuScreen)
+            bool success = result.ResultDictionary.ContainsKey("postId") || (result.ResultDictionary.ContainsKey("posted") && (bool)result.ResultDictionary["posted"] == true);
+            if (success)
             {
-                PlayButtonObj.SetActive(true);
-                ShareTextObj.SetActive(false);
+                shareCount++;
+                PlayerPrefsStorage.SaveData(FBSHAREKEY, shareCount);
+                FacebookLog("Success Response:\n" + result.RawResult);
+                PlayerPrefsStorage.SaveData(LIVESKEY, -1);
+                ToggleShareText();
+                Restart_Button.interactable = true;
+                Home_Button.interactable = true;
+                Lives_Text.text = 8.ToString();
+                Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
+                if (isMainMenuScreen)
+                {
+                    PlayButtonObj.SetActive(true);
+                    ShareTextObj.SetActive(false);
+                }
             }
         }
         else
@@ -273,6 +281,13 @@ public class UiManager : MonoBehaviour
         SwitchGameState(GameState.InGame);
     }
 
+    public void OnTapToPlay()
+    {
+        TapToPlayCount += 1;
+        PlayerPrefsStorage.SaveData(TAPTOPLAYKEY, TapToPlayCount);
+        TapToPlayObj.SetActive(false);
+    }
+
     public void ResumeGame()
     {
         gameState = GameState.InGame;
@@ -310,21 +325,10 @@ public class UiManager : MonoBehaviour
     {
         if (MusicToggle_MainMenu.isOn)
         {
-            if (listener == null)
-            {
-                Debug.Log("Listener is null");
-            }
-
-            if (MusicToggle_MainMenu == null)
-            {
-                Debug.Log("MusicToggle_MainMenu is null");
-            }
-            //listener.enabled = true;
             AudioListener.volume = 1;
         }
         else
         {
-            //listener.enabled = false;
             AudioListener.volume = 0;
         }
     }
@@ -333,12 +337,10 @@ public class UiManager : MonoBehaviour
     {
         if (MusicToggle_PauseMenu.isOn)
         {
-            //listener.enabled = true;
             AudioListener.volume = 1;
         }
         else
         {
-            //listener.enabled = false;
             AudioListener.volume = 0;
         }
     }
@@ -377,11 +379,25 @@ public class UiManager : MonoBehaviour
         {
             HUDScreen.SetActive(true);
             ToggleGamePauseState(false);
+            DisplayInGameItems();
+            
         }
 
         if (state == GameState.Pause)
         {
             PauseScreen.SetActive(true);
+        }
+    }
+
+    void DisplayInGameItems()
+    {
+        if (TapToPlayCount == 0)
+        {
+            TapToPlayObj.SetActive(true);
+        }
+        else
+        {
+            TapToPlayObj.SetActive(false);
         }
     }
 
