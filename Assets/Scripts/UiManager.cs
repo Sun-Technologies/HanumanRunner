@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+using UnityEngine.Advertisements;
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
 public class UiManager : MonoBehaviour
@@ -30,7 +32,7 @@ public class UiManager : MonoBehaviour
 
     public const string TAPTOPLAYKEY = "TapToPlayKey";
 
-    const int DAILYLIVES = 20;
+    const int DAILYLIVES = 40;
 
     public bool isGamePaused = false;
 
@@ -136,6 +138,31 @@ public class UiManager : MonoBehaviour
         ToggleShareText();
     }
 
+    string OpenGameLink()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            return "https://play.google.com/store/apps/details?id=com.aavega.hanumantherunhd";
+        }
+        else if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            return "https://itunes.apple.com/us/app/hanuman-the-run-hd/id1177930830?ls=1&mt=8";
+        }
+        else
+        {
+            return "http://www.aavegainteractive.com";
+        }
+    }
+
+    void Update()
+    {
+        if (gameState == GameState.MainMenu && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Application quit!");
+            Application.Quit();
+        }
+    }
+
     public void PostToFacebook(bool isMainMenu)
     {
         if (isMainMenu)
@@ -155,7 +182,7 @@ public class UiManager : MonoBehaviour
             else
             {
                 FB.ShareLink(
-                    new Uri(shareLink),
+                    new Uri(OpenGameLink()),
                     shareTitle,
                     string.Format("I have collected {0} Suns. Can you beat my score?", Score),
                     new Uri(shareImage),
@@ -180,16 +207,19 @@ public class UiManager : MonoBehaviour
         if (!string.IsNullOrEmpty(result.Error))
         {
             FacebookLog("Error Response:\n" + result.Error);
+            Analytics.CustomEvent("Facebook share error: " + result.Error);
         }
         else if (result.Cancelled)
         {
             FacebookLog("Cancelled Response:\n" + result.RawResult);
+            Analytics.CustomEvent("Facebook share cancelled");
         }
         else if (!string.IsNullOrEmpty(result.RawResult))
         {
             bool success = result.ResultDictionary.ContainsKey("postId") || (result.ResultDictionary.ContainsKey("posted") && (bool)result.ResultDictionary["posted"] == true);
             if (success)
             {
+                Analytics.CustomEvent("Facebook share");
                 shareCount++;
                 PlayerPrefsStorage.SaveData(FBSHAREKEY, shareCount);
                 FacebookLog("Success Response:\n" + result.RawResult);
@@ -348,6 +378,7 @@ public class UiManager : MonoBehaviour
     public void InfoScreen_Button()
     {
         InfoScreen.SetActive(true);
+        Analytics.CustomEvent("Checked credits!");
     }
 
     public void CloseInfoScreen()
@@ -431,11 +462,17 @@ public class UiManager : MonoBehaviour
 
     void DisplayGameOverItems()
     {
+        Analytics.CustomEvent("Game over");
+        if (Advertisement.IsReady())
+        {
+            Advertisement.Show();
+        }
         if (HanumanController.currentScore > Score)     //New high score
         {
             Score = HanumanController.currentScore;
             PlayerPrefsStorage.SaveData(SCOREKEY, Score);
             NewBest_TextObj.SetActive(true);
+            Analytics.CustomEvent("Highscore: " + Score.ToString());
         }
         else
         {
