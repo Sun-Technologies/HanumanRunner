@@ -1,9 +1,22 @@
 fileFormatVersion: 2
 guid: f22de50d43d0df04ba72109bca92bb09
-timeCreated: 1479211720
+timeCreated: 1483526136
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Hanuman_Sprite 1_0
+    21300002: Hanuman_Sprite 1_1
+    21300004: Hanuman_Sprite 1_2
+    21300006: Hanuman_Sprite 1_3
+    21300008: Hanuman_Sprite 1_4
+    21300010: Hanuman_Sprite 1_5
+    21300012: Hanuman_Sprite 1_6
+    21300014: Hanuman_Sprite 1_7
+    21300016: Hanuman_Sprite 1_8
+    21300018: Hanuman_Sprite 1_9
+    21300020: Hanuman_Sprite 1_11
+    21300022: Hanuman_Sprite 1_13
+    21300024: Hanuman_Sprite 1_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +51,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +64,176 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1268
+        width: 1184
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_1
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 1796
+        width: 230
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_2
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 1818
+        width: 237
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_3
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 1818
+        width: 237
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 989
+        height: 825
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_5
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1011
+        width: 230
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_6
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 758
+        width: 243
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_7
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 502
+        width: 245
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 254
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 188
+        width: 231
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_11
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 188
+        width: 231
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_13
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 184
+        width: 229
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hanuman_Sprite 1_14
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 246
+        width: 230
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -1,11 +1,9 @@
 fileFormatVersion: 2
 guid: ac4904c46d67382428a6e5638858e3dd
-timeCreated: 1478755741
+timeCreated: 1483527703
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Storm_cloud_0
-    21300002: Storm_cloud_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,7 +27,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,33 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Storm_cloud_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 552
-        height: 1048
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Storm_cloud_1
-      rect:
-        serializedVersion: 2
-        x: 554
-        y: 0
-        width: 552
-        height: 1048
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
