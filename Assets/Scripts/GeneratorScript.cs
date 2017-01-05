@@ -139,7 +139,7 @@ public class GeneratorScript : MonoBehaviour {
         }
         if (obj.name.Equals("Lightning(Clone)"))
         {
-            obj.transform.position = new Vector3(objectPositionX, -0.99f, 0);
+            obj.transform.position = new Vector3(objectPositionX, -1.3f, 0);
         }
 
         if (obj.name.Equals("Rakshas_Ground(Clone)"))
