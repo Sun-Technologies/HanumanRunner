@@ -132,12 +132,12 @@ public class GeneratorScript : MonoBehaviour {
 
         float randomY = Random.Range(objectsMinY, objectsMaxY);
         obj.transform.position = new Vector3(objectPositionX, randomY, 0);
-        if (!obj.name.Equals("laser(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)"))
+        if (!obj.name.Equals("Lightning(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)"))
         {
             obj.transform.rotation = Quaternion.Euler(Vector3.forward * rotation);
             
         }
-        if (obj.name.Equals("laser(Clone)"))
+        if (obj.name.Equals("Lightning(Clone)"))
         {
             obj.transform.position = new Vector3(objectPositionX, -0.99f, 0);
         }

@@ -31,8 +31,6 @@ public class HanumanController : MonoBehaviour
 
     public ParallaxScroll parallax;
 
-    public Transform scorePos;
-
     public GameObject ImpactSprite;
 
     public Text ScoreText;
@@ -167,14 +165,6 @@ public class HanumanController : MonoBehaviour
         {
             Destroy(coinCollider.gameObject);
         }
-    }
-
-    IEnumerator AnimateCoin(Transform obj)
-    {
-        //Vector3.MoveTowards(obj.position, scorePos.position, Time.deltaTime * 5);
-        //Vector3.Slerp(obj.position, scorePos.position, 2);
-        yield return new WaitForSeconds(2);
-        Destroy(obj.gameObject);
     }
 
     void DisplayCoinsCount()
