@@ -43,6 +43,8 @@ public class HanumanController : MonoBehaviour
 
     public float speedTimer = 30;
 
+    public bool isInvincible = false;
+
     // Use this for initialization
     void Start()
     {
@@ -92,7 +94,8 @@ public class HanumanController : MonoBehaviour
 
         //AdjustFootstepsAndJetpackSound(jetpackActive);
 
-        parallax.offset = transform.position.x;
+        parallax.offsetX = transform.position.x;
+        //parallax.offsetY = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -130,16 +133,19 @@ public class HanumanController : MonoBehaviour
 
     void HitByObstacle(Collider2D laserCollider)
     {
-        if (!dead)
-            laserCollider.gameObject.GetComponent<AudioSource>().Play();
+        if (!isInvincible)
+        {
+            if (!dead)
+                laserCollider.gameObject.GetComponent<AudioSource>().Play();
 
-        dead = true;
-        StartCoroutine(FlashImpactSprite());
+            dead = true;
+            StartCoroutine(FlashImpactSprite());
 
-        animator.SetBool("dead", true);
-        gameState = GameState.GameOver;
-        Debug.Log("Dead");
-        StartCoroutine(ShowGameOver());
+            animator.SetBool("dead", true);
+            gameState = GameState.GameOver;
+            Debug.Log("Dead");
+            StartCoroutine(ShowGameOver());
+        }
     }
 
     IEnumerator ShowGameOver()
@@ -161,7 +167,7 @@ public class HanumanController : MonoBehaviour
         currentScore++;
         AudioSource.PlayClipAtPoint(coinCollectSound, transform.position, 0.3f);
         yield return new WaitForSeconds(0.3f);
-        if (coinCollider.gameObject != null)
+        if (coinCollider != null)
         {
             Destroy(coinCollider.gameObject);
         }

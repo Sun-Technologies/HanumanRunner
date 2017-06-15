@@ -658,3 +658,6 @@ Temp/__Backupscenes/0.backup
 Temp/tempFile.res
 Temp/tempFile.resG
 Temp/tempFile.resS
+Library/
+Temp/
+*.csproj

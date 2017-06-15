@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 81fd555750839ae42a8f84e2326e122b
+timeCreated: 1497358901
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Achievements_Icon_Down
+    21300002: Achievements_Icon_Up
+    21300004: Btn_Base
+    21300006: Btn_Base_Crack1
+    21300008: Btn_Base_Crack2
+    21300010: Btn_Base_Crack3
+    21300012: Btn_Base_Crack4
+    21300014: Btn_Border
+    21300016: Leaderboard_Icon_Down
+    21300018: Leaderboard_Icon_Up
+    21300020: Play_Icon_Down
+    21300022: Play_Icon_Up
+    21300024: Settings_Icon_Down
+    21300026: Settings_Icon_Up
+    21300028: Shop_Icon_Down
+    21300030: Shop_Icon_Up
+    21300032: BonusItem_Bg
+    21300034: Close_Bg
+    21300036: Close_Icon_Down
+    21300038: Close_Icon_Up
+    21300040: Daily_Bonus_Bg
+    21300042: Daily_Bonus_Bg_Patches
+    21300044: DailyBonus_Text
+    21300046: Hanuman
+    21300048: Lock_Icon
+    21300050: Thumbnail_Bg1
+    21300052: Thumbnail_Bg2
+    21300054: Thumbnail_Bg3
+    21300056: Home_Icon_Down
+    21300058: Home_Icon_Up
+    21300060: Retry_Icon_Down
+    21300062: Retry_Icon_Up
+    21300064: Sound_Icon_Down
+    21300066: Sound_Icon_Up
+    21300068: Facebook_Btn_Down
+    21300070: Facebook_Btn_Up
+    21300072: Info_Icon_Down
+    21300074: Info_Icon_Up
+    21300076: Level_Btn
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Achievements_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 319
+        width: 254
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51914895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Achievements_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1336
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: BonusItem_Bg
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 851
+        width: 486
+        height: 488
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5081967}
+      border: {x: 25, y: 33, z: 27, w: 35}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Base
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1341
+        width: 486
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Base_Crack1
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 1372
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Base_Crack2
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1697
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Base_Crack3
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1790
+        width: 30
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Base_Crack4
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1718
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Btn_Border
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1304
+        width: 540
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 255, y: 266, z: 255, w: 267}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Close_Bg
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1623
+        width: 209
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Close_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1200
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Close_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1096
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Daily_Bonus_Bg
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 814
+        width: 486
+        height: 488
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5081967}
+      border: {x: 45, y: 43, z: 43, w: 46}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Daily_Bonus_Bg_Patches
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 593
+        width: 478
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: DailyBonus_Text
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1834
+        width: 697
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Facebook_Btn_Down
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1865
+        width: 553
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Facebook_Btn_Up
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 1865
+        width: 553
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Hanuman
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 1362
+        width: 520
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Home_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 276
+        width: 241
+        height: 235
+      alignment: 9
+      pivot: {x: 0.49377593, y: 0.5276596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Home_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 1078
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Info_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 918
+        width: 99
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5050505, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Info_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1152
+        width: 138
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4710145, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Leaderboard_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 1594
+        width: 251
+        height: 195
+      alignment: 9
+      pivot: {x: 0.50199205, y: 0.5641026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Leaderboard_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 513
+        width: 256
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53112036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Level_Btn
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 1138
+        width: 515
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Lock_Icon
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 809
+        width: 82
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Play_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 1791
+        width: 217
+        height: 256
+      alignment: 9
+      pivot: {x: 0.49769586, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Play_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 335
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Retry_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 63
+        width: 247
+        height: 238
+      alignment: 9
+      pivot: {x: 0.5020243, y: 0.5294118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Retry_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 77
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Settings_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 303
+        width: 255
+        height: 254
+      alignment: 9
+      pivot: {x: 0.5019608, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Settings_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 556
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Shop_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 97
+        width: 252
+        height: 220
+      alignment: 9
+      pivot: {x: 0.50396824, y: 0.5272727}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Shop_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 559
+        width: 256
+        height: 253
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5059289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Sound_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1410
+        width: 202
+        height: 211
+      alignment: 9
+      pivot: {x: 0.48514852, y: 0.4407583}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Sound_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 61
+        width: 241
+        height: 240
+      alignment: 9
+      pivot: {x: 0.47302905, y: 0.46666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Thumbnail_Bg1
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 756
+        width: 385
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Thumbnail_Bg2
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 696
+        width: 385
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Thumbnail_Bg3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 211
+        width: 385
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -48,7 +48,7 @@ public class GeneratorScript : MonoBehaviour {
 		GameObject room = (GameObject)Instantiate(availableRooms[randomRoomIndex]);
 		
 		//3
-		float roomWidth = room.transform.FindChild("floor").localScale.x;
+		float roomWidth = room.transform.Find("floor").localScale.x;
 		
 		//4
 		float roomCenter = farhtestRoomEndX + roomWidth * 0.5f;
@@ -78,14 +78,14 @@ public class GeneratorScript : MonoBehaviour {
 		float addRoomX = playerX + screenWidthInPoints;
 		
 		//6
-		float farhtestRoomEndX = 0;
+		float farthestRoomEndX = 0;
 		
 		foreach(var room in currentRooms)
 		{
             try
             {
                 //7
-                float roomWidth = room.transform.FindChild("floor").localScale.x;
+                float roomWidth = room.transform.Find("floor").localScale.x;
                 float roomStartX = room.transform.position.x - (roomWidth * 0.5f);
                 float roomEndX = roomStartX + roomWidth;
 
@@ -98,7 +98,7 @@ public class GeneratorScript : MonoBehaviour {
                     roomsToRemove.Add(room);
 
                 //10
-                farhtestRoomEndX = Mathf.Max(farhtestRoomEndX, roomEndX);
+                farthestRoomEndX = Mathf.Max(farthestRoomEndX, roomEndX);
             }
             catch (System.Exception ex)
             {
@@ -115,7 +115,7 @@ public class GeneratorScript : MonoBehaviour {
 		
 		//12
 		if (addRooms)
-			AddRoom(farhtestRoomEndX);
+			AddRoom(farthestRoomEndX);
 	}
 
 	void AddObject(float lastObjectX)
@@ -132,7 +132,7 @@ public class GeneratorScript : MonoBehaviour {
 
         float randomY = Random.Range(objectsMinY, objectsMaxY);
         obj.transform.position = new Vector3(objectPositionX, randomY, 0);
-        if (!obj.name.Equals("Lightning(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)"))
+        if (!obj.name.Equals("Lightning(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)") && !obj.name.Equals("Demon_Ground(Clone)") && !obj.name.Equals("Flying_Beast(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)") && !obj.name.Equals("Boulder(Clone)") && !obj.name.Equals("Snake(Clone)"))
         {
             obj.transform.rotation = Quaternion.Euler(Vector3.forward * rotation);
             
@@ -142,7 +142,7 @@ public class GeneratorScript : MonoBehaviour {
             obj.transform.position = new Vector3(objectPositionX, -1.3f, 0);
         }
 
-        if (obj.name.Equals("Rakshas_Ground(Clone)"))
+        if (obj.name.Equals("Rakshas_Ground(Clone)") || obj.name.Equals("Demon_Ground(Clone)") || obj.name.Equals("Boulder(Clone)") || obj.name.Equals("Snake(Clone)"))
         {
             obj.transform.position = new Vector3(objectPositionX, -1.96f, 0);
         }

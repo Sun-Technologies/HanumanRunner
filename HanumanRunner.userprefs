@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="HanumanRunner.CSharp.csproj">
+﻿<Properties StartupItem="HanumanRunner.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

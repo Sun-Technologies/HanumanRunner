@@ -5,7 +5,9 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+#if UNITY_ANDROID || UNITY_IOS
 using UnityEngine.Advertisements;
+#endif
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
 public class UiManager : MonoBehaviour
@@ -184,7 +186,7 @@ public class UiManager : MonoBehaviour
                 FB.ShareLink(
                     new Uri(OpenGameLink()),
                     shareTitle,
-                    string.Format("I have collected {0} Suns. Can you beat my score?", Score),
+                    string.Format("I have collected {0} Laddus. Can you beat my score?", Score),
                     new Uri(shareImage),
                     HandleResult);
             }
@@ -231,8 +233,8 @@ public class UiManager : MonoBehaviour
                 Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
                 if (isMainMenuScreen)
                 {
-                    PlayButtonObj.SetActive(true);
-                    ShareTextObj.SetActive(false);
+                    //PlayButtonObj.SetActive(true);
+                    //ShareTextObj.SetActive(false);
                 }
             }
         }
@@ -411,12 +413,30 @@ public class UiManager : MonoBehaviour
             HUDScreen.SetActive(true);
             ToggleGamePauseState(false);
             DisplayInGameItems();
-            
+
         }
 
         if (state == GameState.Pause)
         {
             PauseScreen.SetActive(true);
+        }
+    }
+
+    public void SelectLevel(int num)
+    {
+        switch (num)
+        {
+            case 1:
+
+                break;
+
+            case 2:
+
+                break;
+
+            case 3:
+
+                break;
         }
     }
 
@@ -448,25 +468,27 @@ public class UiManager : MonoBehaviour
 
     void DisplayMainMenuItems()
     {
-        if (lives == 0)
-        {
-            PlayButtonObj.SetActive(false);
-            ShareTextObj.SetActive(true);
-        }
-        else
-        {
-            PlayButtonObj.SetActive(true);
-            ShareTextObj.SetActive(false);
-        }
+        //if (lives == 0)
+        //{
+        //    PlayButtonObj.SetActive(false);
+        //    ShareTextObj.SetActive(true);
+        //}
+        //else
+        //{
+        PlayButtonObj.SetActive(true);
+        ShareTextObj.SetActive(false);
+        //}
     }
 
     void DisplayGameOverItems()
     {
         Analytics.CustomEvent("Game over");
+#if UNITY_ANDROID || UNITY_IOS
         if (Advertisement.IsReady())
         {
-            Advertisement.Show();
+            //Advertisement.Show();
         }
+#endif
         if (HanumanController.currentScore > Score)     //New high score
         {
             Score = HanumanController.currentScore;
@@ -488,16 +510,16 @@ public class UiManager : MonoBehaviour
             PlayerPrefsStorage.SaveData(LIVESKEY, lives);
         }
 
-        if (lives > 0 || lives == -1)
-        {
+        //if (lives > 0 || lives == -1)
+        //{
             Restart_Button.interactable = true;
             Home_Button.interactable = true;
-        }
-        else
-        {
-            Restart_Button.interactable = false;
-            Home_Button.interactable = false;
-        }
+        //}
+        //else
+        //{
+        //    Restart_Button.interactable = false;
+        //    Home_Button.interactable = false;
+        //}
 
         if (lives == -1)
         {
