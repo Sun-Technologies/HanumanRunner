@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 81fd555750839ae42a8f84e2326e122b
-timeCreated: 1497358901
+timeCreated: 1497852170
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,6 +43,18 @@ TextureImporter:
     21300072: Info_Icon_Down
     21300074: Info_Icon_Up
     21300076: Level_Btn
+    21300078: Day1_Bonus
+    21300080: Day2_Bonus
+    21300082: Day3_Bonus
+    21300084: Day4_Bonus
+    21300086: Day5_Bonus
+    21300088: Day6_Bonus
+    21300090: Pause_Icon_Down
+    21300092: Pause_Icon_Up
+    21300094: Diamondgada_Icon
+    21300096: GoldArmor
+    21300098: Ladoo_Icon
+    21300100: SilverArmor
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -136,12 +148,12 @@ TextureImporter:
       name: Achievements_Icon_Down
       rect:
         serializedVersion: 2
-        x: 646
-        y: 319
-        width: 254
-        height: 235
-      alignment: 9
-      pivot: {x: 0.5, y: 0.51914895}
+        x: 1876
+        y: 281
+        width: 115
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -149,10 +161,10 @@ TextureImporter:
       name: Achievements_Icon_Up
       rect:
         serializedVersion: 2
-        x: 1764
-        y: 1336
-        width: 256
-        height: 256
+        x: 1900
+        y: 616
+        width: 117
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,21 +174,21 @@ TextureImporter:
       name: BonusItem_Bg
       rect:
         serializedVersion: 2
-        x: 1
-        y: 851
+        x: 1200
+        y: 1559
         width: 486
         height: 488
       alignment: 9
       pivot: {x: 0.5, y: 0.5081967}
-      border: {x: 25, y: 33, z: 27, w: 35}
+      border: {x: 234, y: 46, z: 233, w: 124}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1341
+        x: 658
+        y: 995
         width: 486
         height: 491
       alignment: 0
@@ -188,8 +200,8 @@ TextureImporter:
       name: Btn_Base_Crack1
       rect:
         serializedVersion: 2
-        x: 629
-        y: 1372
+        x: 523
+        y: 506
         width: 56
         height: 36
       alignment: 0
@@ -201,8 +213,8 @@ TextureImporter:
       name: Btn_Base_Crack2
       rect:
         serializedVersion: 2
-        x: 1764
-        y: 1697
+        x: 523
+        y: 45
         width: 29
         height: 19
       alignment: 0
@@ -214,8 +226,8 @@ TextureImporter:
       name: Btn_Base_Crack3
       rect:
         serializedVersion: 2
-        x: 1764
-        y: 1790
+        x: 1146
+        y: 536
         width: 30
         height: 73
       alignment: 0
@@ -227,8 +239,8 @@ TextureImporter:
       name: Btn_Base_Crack4
       rect:
         serializedVersion: 2
-        x: 1764
-        y: 1718
+        x: 1759
+        y: 238
         width: 30
         height: 70
       alignment: 0
@@ -240,8 +252,8 @@ TextureImporter:
       name: Btn_Border
       rect:
         serializedVersion: 2
-        x: 700
-        y: 1304
+        x: 658
+        y: 1488
         width: 540
         height: 559
       alignment: 0
@@ -253,8 +265,8 @@ TextureImporter:
       name: Close_Bg
       rect:
         serializedVersion: 2
-        x: 489
-        y: 1623
+        x: 1548
+        y: 216
         width: 209
         height: 209
       alignment: 0
@@ -266,8 +278,8 @@ TextureImporter:
       name: Close_Icon_Down
       rect:
         serializedVersion: 2
-        x: 1117
-        y: 1200
+        x: 1944
+        y: 1826
         width: 102
         height: 102
       alignment: 0
@@ -279,8 +291,8 @@ TextureImporter:
       name: Close_Icon_Up
       rect:
         serializedVersion: 2
-        x: 1117
-        y: 1096
+        x: 1790
+        y: 65
         width: 102
         height: 102
       alignment: 0
@@ -292,8 +304,8 @@ TextureImporter:
       name: Daily_Bonus_Bg
       rect:
         serializedVersion: 2
-        x: 629
-        y: 814
+        x: 658
+        y: 505
         width: 486
         height: 488
       alignment: 9
@@ -305,8 +317,8 @@ TextureImporter:
       name: Daily_Bonus_Bg_Patches
       rect:
         serializedVersion: 2
-        x: 1
-        y: 593
+        x: 1533
+        y: 735
         width: 478
         height: 256
       alignment: 0
@@ -318,8 +330,8 @@ TextureImporter:
       name: DailyBonus_Text
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1834
+        x: 523
+        y: 290
         width: 697
         height: 213
       alignment: 0
@@ -328,11 +340,102 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: Day1_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1378
+        width: 252
+        height: 180
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6166667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Day2_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 65
+        width: 252
+        height: 223
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49775785}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Day3_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 213
+        width: 252
+        height: 212
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5235849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Day4_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 1560
+        width: 252
+        height: 237
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46835443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Day5_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 1799
+        width: 254
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Day6_Bonus
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 20
+        width: 252
+        height: 191
+      alignment: 9
+      pivot: {x: 0.50396824, y: 0.57591623}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Diamondgada_Icon
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 1565
+        width: 87
+        height: 123
+      alignment: 9
+      pivot: {x: 0.44827586, y: 0.5121951}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Facebook_Btn_Down
       rect:
         serializedVersion: 2
-        x: 700
-        y: 1865
+        x: 1200
+        y: 1375
         width: 553
         height: 182
       alignment: 0
@@ -344,8 +447,8 @@ TextureImporter:
       name: Facebook_Btn_Up
       rect:
         serializedVersion: 2
-        x: 1255
-        y: 1865
+        x: 1222
+        y: 427
         width: 553
         height: 182
       alignment: 0
@@ -354,11 +457,24 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: GoldArmor
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1296
+        width: 655
+        height: 751
+      alignment: 9
+      pivot: {x: 0.61984736, y: 0.48069242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Hanuman
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 1362
+        x: 1
+        y: 41
         width: 520
         height: 501
       alignment: 0
@@ -370,12 +486,12 @@ TextureImporter:
       name: Home_Icon_Down
       rect:
         serializedVersion: 2
-        x: 1392
-        y: 276
-        width: 241
-        height: 235
-      alignment: 9
-      pivot: {x: 0.49377593, y: 0.5276596}
+        x: 1875
+        y: 169
+        width: 113
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -383,10 +499,10 @@ TextureImporter:
       name: Home_Icon_Up
       rect:
         serializedVersion: 2
-        x: 1759
-        y: 1078
-        width: 256
-        height: 256
+        x: 1533
+        y: 612
+        width: 121
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,12 +512,12 @@ TextureImporter:
       name: Info_Icon_Down
       rect:
         serializedVersion: 2
-        x: 489
-        y: 918
-        width: 99
-        height: 232
-      alignment: 9
-      pivot: {x: 0.5050505, y: 0.5}
+        x: 1146
+        y: 1375
+        width: 47
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -409,12 +525,25 @@ TextureImporter:
       name: Info_Icon_Up
       rect:
         serializedVersion: 2
-        x: 489
-        y: 1152
-        width: 138
-        height: 256
+        x: 1222
+        y: 302
+        width: 65
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Ladoo_Icon
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 614
+        width: 119
+        height: 119
       alignment: 9
-      pivot: {x: 0.4710145, y: 0.5}
+      pivot: {x: 0.49579832, y: 0.5042017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -422,12 +551,12 @@ TextureImporter:
       name: Leaderboard_Icon_Down
       rect:
         serializedVersion: 2
-        x: 1796
-        y: 1594
-        width: 251
-        height: 195
-      alignment: 9
-      pivot: {x: 0.50199205, y: 0.5641026}
+        x: 1548
+        y: 3
+        width: 114
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -435,12 +564,12 @@ TextureImporter:
       name: Leaderboard_Icon_Up
       rect:
         serializedVersion: 2
-        x: 1162
-        y: 513
-        width: 256
-        height: 241
-      alignment: 9
-      pivot: {x: 0.5, y: 0.53112036}
+        x: 1900
+        y: 504
+        width: 117
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -448,8 +577,8 @@ TextureImporter:
       name: Level_Btn
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 1138
+        x: 523
+        y: 66
         width: 515
         height: 222
       alignment: 0
@@ -461,10 +590,36 @@ TextureImporter:
       name: Lock_Icon
       rect:
         serializedVersion: 2
-        x: 489
-        y: 809
+        x: 1791
+        y: 201
         width: 82
         height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Pause_Icon_Down
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 1690
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Pause_Icon_Up
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 93
+        width: 121
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,12 +629,12 @@ TextureImporter:
       name: Play_Icon_Down
       rect:
         serializedVersion: 2
-        x: 1810
-        y: 1791
-        width: 217
-        height: 256
-      alignment: 9
-      pivot: {x: 0.49769586, y: 0.5}
+        x: 1944
+        y: 1930
+        width: 98
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -487,10 +642,10 @@ TextureImporter:
       name: Play_Icon_Up
       rect:
         serializedVersion: 2
-        x: 388
-        y: 335
-        width: 256
-        height: 256
+        x: 1671
+        y: 97
+        width: 117
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,12 +655,12 @@ TextureImporter:
       name: Retry_Icon_Down
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 63
-        width: 247
-        height: 238
-      alignment: 9
-      pivot: {x: 0.5020243, y: 0.5294118}
+        x: 1876
+        y: 390
+        width: 116
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -513,10 +668,10 @@ TextureImporter:
       name: Retry_Icon_Up
       rect:
         serializedVersion: 2
-        x: 388
-        y: 77
-        width: 256
-        height: 256
+        x: 1656
+        y: 612
+        width: 121
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -526,12 +681,12 @@ TextureImporter:
       name: Settings_Icon_Down
       rect:
         serializedVersion: 2
-        x: 904
-        y: 303
-        width: 255
-        height: 254
-      alignment: 9
-      pivot: {x: 0.5019608, y: 0.5}
+        x: 1920
+        y: 1025
+        width: 116
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -539,10 +694,10 @@ TextureImporter:
       name: Settings_Icon_Up
       rect:
         serializedVersion: 2
-        x: 646
-        y: 556
-        width: 256
-        height: 256
+        x: 1920
+        y: 1259
+        width: 117
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,12 +707,12 @@ TextureImporter:
       name: Shop_Icon_Down
       rect:
         serializedVersion: 2
-        x: 646
-        y: 97
-        width: 252
-        height: 220
-      alignment: 9
-      pivot: {x: 0.50396824, y: 0.5272727}
+        x: 1779
+        y: 512
+        width: 114
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -565,12 +720,25 @@ TextureImporter:
       name: Shop_Icon_Up
       rect:
         serializedVersion: 2
-        x: 904
-        y: 559
-        width: 256
-        height: 253
+        x: 1920
+        y: 1142
+        width: 117
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SilverArmor
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 544
+        width: 655
+        height: 750
       alignment: 9
-      pivot: {x: 0.5, y: 0.5059289}
+      pivot: {x: 0.61984736, y: 0.48133335}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -578,12 +746,12 @@ TextureImporter:
       name: Sound_Icon_Down
       rect:
         serializedVersion: 2
-        x: 489
-        y: 1410
-        width: 202
-        height: 211
-      alignment: 9
-      pivot: {x: 0.48514852, y: 0.4407583}
+        x: 1894
+        y: 66
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -591,12 +759,12 @@ TextureImporter:
       name: Sound_Icon_Up
       rect:
         serializedVersion: 2
-        x: 900
-        y: 61
-        width: 241
-        height: 240
-      alignment: 9
-      pivot: {x: 0.47302905, y: 0.46666667}
+        x: 1759
+        y: 310
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -604,8 +772,8 @@ TextureImporter:
       name: Thumbnail_Bg1
       rect:
         serializedVersion: 2
-        x: 1221
-        y: 756
+        x: 1146
+        y: 993
         width: 385
         height: 380
       alignment: 0
@@ -617,8 +785,8 @@ TextureImporter:
       name: Thumbnail_Bg2
       rect:
         serializedVersion: 2
-        x: 1608
-        y: 696
+        x: 1146
+        y: 611
         width: 385
         height: 380
       alignment: 0
@@ -630,8 +798,8 @@ TextureImporter:
       name: Thumbnail_Bg3
       rect:
         serializedVersion: 2
-        x: 1
-        y: 211
+        x: 1533
+        y: 993
         width: 385
         height: 380
       alignment: 0

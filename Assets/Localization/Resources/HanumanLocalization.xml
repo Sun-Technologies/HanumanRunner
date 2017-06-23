@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Section>
+		<TextKey name="lblReward">
+			<EN>Reward</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblScoreShare">
+			<EN>This is a label for a Castle</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblPaused">
+			<EN>Paused</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblScoreGameOver">
+			<EN>choose Language</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblHighScoregameOver">
+			<EN>English</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblNewBest">
+			<EN>German</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblScoreShareFb">
+			<EN>Player stats</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblSettings">
+			<EN>Strength</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblDailyBonus">
+			<EN>Life</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblRewards">
+			<EN>Endurance</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblRewardsHIscription">
+			<EN>Wisdom</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblRewardsReceived">
+			<EN>Intelligence</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="btnDay">
+			<EN>Day</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblLevels">
+			<EN>Levels</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblOld">
+			<EN>Old</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblWilHIrness">
+			<EN>WilHIrness</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblStreet">
+			<EN>Street</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblFood">
+			<EN>Hunger</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblThirst">
+			<EN>Thirst</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblLvl">
+			<EN>Level</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblSpellpower">
+			<EN>Spellpower</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblRunspeed">
+			<EN>Runspeed</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblCountry">
+			<EN>Land</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblFriends">
+			<EN>Friends</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblEnemies">
+			<EN>Enemies</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblMoney">
+			<EN>Money</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblEarnings">
+			<EN>Earnings</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblName">
+			<EN>Name</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblSurName">
+			<EN>SurName</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblBorn">
+			<EN>Born</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="lblYear">
+			<EN>Year</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="BornCity">
+			<EN>Berlin</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="Country">
+			<EN>Germany</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="Name">
+			<EN>myHero</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="SurName">
+			<EN>Hero SurName</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+		<TextKey name="PlayerText">
+			<EN>This is your Heros stats, he will bring HIath to our enemies! And Peace to your Friends!</EN>
+			<HI>हिंदी में लिखें</HI>
+		</TextKey>
+	</Section>
+</Localization>

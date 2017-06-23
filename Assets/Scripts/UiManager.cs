@@ -15,6 +15,8 @@ public class UiManager : MonoBehaviour
     public static UiManager instance = null;
     public static GameState gameState = GameState.MainMenu;
 
+    public List<UiPanels> UipanelsList;
+
     public GameObject TapToPlayObj;
     public int Score = 0;
 
@@ -50,6 +52,9 @@ public class UiManager : MonoBehaviour
     public GameObject InfoScreen;
     public GameObject HUDScreen;
     public GameObject QuitConfirmation;
+    public GameObject StoreScreen;
+    public GameObject LevelsScreen;
+    public GameObject SettingsScreen;
 
     #endregion
 
@@ -88,6 +93,7 @@ public class UiManager : MonoBehaviour
     private string shareTitle = "Hanuman The Run HD";
     private string shareImage = "https://s3.amazonaws.com/hanumanrun/facebookshare/facebookshare.png";
     private string feedMediaSource = string.Empty;
+    
 
     #endregion
 
@@ -390,11 +396,17 @@ public class UiManager : MonoBehaviour
 
     public void SwitchGameState(GameState state)
     {
+        foreach (UiPanels item in UipanelsList)
+        {
+            item.ObjectReference.SetActive(false);
+        }
+
         MainMenuScreen.SetActive(false);
         GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);
         HUDScreen.SetActive(false);
         ToggleGamePauseState(true);
+
         if (state == GameState.MainMenu)
         {
             MainMenuScreen.SetActive(true);
@@ -531,5 +543,12 @@ public class UiManager : MonoBehaviour
             Lives_Text.text = lives.ToString();
             Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
         }
+    }
+
+    [System.Serializable]
+    public class UiPanels
+    {
+        public string Name;
+        public GameObject ObjectReference;
     }
 }

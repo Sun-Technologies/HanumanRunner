@@ -24,13 +24,5 @@ public class ParallaxScroll : MonoBehaviour
             float bgOffsetY = offsetY * item.scrollSpeedY;
             item.renderer.material.mainTextureOffset = new Vector2(bgOffsetX, bgOffsetY);
         }
-        //float backgroundOffset = offset * backgroundSpeed;
-        //float foregroundOffset = offset * foregroundSpeed;
-        //float midgroundOffset = offset * midgroundSpeed;
-        //float midgroundMountainsOffset = offset * midgroundMountainsSpeed;
-
-        //foreground.material.mainTextureOffset = new Vector2(foregroundOffset, 0);
-        //midground.material.mainTextureOffset = new Vector2(midgroundOffset, 0);
-        //midgroundMountains.material.mainTextureOffset = new Vector2(midgroundMountainsOffset, 0);
     }
 }
