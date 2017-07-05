@@ -55,6 +55,7 @@ TextureImporter:
     21300096: GoldArmor
     21300098: Ladoo_Icon
     21300100: SilverArmor
+    21300102: EndScreen_Chain
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -427,6 +428,19 @@ TextureImporter:
         height: 123
       alignment: 9
       pivot: {x: 0.44827586, y: 0.5121951}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: EndScreen_Chain
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 393
+        width: 40
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1

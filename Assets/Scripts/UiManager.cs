@@ -260,7 +260,7 @@ public class UiManager : MonoBehaviour
         else
         {
             GameShare_Text.gameObject.SetActive(true);
-            ScoreShare_Text.gameObject.SetActive(false);
+            //ScoreShare_Text.gameObject.SetActive(false);
         }
     }
 
@@ -411,7 +411,6 @@ public class UiManager : MonoBehaviour
         {
             MainMenuScreen.SetActive(true);
             gameState = GameState.MainMenu;
-            DisplayMainMenuItems();
         }
 
         if (state == GameState.GameOver)
@@ -476,20 +475,6 @@ public class UiManager : MonoBehaviour
             Time.timeScale = 1;
             isGamePaused = false;
         }
-    }
-
-    void DisplayMainMenuItems()
-    {
-        //if (lives == 0)
-        //{
-        //    PlayButtonObj.SetActive(false);
-        //    ShareTextObj.SetActive(true);
-        //}
-        //else
-        //{
-        PlayButtonObj.SetActive(true);
-        ShareTextObj.SetActive(false);
-        //}
     }
 
     void DisplayGameOverItems()

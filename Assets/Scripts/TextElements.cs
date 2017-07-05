@@ -50,29 +50,29 @@ public class TextElements : MonoBehaviour
         btn_English.text = LocalizationText.GetText("btnEnglish");
         btn_Hindi.text = LocalizationText.GetText("btnHindi");
         btn_TapToFly.text = LocalizationText.GetText("btnTapToFly");
-        lbl_Reward.text = LocalizationText.GetText("lblReward");
+        //lbl_Reward.text = LocalizationText.GetText("lblReward");
         lbl_Paused.text = LocalizationText.GetText("lblPaused");
         lbl_Score.text = LocalizationText.GetText("lblScore");
         lbl_HighScore.text = LocalizationText.GetText("lblHighScore");
         lbl_NewBest.text = LocalizationText.GetText("lblNewBest");
-        lbl_Sharegame.text = LocalizationText.GetText("lblSharegame");
+        //lbl_Sharegame.text = LocalizationText.GetText("lblSharegame");
         lbl_Settings.text = LocalizationText.GetText("lblSettings");
         lbl_DailyBonus.text = LocalizationText.GetText("lblDailyBonus");
         lbl_RewardsHeader.text = LocalizationText.GetText("lblRewardsHeader");
         lbl_RewardsDescription.text = LocalizationText.GetText("lblRewardsDescription");
         lbl_RewardsReceived.text = LocalizationText.GetText("lblRewardsReceived");
-        btn_Day.text = LocalizationText.GetText("btnDay");
-        lbl_Levels.text = LocalizationText.GetText("lblLevels");
-        btn_Forest.text = LocalizationText.GetText("btnForest");
-        btn_Snow.text = LocalizationText.GetText("btnSnow");
-        btn_Lava.text = LocalizationText.GetText("btnLava");
-        lbl_Store.text = LocalizationText.GetText("lblStore");
-        btn_GoldArmor.text = LocalizationText.GetText("btnGoldArmor");
-        btn_SilverArmor.text = LocalizationText.GetText("btnSilverArmor");
-        btn_NoArmor.text = LocalizationText.GetText("btnNoArmor");
-        lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
-        lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
-        txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
+        //btn_Day.text = LocalizationText.GetText("btnDay");
+        //lbl_Levels.text = LocalizationText.GetText("lblLevels");
+        //btn_Forest.text = LocalizationText.GetText("btnForest");
+        //btn_Snow.text = LocalizationText.GetText("btnSnow");
+        //btn_Lava.text = LocalizationText.GetText("btnLava");
+        //lbl_Store.text = LocalizationText.GetText("lblStore");
+        //btn_GoldArmor.text = LocalizationText.GetText("btnGoldArmor");
+        //btn_SilverArmor.text = LocalizationText.GetText("btnSilverArmor");
+        //btn_NoArmor.text = LocalizationText.GetText("btnNoArmor");
+        //lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
+        //lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
+        //txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
     }
 
     private void SetComponent(Text item)

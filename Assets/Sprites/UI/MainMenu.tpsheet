@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:e56a2ad75cb50119f6a593662e273326:bd1596c5bb1e3dd11ed8718bc6865f2b:e50e1851e6c942c348822d03079143fa$
+# $TexturePacker:SmartUpdate:f5128c0e2f0d92d4eece8ea117d69ee6:8b15e2bfc2aad1464df8b312313d8a8c:e50e1851e6c942c348822d03079143fa$
 #
 :format=40300
 :texture=MainMenu.png
@@ -34,6 +34,7 @@ Day4_Bonus;1688;1560;252;237; 0.5;0.4683544303797469; 0;0;0;0
 Day5_Bonus;1688;1799;254;248; 0.5;0.5; 0;0;0;0
 Day6_Bonus;1294;20;252;191; 0.503968253968254;0.5759162303664922; 0;0;0;0
 Diamondgada_Icon;1942;1565;87;123; 0.4482758620689655;0.5121951219512195; 0;0;0;0
+EndScreen_Chain;1994;393;40;109; 0.5;0.5; 0;0;0;0
 Facebook_Btn_Down;1200;1375;553;182; 0.5;0.5; 0;0;0;0
 Facebook_Btn_Up;1222;427;553;182; 0.5;0.5; 0;0;0;0
 GoldArmor;1;1296;655;751; 0.6198473282442748;0.4806924101198402; 0;0;0;0

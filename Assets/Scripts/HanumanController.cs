@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HanumanController : MonoBehaviour
 {
 
-    public float jetpackForce = 75.0f;
+    public AnimClips[] AnimClipsList;
 
     public float forwardMovementSpeed = 3.0f;
 
@@ -17,17 +17,11 @@ public class HanumanController : MonoBehaviour
 
     Animator animator;
 
-    public ParticleSystem jetpack;
-
     private bool dead = false;
 
     public Texture2D coinIconTexture;
 
     public AudioClip coinCollectSound;
-
-    //public AudioSource jetpackAudio;
-
-    //public AudioSource footstepsAudio;
 
     public ParallaxScroll parallax;
 
@@ -45,6 +39,12 @@ public class HanumanController : MonoBehaviour
 
     public bool isInvincible = false;
 
+    public AnimatorOverrideController HanumanSilverController;
+
+    public AnimatorOverrideController HanumanGoldController;
+
+    public AnimatorOverrideController HanumanBasicController;
+
     // Use this for initialization
     void Start()
     {
@@ -56,15 +56,6 @@ public class HanumanController : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool jetpackActive = Input.GetButton("Fire1");
-
-        jetpackActive = jetpackActive && !dead;
-
-        if (jetpackActive)
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jetpackForce), ForceMode2D.Force);
-        }
-
         if (!dead)
         {
             speedTimer -= Time.deltaTime;
@@ -90,10 +81,6 @@ public class HanumanController : MonoBehaviour
 
         UpdateGroundedStatus();
 
-        AdjustJetpack(jetpackActive);
-
-        //AdjustFootstepsAndJetpackSound(jetpackActive);
-
         parallax.offsetX = transform.position.x;
         //parallax.offsetY = transform.position.y;
 
@@ -105,17 +92,9 @@ public class HanumanController : MonoBehaviour
 
     void UpdateGroundedStatus()
     {
-        //1
         grounded = Physics2D.OverlapCircle(groundCheckTransform.position, 0.1f, groundCheckLayerMask);
 
-        //2
         animator.SetBool("grounded", grounded);
-    }
-
-    void AdjustJetpack(bool jetpackActive)
-    {
-        jetpack.enableEmission = !grounded;
-        jetpack.emissionRate = jetpackActive ? 300.0f : 75.0f;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -177,12 +156,11 @@ public class HanumanController : MonoBehaviour
     {
         ScoreText.text = currentScore.ToString();
     }
+}
 
-    //void AdjustFootstepsAndJetpackSound(bool jetpackActive)
-    //{
-    //    footstepsAudio.enabled = !dead && grounded;
-
-    //    jetpackAudio.enabled = !dead && !grounded;
-    //    jetpackAudio.volume = jetpackActive ? 1.0f : 0.5f;
-    //}
+[System.Serializable]
+public class AnimClips
+{
+    public string ClipName;
+    public AnimationClip AnimClip;
 }
