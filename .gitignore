@@ -661,3 +661,4 @@ Temp/tempFile.resS
 Library/
 Temp/
 *.csproj
+.vs/HanumanRunner/v15/.suo

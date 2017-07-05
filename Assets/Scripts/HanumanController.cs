@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class HanumanController : MonoBehaviour
 {
+    public float flyingForce = 75.0f;
 
     public AnimClips[] AnimClipsList;
 
@@ -56,6 +57,15 @@ public class HanumanController : MonoBehaviour
 
     void FixedUpdate()
     {
+        bool canFly = Input.GetButton("Fire1");
+
+        canFly = canFly && !dead;
+
+        if (canFly)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, flyingForce), ForceMode2D.Force);
+        }
+
         if (!dead)
         {
             speedTimer -= Time.deltaTime;
