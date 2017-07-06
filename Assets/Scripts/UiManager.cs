@@ -44,6 +44,8 @@ public class UiManager : MonoBehaviour
 
     bool isMainMenuScreen = false;
 
+    public TextElements _textElements;
+
     #region UI Screens
 
     public GameObject MainMenuScreen;
@@ -55,6 +57,7 @@ public class UiManager : MonoBehaviour
     public GameObject StoreScreen;
     public GameObject LevelsScreen;
     public GameObject SettingsScreen;
+    public GameObject DailyBonusScreen;
 
     #endregion
 
@@ -93,8 +96,19 @@ public class UiManager : MonoBehaviour
     private string shareTitle = "Hanuman The Run HD";
     private string shareImage = "https://s3.amazonaws.com/hanumanrun/facebookshare/facebookshare.png";
     private string feedMediaSource = string.Empty;
-    
 
+    #endregion
+
+    #region Daily Bonus Screen Items
+    public GameObject DaysButtonHolder;
+    public Text[] DaysButtons;
+    #endregion
+
+    #region
+
+    public ToggleGroup languageSelectionGroup;
+    public Toggle EnglishToggle;
+    public Toggle HindiToggle;
     #endregion
 
     void Awake()
@@ -110,6 +124,8 @@ public class UiManager : MonoBehaviour
 
         Debug.Log("State = " + gameState);
         SetInit();
+        DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
+        _textElements = GetComponent<TextElements>();
     }
 
     void Start()
@@ -144,6 +160,20 @@ public class UiManager : MonoBehaviour
             SwitchGameState(GameState.InGame);
         }
         ToggleShareText();
+    }
+
+    public void DoLanguageToggle()
+    {
+        if (EnglishToggle.isOn)
+        {
+            LocalizationText.SetLanguage("EN");
+        }
+        else
+        {
+            LocalizationText.SetLanguage("HI");
+        }
+        Debug.Log("Active language = " + LocalizationText.GetLanguage());
+        _textElements.UpdateLanguage();
     }
 
     string OpenGameLink()
@@ -400,7 +430,7 @@ public class UiManager : MonoBehaviour
         {
             item.ObjectReference.SetActive(false);
         }
-
+        
         MainMenuScreen.SetActive(false);
         GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);

@@ -1,149 +1,113 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Section>
+		<TextKey name="lblSelectLanguage">
+			<EN>Select language</EN>
+			<HI>भाषा चुनिए</HI>
+		</TextKey>
+		<TextKey name="btnEnglish">
+			<EN>English</EN>
+			<HI>English</HI>
+		</TextKey>
+		<TextKey name="btnHindi">
+			<EN>Hindi</EN>
+			<HI>हिंदी</HI>
+		</TextKey>
+		<TextKey name="btnTapToFly">
+			<EN>Tap to fly</EN>
+			<HI>उड़ान भरने के लिए टैप करें</HI>
+		</TextKey>
 		<TextKey name="lblReward">
 			<EN>Reward</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblScoreShare">
-			<EN>This is a label for a Castle</EN>
-			<HI>हिंदी में लिखें</HI>
+			<HI>इनाम</HI>
 		</TextKey>
 		<TextKey name="lblPaused">
 			<EN>Paused</EN>
-			<HI>हिंदी में लिखें</HI>
+			<HI>ठहराव</HI>
 		</TextKey>
-		<TextKey name="lblScoreGameOver">
-			<EN>choose Language</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblScore">
+			<EN>Score</EN>
+			<HI>अंक</HI>
 		</TextKey>
-		<TextKey name="lblHighScoregameOver">
-			<EN>English</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblHighScore">
+			<EN>High Score</EN>
+			<HI>सर्वाधिक अंक</HI>
 		</TextKey>
 		<TextKey name="lblNewBest">
-			<EN>German</EN>
-			<HI>हिंदी में लिखें</HI>
+			<EN>New best</EN>
+			<HI>नया सर्वश्रेष्ठ</HI>
 		</TextKey>
-		<TextKey name="lblScoreShareFb">
-			<EN>Player stats</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblSharegame">
+			<EN>Share game for blessings</EN>
+			<HI>आशीर्वाद के लिए शेयर करें</HI>
 		</TextKey>
 		<TextKey name="lblSettings">
-			<EN>Strength</EN>
-			<HI>हिंदी में लिखें</HI>
+			<EN>Settings</EN>
+			<HI>सेटिंग्स</HI>
 		</TextKey>
 		<TextKey name="lblDailyBonus">
-			<EN>Life</EN>
-			<HI>हिंदी में लिखें</HI>
+			<EN>Daily Bonus</EN>
+			<HI>प्रतिदिन लाभ</HI>
 		</TextKey>
-		<TextKey name="lblRewards">
-			<EN>Endurance</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblRewardsHeader">
+			<EN>Today's reward</EN>
+			<HI>आज का इनाम</HI>
 		</TextKey>
-		<TextKey name="lblRewardsHIscription">
-			<EN>Wisdom</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblRewardsDescription">
+			<EN>Play seven days in a row to get maximum bonus</EN>
+			<HI>अधिकतम बोनस प्राप्त करने के लिए सात दिन लगातार खेले</HI>
 		</TextKey>
 		<TextKey name="lblRewardsReceived">
-			<EN>Intelligence</EN>
-			<HI>हिंदी में लिखें</HI>
+			<EN>You have received 5 laddus.</EN>
+			<HI>आपने 5 लड्डू प्राप्त किए हैं</HI>
 		</TextKey>
 		<TextKey name="btnDay">
 			<EN>Day</EN>
-			<HI>हिंदी में लिखें</HI>
+			<HI>दिन</HI>
 		</TextKey>
 		<TextKey name="lblLevels">
 			<EN>Levels</EN>
-			<HI>हिंदी में लिखें</HI>
+			<HI>स्तर</HI>
 		</TextKey>
-		<TextKey name="lblOld">
-			<EN>Old</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnForest">
+			<EN>Forest</EN>
+			<HI>जंगल</HI>
 		</TextKey>
-		<TextKey name="lblWilHIrness">
-			<EN>WilHIrness</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnSnow">
+			<EN>Snow</EN>
+			<HI>हिमालय</HI>
 		</TextKey>
-		<TextKey name="lblStreet">
-			<EN>Street</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnLava">
+			<EN>Lava</EN>
+			<HI>लावा</HI>
 		</TextKey>
-		<TextKey name="lblFood">
-			<EN>Hunger</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblStore">
+			<EN>Store</EN>
+			<HI>दुकान</HI>
 		</TextKey>
-		<TextKey name="lblThirst">
-			<EN>Thirst</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnGoldArmor">
+			<EN>Gold Armor</EN>
+			<HI>स्वर्ण कवच</HI>
 		</TextKey>
-		<TextKey name="lblLvl">
-			<EN>Level</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnSilverArmor">
+			<EN>Silver Armor</EN>
+			<HI>चांदी का कवच</HI>
 		</TextKey>
-		<TextKey name="lblSpellpower">
-			<EN>Spellpower</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="btnNoArmor">
+			<EN>No Armor</EN>
+			<HI>कवचहीन</HI>
 		</TextKey>
-		<TextKey name="lblRunspeed">
-			<EN>Runspeed</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblFbShareGameOver">
+			<EN>Share game for blessings</EN>
+			<HI>आशीर्वाद के लिए शेयर करें</HI>
 		</TextKey>
-		<TextKey name="lblCountry">
-			<EN>Land</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="lblFbShareSettings">
+			<EN>Play with friends. Compete, get gifts &amp; have fun!</EN>
+			<HI>मित्रों के साथ खेलें , शेयर करें और इनाम पाएं!</HI>
 		</TextKey>
-		<TextKey name="lblFriends">
-			<EN>Friends</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblEnemies">
-			<EN>Enemies</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblMoney">
-			<EN>Money</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblEarnings">
-			<EN>Earnings</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblName">
-			<EN>Name</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblSurName">
-			<EN>SurName</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblBorn">
-			<EN>Born</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="lblYear">
-			<EN>Year</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="BornCity">
-			<EN>Berlin</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="Country">
-			<EN>Germany</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="Name">
-			<EN>myHero</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="SurName">
-			<EN>Hero SurName</EN>
-			<HI>हिंदी में लिखें</HI>
-		</TextKey>
-		<TextKey name="PlayerText">
-			<EN>This is your Heros stats, he will bring HIath to our enemies! And Peace to your Friends!</EN>
-			<HI>हिंदी में लिखें</HI>
+		<TextKey name="txtFbShare">
+			<EN>I have collected X laddus. Can you beat my score?</EN>
+			<HI>मैंने X लड्डू प्राप्प्त करें हैं ! आप मुझसे जयादा प्र्राप्त कर सकते हैं?</HI>
 		</TextKey>
 	</Section>
 </Localization>

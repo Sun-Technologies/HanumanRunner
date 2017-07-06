@@ -11,12 +11,25 @@ public enum GearType
 
 };
 
-public class HanumanGearInfo : MonoBehaviour
+public enum LevelType
+{
+    Forest,
+    Snow,
+    Lava
+}
+
+
+public class HanumanGearInfo
 {
     public string currentHanumanGear = string.Empty;
+    public bool gadaUnlocked = false;
+    public static GearType _gearType;
+    public static LevelType _levelType;
+
     void Start()
     {
-         
+        _gearType = GearType.NoGear;
+        _levelType = LevelType.Forest;
     }
 
     public static string SaveToJsonString()

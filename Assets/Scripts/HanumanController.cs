@@ -24,7 +24,7 @@ public class HanumanController : MonoBehaviour
 
     public AudioClip coinCollectSound;
 
-    public ParallaxScroll parallax;
+    public ParallaxScroll[] parallaxObjs;
 
     public GameObject ImpactSprite;
 
@@ -46,7 +46,6 @@ public class HanumanController : MonoBehaviour
 
     public AnimatorOverrideController HanumanBasicController;
 
-    // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -90,8 +89,8 @@ public class HanumanController : MonoBehaviour
         DisplayCoinsCount();
 
         UpdateGroundedStatus();
-
-        parallax.offsetX = transform.position.x;
+       
+        parallaxObjs[(int)HanumanGearInfo._levelType].offsetX = transform.position.x;
         //parallax.offsetY = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.D))

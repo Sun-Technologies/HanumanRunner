@@ -7,6 +7,8 @@ public class TextElements : MonoBehaviour
     public Text[] TextComponents;
     public Transform CanvasRootTransform;
 
+    public string _language = LocalizationText.GetLanguage();
+
     public Text lbl_SelectLanguage;
     public Text btn_English;
     public Text btn_Hindi;
@@ -37,6 +39,18 @@ public class TextElements : MonoBehaviour
 
     void Awake()
     {
+        UpdateLanguage();
+    }
+
+    public void UpdateLanguage()
+    {
+        if (LocalizationText.GetLanguage() != _language)
+        {
+            _language = LocalizationText.GetLanguage();
+            SetTextsLanguage();
+        }
+        
+        Debug.Log("Changed language to " + _language);
         TextComponents = CanvasRootTransform.GetComponentsInChildren<Text>(true);
         foreach (Text item in TextComponents)
         {
@@ -45,6 +59,13 @@ public class TextElements : MonoBehaviour
     }
 
     void Start()
+    {
+
+        SetTextsLanguage();
+        SetDaysText();
+    }
+
+    void SetTextsLanguage()
     {
         lbl_SelectLanguage.text = LocalizationText.GetText("lblSelectLanguage");
         btn_English.text = LocalizationText.GetText("btnEnglish");
@@ -61,11 +82,10 @@ public class TextElements : MonoBehaviour
         lbl_RewardsHeader.text = LocalizationText.GetText("lblRewardsHeader");
         lbl_RewardsDescription.text = LocalizationText.GetText("lblRewardsDescription");
         lbl_RewardsReceived.text = LocalizationText.GetText("lblRewardsReceived");
-        //btn_Day.text = LocalizationText.GetText("btnDay");
-        //lbl_Levels.text = LocalizationText.GetText("lblLevels");
-        //btn_Forest.text = LocalizationText.GetText("btnForest");
-        //btn_Snow.text = LocalizationText.GetText("btnSnow");
-        //btn_Lava.text = LocalizationText.GetText("btnLava");
+        lbl_Levels.text = LocalizationText.GetText("lblLevels");
+        btn_Forest.text = LocalizationText.GetText("btnForest");
+        btn_Snow.text = LocalizationText.GetText("btnSnow");
+        btn_Lava.text = LocalizationText.GetText("btnLava");
         //lbl_Store.text = LocalizationText.GetText("lblStore");
         //btn_GoldArmor.text = LocalizationText.GetText("btnGoldArmor");
         //btn_SilverArmor.text = LocalizationText.GetText("btnSilverArmor");
@@ -73,6 +93,14 @@ public class TextElements : MonoBehaviour
         //lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
         //lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
         //txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
+    }
+
+    void SetDaysText()
+    {
+        for (int i = 0; i < UiManager.instance.DaysButtons.Length; i++)
+        {
+            UiManager.instance.DaysButtons[i].text = string.Format("{0} {1}", LocalizationText.GetText("btnDay"), i);
+        }
     }
 
     private void SetComponent(Text item)
