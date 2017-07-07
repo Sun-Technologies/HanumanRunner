@@ -58,6 +58,7 @@ public class UiManager : MonoBehaviour
     public GameObject LevelsScreen;
     public GameObject SettingsScreen;
     public GameObject DailyBonusScreen;
+    public GameObject LanguageSelection;
 
     #endregion
 
@@ -121,7 +122,7 @@ public class UiManager : MonoBehaviour
         {
             instance = this;
         }
-
+        
         Debug.Log("State = " + gameState);
         SetInit();
         DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
@@ -389,6 +390,67 @@ public class UiManager : MonoBehaviour
         ToggleGamePauseState(false);
     }
 
+    public void OpenSettingsScreen(bool value)
+    {
+        if (value)
+        {
+            SettingsScreen.SetActive(true);
+        }
+        else
+        {
+            SettingsScreen.SetActive(false);
+        }
+        
+    }
+
+    public void OpenDailyBonusScreen(bool value)
+    {
+        if (value)
+        {
+            DailyBonusScreen.SetActive(true);
+        }
+        else
+        {
+            DailyBonusScreen.SetActive(false);
+        }
+    }
+
+    public void OpenSelectLanguageScreen(bool value)
+    {
+        if (value)
+        {
+            LanguageSelection.SetActive(true);
+        }
+        else
+        {
+            LanguageSelection.SetActive(false);
+        }
+        
+    }
+
+    public void ShowAchievements()
+    {
+
+    }
+
+    public void ShowLeaderboards()
+    {
+
+    }
+
+    public void OpenStoreScreen(bool value)
+    {
+        if (value)
+        {
+            StoreScreen.SetActive(true);
+        }
+        else
+        {
+            StoreScreen.SetActive(false);
+        }
+        
+    }
+
     public void ToggleMusicMainMenu()
     {
         if (MusicToggle_MainMenu.isOn)
@@ -426,11 +488,6 @@ public class UiManager : MonoBehaviour
 
     public void SwitchGameState(GameState state)
     {
-        foreach (UiPanels item in UipanelsList)
-        {
-            item.ObjectReference.SetActive(false);
-        }
-        
         MainMenuScreen.SetActive(false);
         GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);

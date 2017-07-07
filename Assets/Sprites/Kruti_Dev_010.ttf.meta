@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 99a3976068bc9e446b2dac38f7d7cbaf
+timeCreated: 1499413392
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kruti Dev 010
+  fontNames:
+  - Kruti Dev 010
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

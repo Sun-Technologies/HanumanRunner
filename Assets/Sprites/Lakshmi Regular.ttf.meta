@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2253a64b501344e40a04cde782b43649
+timeCreated: 1499410531
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lakshmi
+  fontNames:
+  - Lakshmi
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

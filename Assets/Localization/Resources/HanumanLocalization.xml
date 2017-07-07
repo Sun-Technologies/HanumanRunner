@@ -3,111 +3,119 @@
 	<Section>
 		<TextKey name="lblSelectLanguage">
 			<EN>Select language</EN>
-			<HI>भाषा चुनिए</HI>
+			<HI>Hkk"kk pqfu,</HI>
 		</TextKey>
 		<TextKey name="btnEnglish">
 			<EN>English</EN>
-			<HI>English</HI>
+      <HI>English</HI>
 		</TextKey>
 		<TextKey name="btnHindi">
 			<EN>Hindi</EN>
-			<HI>हिंदी</HI>
+			<HI>fganh</HI>
 		</TextKey>
 		<TextKey name="btnTapToFly">
 			<EN>Tap to fly</EN>
-			<HI>उड़ान भरने के लिए टैप करें</HI>
+			<HI>mM-kUk HkjuS dS fy, VSSi djSa</HI>
 		</TextKey>
 		<TextKey name="lblReward">
 			<EN>Reward</EN>
-			<HI>इनाम</HI>
+			<HI>buke</HI>
 		</TextKey>
 		<TextKey name="lblPaused">
 			<EN>Paused</EN>
-			<HI>ठहराव</HI>
+			<HI>Bgjko</HI>
 		</TextKey>
 		<TextKey name="lblScore">
 			<EN>Score</EN>
-			<HI>अंक</HI>
+			<HI>vad</HI>
 		</TextKey>
 		<TextKey name="lblHighScore">
 			<EN>High Score</EN>
-			<HI>सर्वाधिक अंक</HI>
+			<HI>lokZf/kd vad</HI>
 		</TextKey>
 		<TextKey name="lblNewBest">
 			<EN>New best</EN>
-			<HI>नया सर्वश्रेष्ठ</HI>
+			<HI>u;k loZJs’B</HI>
 		</TextKey>
 		<TextKey name="lblSharegame">
 			<EN>Share game for blessings</EN>
-			<HI>आशीर्वाद के लिए शेयर करें</HI>
+			<HI>vk”hokZn ds fy, “ks;j djsa</HI>
 		</TextKey>
 		<TextKey name="lblSettings">
 			<EN>Settings</EN>
-			<HI>सेटिंग्स</HI>
+			<HI>lsfVaXl</HI>
 		</TextKey>
 		<TextKey name="lblDailyBonus">
 			<EN>Daily Bonus</EN>
-			<HI>प्रतिदिन लाभ</HI>
+			<HI>izfrfnu ykHk</HI>
 		</TextKey>
 		<TextKey name="lblRewardsHeader">
 			<EN>Today's reward</EN>
-			<HI>आज का इनाम</HI>
+			<HI>vkt dk buke</HI>
 		</TextKey>
 		<TextKey name="lblRewardsDescription">
 			<EN>Play seven days in a row to get maximum bonus</EN>
-			<HI>अधिकतम बोनस प्राप्त करने के लिए सात दिन लगातार खेले</HI>
+			<HI>vf/kdRe cksul izkIr djus ds fy, lkr fnu yxkrkj [ksysa</HI>
 		</TextKey>
 		<TextKey name="lblRewardsReceived">
 			<EN>You have received 5 laddus.</EN>
-			<HI>आपने 5 लड्डू प्राप्त किए हैं</HI>
+			<HI>vkius yM`Mw izkIr fd, gSa</HI>
 		</TextKey>
 		<TextKey name="btnDay">
 			<EN>Day</EN>
-			<HI>दिन</HI>
+			<HI>fnu</HI>
 		</TextKey>
 		<TextKey name="lblLevels">
 			<EN>Levels</EN>
-			<HI>स्तर</HI>
+			<HI>Lrj</HI>
 		</TextKey>
 		<TextKey name="btnForest">
 			<EN>Forest</EN>
-			<HI>जंगल</HI>
+			<HI>taxy</HI>
 		</TextKey>
 		<TextKey name="btnSnow">
 			<EN>Snow</EN>
-			<HI>हिमालय</HI>
+			<HI>fgeky;</HI>
 		</TextKey>
 		<TextKey name="btnLava">
 			<EN>Lava</EN>
-			<HI>लावा</HI>
+			<HI>ykok</HI>
 		</TextKey>
 		<TextKey name="lblStore">
 			<EN>Store</EN>
-			<HI>दुकान</HI>
+			<HI>nqdku</HI>
 		</TextKey>
 		<TextKey name="btnGoldArmor">
 			<EN>Gold Armor</EN>
-			<HI>स्वर्ण कवच</HI>
+			<HI>Lo.kZ dop</HI>
 		</TextKey>
 		<TextKey name="btnSilverArmor">
 			<EN>Silver Armor</EN>
-			<HI>चांदी का कवच</HI>
+			<HI>pkanh dk dop</HI>
 		</TextKey>
 		<TextKey name="btnNoArmor">
 			<EN>No Armor</EN>
-			<HI>कवचहीन</HI>
+			<HI>dopghu</HI>
 		</TextKey>
 		<TextKey name="lblFbShareGameOver">
 			<EN>Share game for blessings</EN>
-			<HI>आशीर्वाद के लिए शेयर करें</HI>
+			<HI>vk”hokZn ds fy, “ks;j djsa</HI>
 		</TextKey>
 		<TextKey name="lblFbShareSettings">
 			<EN>Play with friends. Compete, get gifts &amp; have fun!</EN>
-			<HI>मित्रों के साथ खेलें , शेयर करें और इनाम पाएं!</HI>
+			<HI>fe=ksa ds lkFk [ksysa] “ks;j djsa vkSj buke ik,a !</HI>
 		</TextKey>
 		<TextKey name="txtFbShare">
 			<EN>I have collected X laddus. Can you beat my score?</EN>
-			<HI>मैंने X लड्डू प्राप्प्त करें हैं ! आप मुझसे जयादा प्र्राप्त कर सकते हैं?</HI>
+			<HI>eSaus yM`Mw izkIr djsa gSa! vki eq&gt;ls T;knk izkIr dj lDrs gsSa</HI>
 		</TextKey>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
+		<TextKey/>
 	</Section>
 </Localization>

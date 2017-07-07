@@ -6,6 +6,11 @@ public class TextElements : MonoBehaviour
 {
     public Text[] TextComponents;
     public Transform CanvasRootTransform;
+    public const string LANG_ENGLISH = "EN";
+    public const string LANG_HINDI = "HI";
+
+    public Font EnglishFont;
+    public Font HindiFont;
 
     public string _language = LocalizationText.GetLanguage();
 
@@ -54,6 +59,18 @@ public class TextElements : MonoBehaviour
         TextComponents = CanvasRootTransform.GetComponentsInChildren<Text>(true);
         foreach (Text item in TextComponents)
         {
+            if (_language == LANG_ENGLISH)
+            {
+                item.font = EnglishFont;
+            }
+            else if (_language == LANG_HINDI)
+            {
+                if (item.name != "Text")
+                {
+                    item.font = HindiFont;
+                }
+            }
+
             SetComponent(item);
         }
     }
@@ -68,7 +85,7 @@ public class TextElements : MonoBehaviour
     void SetTextsLanguage()
     {
         lbl_SelectLanguage.text = LocalizationText.GetText("lblSelectLanguage");
-        btn_English.text = LocalizationText.GetText("btnEnglish");
+        //btn_English.text = LocalizationText.GetText("btnEnglish");
         btn_Hindi.text = LocalizationText.GetText("btnHindi");
         btn_TapToFly.text = LocalizationText.GetText("btnTapToFly");
         //lbl_Reward.text = LocalizationText.GetText("lblReward");
@@ -86,12 +103,12 @@ public class TextElements : MonoBehaviour
         btn_Forest.text = LocalizationText.GetText("btnForest");
         btn_Snow.text = LocalizationText.GetText("btnSnow");
         btn_Lava.text = LocalizationText.GetText("btnLava");
-        //lbl_Store.text = LocalizationText.GetText("lblStore");
+        lbl_Store.text = LocalizationText.GetText("lblStore");
         //btn_GoldArmor.text = LocalizationText.GetText("btnGoldArmor");
         //btn_SilverArmor.text = LocalizationText.GetText("btnSilverArmor");
         //btn_NoArmor.text = LocalizationText.GetText("btnNoArmor");
-        //lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
-        //lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
+        lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
+        lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
         //txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
     }
 
