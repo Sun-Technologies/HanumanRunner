@@ -6,8 +6,6 @@ public class TextElements : MonoBehaviour
 {
     public Text[] TextComponents;
     public Transform CanvasRootTransform;
-    public const string LANG_ENGLISH = "EN";
-    public const string LANG_HINDI = "HI";
 
     public Font EnglishFont;
     public Font HindiFont;
@@ -40,30 +38,29 @@ public class TextElements : MonoBehaviour
     public Text btn_NoArmor;
     public Text lbl_FbShareSettings;
     public Text lbl_FbShareGameOver;
+    public Text btn_PurchasedSilver;
+    public Text btn_PurchasedGold;
     public string txt_FbShareInGame;
-
-    void Awake()
-    {
-        UpdateLanguage();
-    }
 
     public void UpdateLanguage()
     {
+        //LocalizationText.SetLanguage(PlayerPrefs.GetString(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH));
+
         if (LocalizationText.GetLanguage() != _language)
         {
             _language = LocalizationText.GetLanguage();
-            SetTextsLanguage();
+            //SetTextsLanguage();
         }
         
         Debug.Log("Changed language to " + _language);
         TextComponents = CanvasRootTransform.GetComponentsInChildren<Text>(true);
         foreach (Text item in TextComponents)
         {
-            if (_language == LANG_ENGLISH)
+            if (_language == GameData.LANG_ENGLISH)
             {
                 item.font = EnglishFont;
             }
-            else if (_language == LANG_HINDI)
+            else if (_language == GameData.LANG_HINDI)
             {
                 if (item.name != "Text")
                 {
@@ -75,10 +72,10 @@ public class TextElements : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
-
-        SetTextsLanguage();
+        UpdateLanguage();
+        //SetTextsLanguage();
         SetDaysText();
     }
 
@@ -109,6 +106,8 @@ public class TextElements : MonoBehaviour
         //btn_NoArmor.text = LocalizationText.GetText("btnNoArmor");
         lbl_FbShareGameOver.text = LocalizationText.GetText("lblFbShareGameOver");
         lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
+        btn_PurchasedSilver.text = LocalizationText.GetText("btnPurchased");
+        btn_PurchasedGold.text = LocalizationText.GetText("btnPurchased");
         //txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
     }
 
@@ -122,6 +121,8 @@ public class TextElements : MonoBehaviour
 
     private void SetComponent(Text item)
     {
+        SetDaysText();
+
         if (item.name == "lbl_SelectLanguage")
             lbl_SelectLanguage = item;
 
@@ -199,5 +200,11 @@ public class TextElements : MonoBehaviour
 
         if (item.name == "lbl_FbShareSettings")
             lbl_FbShareSettings = item;
+
+        if (item.name == "btn_PurchasedSilver")
+            btn_PurchasedSilver = item;
+
+        if (item.name == "btn_PurchasedGold")
+            btn_PurchasedGold = item;
     }
 }

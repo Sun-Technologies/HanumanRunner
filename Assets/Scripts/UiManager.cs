@@ -18,25 +18,13 @@ public class UiManager : MonoBehaviour
     public List<UiPanels> UipanelsList;
 
     public GameObject TapToPlayObj;
-    public int Score = 0;
+    public int HighScore = 0;
 
     public int lives = 5;
 
     public int shareCount = 0;
 
     public int TapToPlayCount = 0;
-
-    public const string SCOREKEY = "ScoreKey";
-
-    public const string LIVESKEY = "LivesKey";
-
-    public const string FBSHAREKEY = "FbShareKey";
-
-    public const string DATETIMEKEY = "DateTimeKey";
-
-    public const string TAPTOPLAYKEY = "TapToPlayKey";
-
-    const int DAILYLIVES = 40;
 
     public bool isGamePaused = false;
 
@@ -70,8 +58,6 @@ public class UiManager : MonoBehaviour
     public Text HighScore_Text;
     public Text Lives_Text;
     public Text Score_Text;
-    public Button Restart_Button;
-    public Button Home_Button;
     public Text GameShare_Text;
     public Text ScoreShare_Text;
 
@@ -103,26 +89,25 @@ public class UiManager : MonoBehaviour
     #region Daily Bonus Screen Items
     public GameObject DaysButtonHolder;
     public Text[] DaysButtons;
+    public int days_DailyBonus = 0;
+    public static bool IsTodaysBonusShown = false;
+    public Scrollbar bonusScroll;
+    public GameObject[] LockObjs;
     #endregion
 
-    #region
+    #region Language Selection Screen
 
-    public ToggleGroup languageSelectionGroup;
     public Toggle EnglishToggle;
     public Toggle HindiToggle;
     #endregion
 
     void Awake()
     {
-        if (!PlayerPrefs.HasKey(LIVESKEY))
-        {
-            PlayerPrefsStorage.SaveData(LIVESKEY, DAILYLIVES);
-        }
         if (instance == null)
         {
             instance = this;
         }
-        
+
         Debug.Log("State = " + gameState);
         SetInit();
         DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
@@ -132,26 +117,53 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         Debug.Log(SavedDateTime);
+        AvGameServices.Init();
         //PlayerPrefsStorage.SaveData(LivesKey, 1);
 
-        if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(DATETIMEKEY)))
+        if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME)))
         {
-            PlayerPrefsStorage.SaveData(DATETIMEKEY, SavedDateTime.ToString());
+            PlayerPrefsStorage.SaveData(GameData.KEY_DATETIME, SavedDateTime.ToString());
+            ToggleDailyBonusState(true);
         }
-
-        SavedDateTime = DateTime.Parse(PlayerPrefsStorage.GetStringData(DATETIMEKEY));
-
-        if (SavedDateTime.CompareTo(DateTime.Today) > 0)
+        else
         {
-            Debug.Log("Date changer. Updating timer.");
+            SavedDateTime = DateTime.Parse(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME));
+            Debug.Log("Date = " + SavedDateTime);
+        }
+        //SavedDateTime = DateTime.Parse("7 / 19 / 2017 12:00:00 AM");    //TODO: remove later
+        if (SavedDateTime < DateTime.Today)//if (SavedDateTime < DateTime.Parse("7 / 20 / 2017 12:00:00 AM"))                //
+        {
+            Debug.Log("Date changed. Updating timer.");
             SavedDateTime.AddDays(1);
-            PlayerPrefsStorage.SaveData(LIVESKEY, DAILYLIVES);
-        }
+            days_DailyBonus += 1;
+            PlayerPrefsStorage.SaveData(GameData.KEY_DAYS, days_DailyBonus);
+            PlayerPrefsStorage.SaveData(GameData.KEY_DATETIME, DateTime.Today.ToString());
 
-        Score = PlayerPrefsStorage.GetIntData(SCOREKEY, 0);
-        lives = PlayerPrefsStorage.GetIntData(LIVESKEY, DAILYLIVES);
-        shareCount = PlayerPrefsStorage.GetIntData(FBSHAREKEY, 0);
-        TapToPlayCount = PlayerPrefsStorage.GetIntData(TAPTOPLAYKEY, 0);
+            if (days_DailyBonus <= 7)
+            {
+                ToggleDailyBonusState(IsTodaysBonusShown);
+                if (days_DailyBonus <= 1)
+                {
+                    bonusScroll.value = 0;
+                }
+                else if (days_DailyBonus > 1 && days_DailyBonus < 4)
+                {
+                    bonusScroll.value = 0.66f;
+                }
+                else
+                {
+                    bonusScroll.value = 1;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Not a new day yet!");
+        }
+        Debug.Log("Days count " + days_DailyBonus);
+        HighScore = PlayerPrefsStorage.GetIntData(GameData.KEY_HIGHSCORE, 0);
+        shareCount = PlayerPrefsStorage.GetIntData(GameData.KEY_FBSHARE, 0);
+        TapToPlayCount = PlayerPrefsStorage.GetIntData(GameData.KEY_TAPTOPLAY, 0);
         if (gameState == GameState.MainMenu)
         {
             SwitchGameState(GameState.MainMenu);
@@ -160,18 +172,125 @@ public class UiManager : MonoBehaviour
         {
             SwitchGameState(GameState.InGame);
         }
-        ToggleShareText();
+
+        //if (days_DailyBonus >= 7)
+        //{
+        //    ToggleDailyBonusState(false);
+        //}
+        //else
+        //{
+        //    CheckDailyBonus();
+        //}
+    }
+
+    public void OpenDailyBonusScreen(bool flag)
+    {
+        DailyBonusScreen.SetActive(flag);
+    }
+
+    public void ToggleDailyBonusState(bool flag)
+    {
+        DailyBonusScreen.SetActive(!flag);
+        if (!flag)
+        {
+            CheckDailyBonus();
+        }
+    }
+
+    string GetDailyBonusText(int ladduCount)
+    {
+        string str = string.Empty;
+        if (days_DailyBonus < 7)
+        {
+            str = string.Format("You have received {0} laddus", ladduCount);
+        }
+        else
+        {
+            str = "You have unlocked Gada!";
+        }
+        return str;
+    }
+
+    void CheckDailyBonus()
+    {
+        IsTodaysBonusShown = true;
+        int ladduCount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
+
+        for (int i = 0; i < LockObjs.Length; i++)
+        {
+            LockObjs[i].SetActive(true);
+        }
+
+        for (int i = 0; i <= days_DailyBonus; i++)
+        {
+            LockObjs[i].SetActive(false);
+        }
+
+        switch (days_DailyBonus)
+        {
+            case 1:
+                ladduCount += 5;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(5);
+                break;
+
+            case 2:
+                ladduCount += 10;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(10);
+                break;
+
+            case 3:
+                ladduCount += 30;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(30);
+                break;
+
+            case 4:
+                ladduCount += 50;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(50);
+                break;
+
+            case 5:
+                ladduCount += 70;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(70);
+                break;
+
+            case 6:
+                ladduCount += 90;
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(90);
+                break;
+
+            case 7:
+
+                _textElements.lbl_RewardsReceived.text = GetDailyBonusText(ladduCount);
+                PlayerPrefsStorage.SaveData(GameData.KEY_GADA_UNLOCKED, 1);
+                break;
+
+            default:
+                break;
+        }
+
+        PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
+
+        Debug.Log("Days count = " + days_DailyBonus + " Total laddus count = " + ladduCount);
+
+        PlayerPrefsStorage.SaveData(GameData.KEY_DAYS, days_DailyBonus);
+
+        if (days_DailyBonus == 7)
+        {
+            PlayerPrefsStorage.SaveData(GameData.KEY_GADA_UNLOCKED, 1);
+        }
     }
 
     public void DoLanguageToggle()
     {
         if (EnglishToggle.isOn)
         {
-            LocalizationText.SetLanguage("EN");
+            LocalizationText.SetLanguage(GameData.LANG_ENGLISH);
+            PlayerPrefsStorage.SaveData(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH);
         }
         else
         {
-            LocalizationText.SetLanguage("HI");
+            LocalizationText.SetLanguage(GameData.LANG_HINDI);
+            PlayerPrefsStorage.SaveData(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH);
         }
         Debug.Log("Active language = " + LocalizationText.GetLanguage());
         _textElements.UpdateLanguage();
@@ -223,7 +342,7 @@ public class UiManager : MonoBehaviour
                 FB.ShareLink(
                     new Uri(OpenGameLink()),
                     shareTitle,
-                    string.Format("I have collected {0} Laddus. Can you beat my score?", Score),
+                    string.Format("I have collected {0} Laddus. Can you beat my score?", HighScore),
                     new Uri(shareImage),
                     HandleResult);
             }
@@ -259,15 +378,8 @@ public class UiManager : MonoBehaviour
             if (success)
             {
                 Analytics.CustomEvent("Facebook share");
-                shareCount++;
-                PlayerPrefsStorage.SaveData(FBSHAREKEY, shareCount);
                 FacebookLog("Success Response:\n" + result.RawResult);
-                PlayerPrefsStorage.SaveData(LIVESKEY, -1);
-                ToggleShareText();
-                Restart_Button.interactable = true;
-                Home_Button.interactable = true;
-                Lives_Text.text = 8.ToString();
-                Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
+                PlayerPrefsStorage.SaveData(GameData.KEY_LIVES, -1);
                 if (isMainMenuScreen)
                 {
                     //PlayButtonObj.SetActive(true);
@@ -278,20 +390,6 @@ public class UiManager : MonoBehaviour
         else
         {
             FacebookLog("Empty Response\n");
-        }
-    }
-
-    private void ToggleShareText()
-    {
-        if (shareCount > 0)
-        {
-            ScoreShare_Text.gameObject.SetActive(true);
-            GameShare_Text.gameObject.SetActive(false);
-        }
-        else
-        {
-            GameShare_Text.gameObject.SetActive(true);
-            //ScoreShare_Text.gameObject.SetActive(false);
         }
     }
 
@@ -343,6 +441,11 @@ public class UiManager : MonoBehaviour
         SwitchGameState(GameState.Pause);
     }
 
+    public void OnSelectLevel()
+    {
+        LevelsScreen.SetActive(true);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -353,7 +456,7 @@ public class UiManager : MonoBehaviour
     public void OnTapToPlay()
     {
         TapToPlayCount += 1;
-        PlayerPrefsStorage.SaveData(TAPTOPLAYKEY, TapToPlayCount);
+        PlayerPrefsStorage.SaveData(GameData.KEY_TAPTOPLAY, TapToPlayCount);
         TapToPlayObj.SetActive(false);
     }
 
@@ -400,19 +503,7 @@ public class UiManager : MonoBehaviour
         {
             SettingsScreen.SetActive(false);
         }
-        
-    }
 
-    public void OpenDailyBonusScreen(bool value)
-    {
-        if (value)
-        {
-            DailyBonusScreen.SetActive(true);
-        }
-        else
-        {
-            DailyBonusScreen.SetActive(false);
-        }
     }
 
     public void OpenSelectLanguageScreen(bool value)
@@ -425,17 +516,17 @@ public class UiManager : MonoBehaviour
         {
             LanguageSelection.SetActive(false);
         }
-        
+
     }
 
     public void ShowAchievements()
     {
-
+        AvGameServices.ShowAchievements();
     }
 
     public void ShowLeaderboards()
     {
-
+        AvGameServices.ShowLeaderBoard();
     }
 
     public void OpenStoreScreen(bool value)
@@ -448,7 +539,7 @@ public class UiManager : MonoBehaviour
         {
             StoreScreen.SetActive(false);
         }
-        
+
     }
 
     public void ToggleMusicMainMenu()
@@ -520,22 +611,21 @@ public class UiManager : MonoBehaviour
         }
     }
 
+
     public void SelectLevel(int num)
     {
-        switch (num)
+
+        PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, num - 1);
+        if (num == 2)
         {
-            case 1:
-
-                break;
-
-            case 2:
-
-                break;
-
-            case 3:
-
-                break;
+          
         }
+        StartGame();
+    }
+
+    public void CloseLevelSelection()
+    {
+        LevelsScreen.SetActive(false);
     }
 
     void DisplayInGameItems()
@@ -570,40 +660,37 @@ public class UiManager : MonoBehaviour
 #if UNITY_ANDROID || UNITY_IOS
         if (Advertisement.IsReady())
         {
-            //Advertisement.Show();
+            int random = UnityEngine.Random.Range(1, 4);
+            if (random == 3)
+            {
+                Debug.Log("Showing ad");
+                Advertisement.Show();
+            }
         }
 #endif
-        if (HanumanController.currentScore > Score)     //New high score
+        if (HanumanController.currentScore > HighScore)     //New high score
         {
-            Score = HanumanController.currentScore;
-            PlayerPrefsStorage.SaveData(SCOREKEY, Score);
+            HighScore = HanumanController.currentScore;
+            PlayerPrefsStorage.SaveData(GameData.KEY_HIGHSCORE, HighScore);
             NewBest_TextObj.SetActive(true);
-            Analytics.CustomEvent("Highscore: " + Score.ToString());
+            Analytics.CustomEvent("Highscore: " + HighScore.ToString());
+            AvGameServices.SubmitScore(HighScore);
         }
         else
         {
             NewBest_TextObj.SetActive(false);
         }
 
-        HighScore_Text.text = Score.ToString();
+        HighScore_Text.text = HighScore.ToString();
         Score_Text.text = HanumanController.currentScore.ToString();
+
+        AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
 
         if (lives > 0)
         {
             lives--;
-            PlayerPrefsStorage.SaveData(LIVESKEY, lives);
+            PlayerPrefsStorage.SaveData(GameData.KEY_LIVES, lives);
         }
-
-        //if (lives > 0 || lives == -1)
-        //{
-            Restart_Button.interactable = true;
-            Home_Button.interactable = true;
-        //}
-        //else
-        //{
-        //    Restart_Button.interactable = false;
-        //    Home_Button.interactable = false;
-        //}
 
         if (lives == -1)
         {

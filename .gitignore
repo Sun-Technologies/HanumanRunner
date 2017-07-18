@@ -662,3 +662,4 @@ Library/
 Temp/
 *.csproj
 .vs/HanumanRunner/v15/.suo
+Assets/Editor/AutoSaves/

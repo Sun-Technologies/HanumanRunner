@@ -79,7 +79,14 @@ public class AutoSaveScene
     {
         if ((System.DateTime.Now - lastSaveTime) >= updateInterval)
         {
-            SaveScene();
+            if (!EditorApplication.isPlaying)
+            {
+                SaveScene();
+            }
+            else
+            {
+                Debug.Log("Skipped scene auto-backup because editor was in Play Mode at " + lastSaveTime);
+            }
             lastSaveTime = System.DateTime.Now;
         }
     }

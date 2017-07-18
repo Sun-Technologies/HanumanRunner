@@ -10,7 +10,8 @@ public enum SpawnsType
     Lightning,
     Snake,
     FlyingBeast,
-    Boulder
+    Boulder,
+    Lava
 };
 
 public class SpawnsAction : MonoBehaviour
@@ -31,14 +32,23 @@ public class SpawnsAction : MonoBehaviour
     public bool alwaysGrounded = false;
     public bool alwaysSpin = false;
     public bool staticOnAir = false;
+    public bool killable = false;
 
+    public HanumanController _hanumanController;
+
+    public float speedFactor = 0.1f;
 
     void Start()
     {
+        _hanumanController = Transform.FindObjectOfType<HanumanController>();
         timeUntilNextToggle = interval;
         if (spawnsType == SpawnsType.FlyingRakhshas)
         {
             StartCoroutine(SpitFireball());
+        }
+        if (killable)
+        {
+            ToggleStunObject(false);
         }
     }
 
@@ -63,6 +73,28 @@ public class SpawnsAction : MonoBehaviour
                                                    Mathf.SmoothStep(0f, 1f,
                                                    Mathf.PingPong(Time.time / secondsForOneLength, 1f)
                                                    ));
+    }
+
+    void ToggleStunObject(bool value)
+    {
+        Transform _stunTransform = transform.Find("Impact");
+        SpriteRenderer StunObj = GetComponentInChildren<SpriteRenderer>();
+        //if (StunObj != null)
+        //{
+        //    StunObj.enabled = value;
+        //}
+
+        if (_stunTransform != null)
+        {
+            _stunTransform.gameObject.SetActive(value);
+        }
+    }
+
+    public void KillEnemy()
+    {
+        ToggleStunObject(true);
+        HanumanController.enemiesKilled += 1;
+        Debug.Log("I just killed a nigga named " + gameObject.name);
     }
 
     void FixedUpdate()

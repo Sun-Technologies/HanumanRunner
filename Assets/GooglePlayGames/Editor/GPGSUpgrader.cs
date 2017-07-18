@@ -107,7 +107,7 @@ namespace GooglePlayGames.Editor
                 GPGSUtil.GenerateAndroidManifest();
             }
 
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh(); TODO: Commented because it was throwing null reference error for AudioSourceInspector.cs DAFUQ :@
         }
 
         /// <summary>

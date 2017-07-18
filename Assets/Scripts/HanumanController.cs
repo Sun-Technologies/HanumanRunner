@@ -6,17 +6,19 @@ public class HanumanController : MonoBehaviour
 {
     public float flyingForce = 75.0f;
 
-    public AnimClips[] AnimClipsList;
+    //public AnimClips[] AnimClipsList;
 
     public float forwardMovementSpeed = 3.0f;
 
+    public float lavaFactor = 1.0f; 
+
     public Transform groundCheckTransform;
 
-    private bool grounded;
+    public bool grounded;
 
     public LayerMask groundCheckLayerMask;
 
-    Animator animator;
+    public Animator animator;
 
     private bool dead = false;
 
@@ -24,7 +26,9 @@ public class HanumanController : MonoBehaviour
 
     public AudioClip coinCollectSound;
 
-    public ParallaxScroll[] parallaxObjs;
+    public GameObject[] LevelObjects;
+
+    public ParallaxScroll[] ParallaxObjects;
 
     public GameObject ImpactSprite;
 
@@ -34,24 +38,54 @@ public class HanumanController : MonoBehaviour
 
     public static int currentScore;
 
+    public static int enemiesKilled; 
+
     GameState gameState;
 
     public float speedTimer = 30;
 
     public bool isInvincible = false;
 
-    public AnimatorOverrideController HanumanSilverController;
+    HanumanGearInfo _hanumanGearInfo;
 
-    public AnimatorOverrideController HanumanGoldController;
+    public bool hasEquippedGada = false;
 
-    public AnimatorOverrideController HanumanBasicController;
+    public bool CanKillEnemies = false;
+
+    public Vector2 newVelocity;
+
+    public GameObject gadaButton;
+
+    private void Awake()
+    {
+        if (Application.isEditor)
+        {
+            Application.runInBackground = true;
+        }
+    }
 
     void Start()
     {
         animator = GetComponent<Animator>();
         ImpactSprite.SetActive(false);
         currentScore = 0;
+        enemiesKilled = 0;
         forwardMovementSpeed = 3;
+        _hanumanGearInfo = GetComponent<HanumanGearInfo>();
+        gadaButton.SetActive(false);
+        if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)
+        {
+            hasEquippedGada = false;
+        }
+        else
+        {
+            hasEquippedGada = true;
+        }
+
+        CanKillEnemies = hasEquippedGada;
+
+        CheckForKillingAbility();
+        Debug.Log("Gear type = " + _hanumanGearInfo._gearType);
     }
 
     void FixedUpdate()
@@ -81,21 +115,46 @@ public class HanumanController : MonoBehaviour
             {
                 speedTimer = 30;
             }
-
-            Vector2 newVelocity = GetComponent<Rigidbody2D>().velocity;
+            newVelocity = GetComponent<Rigidbody2D>().velocity;
             newVelocity.x = forwardMovementSpeed;
             GetComponent<Rigidbody2D>().velocity = newVelocity;
         }
         DisplayCoinsCount();
 
         UpdateGroundedStatus();
-       
-        parallaxObjs[(int)HanumanGearInfo._levelType].offsetX = transform.position.x;
+
+        ParallaxObjects[(int)_hanumanGearInfo._levelType].offsetX = transform.position.x;
         //parallax.offsetY = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             PlayerPrefsStorage.ClearLocalStorageData(true);
+        }
+
+        gadaButton.SetActive(CanKillEnemies);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DoMeleeAttack();
+        }
+    }
+
+    public void DoMeleeAttack()
+    {
+        Debug.Log("Attempting to kill some guys");
+
+        if (CanKillEnemies)
+        {
+            if (grounded)
+            {
+                Debug.Log("Setting trigger RunAttack");
+                animator.SetTrigger("RunAttack");
+            }
+            else
+            {
+                Debug.Log("Setting trigger FlyAttack");
+                animator.SetTrigger("FlyAttack");
+            }
         }
     }
 
@@ -104,14 +163,23 @@ public class HanumanController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheckTransform.position, 0.1f, groundCheckLayerMask);
 
         animator.SetBool("grounded", grounded);
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Coins"))
+        {
             StartCoroutine(CollectCoin(collider));
+        }
+        else if (collider.gameObject.name.Contains("GadaPickUp"))
+        {
+            StartCoroutine(EquipGada(collider));
+        }
         else
+        {
             HitByObstacle(collider);
+        }
 
         if (collider.gameObject.name.Contains("Fireball"))
         {
@@ -126,14 +194,19 @@ public class HanumanController : MonoBehaviour
             if (!dead)
                 laserCollider.gameObject.GetComponent<AudioSource>().Play();
 
-            dead = true;
-            StartCoroutine(FlashImpactSprite());
-
-            animator.SetBool("dead", true);
-            gameState = GameState.GameOver;
-            Debug.Log("Dead");
-            StartCoroutine(ShowGameOver());
+            HasDied();
         }
+    }
+
+    private void HasDied()
+    {
+        dead = true;
+        StartCoroutine(FlashImpactSprite());
+
+        animator.SetBool("dead", true);
+        gameState = GameState.GameOver;
+        Debug.Log("Dead");
+        StartCoroutine(ShowGameOver());
     }
 
     IEnumerator ShowGameOver()
@@ -159,6 +232,70 @@ public class HanumanController : MonoBehaviour
         {
             Destroy(coinCollider.gameObject);
         }
+    }
+    public bool isTempGadaOn = false;
+    IEnumerator EquipGada(Collider2D gadaCollider)
+    {
+        float gadaTimeout = 5.0f;
+        if (!hasEquippedGada && !isTempGadaOn)
+        {
+            isTempGadaOn = true;
+        }
+        
+        if (gadaCollider != null)
+        {
+            gadaCollider.gameObject.transform.position = new Vector3(gadaCollider.gameObject.transform.position.x - 20, gadaCollider.gameObject.transform.position.y, gadaCollider.gameObject.transform.position.z);
+        }
+
+        CheckForKillingAbility();
+        
+        yield return new WaitForSeconds(gadaTimeout);
+        isTempGadaOn = false;
+    }
+
+    void CheckForKillingAbility()
+    {
+        Debug.Log("Gear type = " + _hanumanGearInfo._gearType);
+        if (hasEquippedGada)
+        {
+            CanKillEnemies = true;
+            return;
+        }
+        switch (_hanumanGearInfo._gearType)
+        {
+            case GearType.Default:
+                Debug.Log("No armor available, can't do shit with Gada brah");
+                CanKillEnemies = false;
+                break;
+
+            case GearType.SilverArmor:
+                if (isTempGadaOn)
+                {
+                    CanKillEnemies = true;
+                }
+                break;
+
+            case GearType.SilverArmorWithGada:
+                CanKillEnemies = true;
+                break;
+
+            case GearType.GoldArmor:
+                if (isTempGadaOn)
+                {
+                    CanKillEnemies = true;
+                }
+                break;
+
+            case GearType.GoldArmorWithGada:
+                CanKillEnemies = true;
+                break;
+
+        }
+    }
+
+    public void KillEnemy()
+    {
+        //
     }
 
     void DisplayCoinsCount()
