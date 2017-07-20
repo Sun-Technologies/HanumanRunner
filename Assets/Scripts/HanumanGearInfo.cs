@@ -28,26 +28,31 @@ public class HanumanGearInfo : MonoBehaviour
     public HanumanController _HanumanController;
     public Animator HanumanAnimator;
     public AnimatorOverrideController[] AnimControllersList;
+    public static int levelIndex = 0;
 
     void Start()
     {
-        _levelType = (LevelType)PlayerPrefsStorage.GetIntData(GameData.KEY_LEVEL_TYPE, 0);
-        _gearType = (GearType)PlayerPrefsStorage.GetIntData(GameData.KEY_GEAR_TYPE, 0);
-        Debug.Log("Level type = " + _levelType);
+        //_levelType = (LevelType)PlayerPrefsStorage.GetIntData(GameData.KEY_LEVEL_TYPE, 0);
+        //_gearType = (GearType)PlayerPrefsStorage.GetIntData(GameData.KEY_GEAR_TYPE, 0);
+        //Debug.Log("Level type = " + _levelType);
         //_HanumanController = GetComponent<HanumanController>();
-        SetLevelType();
+        //SetLevelType();
         //SetAnimController((GearType)PlayerPrefsStorage.GetIntData(GameData.KEY_GEAR_TYPE, 0));
         //SetAnimController(_gearType);
     }
 
-    void SetLevelType()
+    public void SetLevelType(LevelType levelType)
     {
+        levelIndex = (int)levelType;
         foreach (var item in _HanumanController.ParallaxObjects)
         {
             item.gameObject.SetActive(false);
         }
-        _HanumanController.ParallaxObjects[(int)_levelType].gameObject.SetActive(true);
-        //_HanumanController.LevelObjects[(int)_levelType].gameObject.SetActive(true);
+        
+        UiManager.instance.StartGame();
+        Debug.Log("Level type = " + levelType);
+        _levelType = levelType;
+
     }
 
     public void SetAnimController(GearType gearType)

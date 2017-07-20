@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreScreen : MonoBehaviour
+public class CharacterStoreScreen : MonoBehaviour
 {
     const int SILVER_HANUMAN_COST = 2000;
     const int GOLD_HANUMAN_COST = 2000;
@@ -34,6 +34,7 @@ public class StoreScreen : MonoBehaviour
 
     void SetButtonsContent()
     {
+        _UiManager.GetAndDisplayLadddusAvailable();
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_SILVER_UNLOCKED, 0) == 0)
         {
             CostButtons[0].SetActive(true);
@@ -46,7 +47,7 @@ public class StoreScreen : MonoBehaviour
 
             if (savedGearType == 1 || savedGearType == 2)
             {
-                PurchasedButtons[0].GetComponent<Text>().text = "Selected";
+                PurchasedButtons[0].GetComponent<Text>().text = LocalizationText.GetText(GameData.STR_SELECT);
                 if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)
                 {
                     _HanumanGearInfo.SetAnimController(GearType.SilverArmor);
@@ -58,7 +59,7 @@ public class StoreScreen : MonoBehaviour
             }
             else
             {
-                PurchasedButtons[0].GetComponent<Text>().text = "Select";
+                PurchasedButtons[0].GetComponent<Text>().text = LocalizationText.GetText(GameData.STR_SELECTED);
             }
         }
 
@@ -74,7 +75,7 @@ public class StoreScreen : MonoBehaviour
 
             if (savedGearType == 3 || savedGearType == 4)
             {
-                PurchasedButtons[1].GetComponent<Text>().text = "Selected";
+                PurchasedButtons[1].GetComponent<Text>().text = LocalizationText.GetText(GameData.STR_SELECT);
                 if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)
                 {
                     _HanumanGearInfo.SetAnimController(GearType.GoldArmor);
@@ -87,7 +88,7 @@ public class StoreScreen : MonoBehaviour
             }
             else
             {
-                PurchasedButtons[1].GetComponent<Text>().text = "Select";
+                PurchasedButtons[1].GetComponent<Text>().text = LocalizationText.GetText(GameData.STR_SELECTED);
             }
         }
     }
@@ -99,8 +100,8 @@ public class StoreScreen : MonoBehaviour
             if (ladduCount >= SILVER_HANUMAN_COST)
             {
                 ladduCount -= SILVER_HANUMAN_COST;
-                PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount - SILVER_HANUMAN_COST);
-                PurchasedButtons[0].GetComponent<Text>().text = "Selected";
+                PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
+                PurchasedButtons[0].GetComponent<Text>().text = LocalizationText.GetText(GameData.STR_SELECTED); ;
                 PlayerPrefsStorage.SaveData(GameData.KEY_SILVER_UNLOCKED, 1);
                 PlayerPrefsStorage.SaveData(GameData.KEY_GEAR_TYPE, 1);
                 if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)
@@ -129,8 +130,8 @@ public class StoreScreen : MonoBehaviour
             if (ladduCount >= GOLD_HANUMAN_COST)
             {
                 ladduCount -= GOLD_HANUMAN_COST;
-                PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount - GOLD_HANUMAN_COST);
-                PurchasedButtons[0].GetComponent<Text>().text = "Selected";
+                PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
+                PurchasedButtons[0].GetComponent<Text>().text =LocalizationText.GetText(GameData.STR_SELECTED);
                 PlayerPrefsStorage.SaveData(GameData.KEY_GOLD_UNLOCKED, 1);
                 PlayerPrefsStorage.SaveData(GameData.KEY_GEAR_TYPE, 3);
                 if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)

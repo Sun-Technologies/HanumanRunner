@@ -7,7 +7,7 @@
 		</TextKey>
 		<TextKey name="btnEnglish">
 			<EN>English</EN>
-      <HI>English</HI>
+			<HI>English</HI>
 		</TextKey>
 		<TextKey name="btnHindi">
 			<EN>Hindi</EN>
@@ -109,13 +109,21 @@
 			<EN>I have collected X laddus. Can you beat my score?</EN>
 			<HI>eSaus yM`Mw izkIr djsa gSa! vki eq&gt;ls T;knk izkIr dj lDrs gsSa</HI>
 		</TextKey>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
-		<TextKey/>
+		<TextKey name="btnSelect">
+			<EN>Select</EN>
+			<HI>qpfu,</HI>
+		</TextKey>
+		<TextKey name="btnSelected">
+			<EN>Selected</EN>
+			<HI>qpufy;k</HI>
+		</TextKey>
+		<TextKey name="lblNoLaddu">
+			<EN>You don't have enough laddus to purchase this item.</EN>
+			<HI>vkids ikl iZ;kOir yM`Mw ugh gSa</HI>
+		</TextKey>
+    <TextKey name="lblMessage">
+      <EN>Message</EN>
+      <HI>lwpuk</HI>
+    </TextKey>
 	</Section>
 </Localization>

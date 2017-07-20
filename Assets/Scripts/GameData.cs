@@ -25,8 +25,8 @@ public class GameData : MonoBehaviour
     public const string LANG_ENGLISH                = "EN";
     public const string LANG_HINDI                  = "HI";
 
-    public const string STR_SELECT                  = "Select";
-    public const string STR_SELECTED                = "Selected";
+    public const string STR_SELECT                  = "btnSelect";
+    public const string STR_SELECTED                = "btnSelected";
     public const string STR_BUY_CONFIRMATION        = "Are you sure you want to buy this?";
-    public const string STR_INSUFFICIENT_COINS      = "You don't have enough laddus to purchase this item now";
+    public const string STR_INSUFFICIENT_COINS      = "lblNoLaddu";
 }

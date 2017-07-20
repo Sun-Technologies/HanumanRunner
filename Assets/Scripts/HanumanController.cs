@@ -56,6 +56,8 @@ public class HanumanController : MonoBehaviour
 
     public GameObject gadaButton;
 
+    public int levelType;
+
     private void Awake()
     {
         if (Application.isEditor)
@@ -66,13 +68,25 @@ public class HanumanController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        for (int i = 0; i < ParallaxObjects.Length; i++)
+        {
+            if (i == HanumanGearInfo.levelIndex)
+            {
+                ParallaxObjects[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                ParallaxObjects[i].gameObject.SetActive(false);
+            }
+        }
+        
         ImpactSprite.SetActive(false);
         currentScore = 0;
         enemiesKilled = 0;
         forwardMovementSpeed = 3;
         _hanumanGearInfo = GetComponent<HanumanGearInfo>();
         gadaButton.SetActive(false);
+        levelType = (int)_hanumanGearInfo._levelType;
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0) == 0)
         {
             hasEquippedGada = false;
@@ -122,8 +136,8 @@ public class HanumanController : MonoBehaviour
         DisplayCoinsCount();
 
         UpdateGroundedStatus();
-
-        ParallaxObjects[(int)_hanumanGearInfo._levelType].offsetX = transform.position.x;
+        
+        ParallaxObjects[HanumanGearInfo.levelIndex].offsetX = transform.position.x;
         //parallax.offsetY = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.D))

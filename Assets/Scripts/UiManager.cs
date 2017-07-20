@@ -27,9 +27,8 @@ public class UiManager : MonoBehaviour
     public int TapToPlayCount = 0;
 
     public bool isGamePaused = false;
-
     DateTime SavedDateTime = DateTime.Today;
-
+    public string _DateTimeStr;
     bool isMainMenuScreen = false;
 
     public TextElements _textElements;
@@ -48,6 +47,15 @@ public class UiManager : MonoBehaviour
     public GameObject DailyBonusScreen;
     public GameObject LanguageSelection;
 
+    #endregion
+
+    #region Daily Bonus Screen Items
+    public GameObject DaysButtonHolder;
+    public Text[] DaysButtons;
+    public int days_DailyBonus = 0;
+    public static bool IsTodaysBonusShown = false;
+    public Scrollbar bonusScroll;
+    public GameObject[] LockObjs;
     #endregion
 
 
@@ -74,6 +82,7 @@ public class UiManager : MonoBehaviour
     public Toggle MusicToggle_MainMenu;
     public GameObject PlayButtonObj;
     public GameObject ShareTextObj;
+    public Text laddusAvailable;
 
     #endregion
 
@@ -86,15 +95,6 @@ public class UiManager : MonoBehaviour
 
     #endregion
 
-    #region Daily Bonus Screen Items
-    public GameObject DaysButtonHolder;
-    public Text[] DaysButtons;
-    public int days_DailyBonus = 0;
-    public static bool IsTodaysBonusShown = false;
-    public Scrollbar bonusScroll;
-    public GameObject[] LockObjs;
-    #endregion
-
     #region Language Selection Screen
 
     public Toggle EnglishToggle;
@@ -103,12 +103,13 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
+        //PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
         if (instance == null)
         {
             instance = this;
         }
 
-        Debug.Log("State = " + gameState);
+        //Debug.Log("State = " + gameState);
         SetInit();
         DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
         _textElements = GetComponent<TextElements>();
@@ -118,6 +119,7 @@ public class UiManager : MonoBehaviour
     {
         Debug.Log(SavedDateTime);
         AvGameServices.Init();
+        days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
         //PlayerPrefsStorage.SaveData(LivesKey, 1);
 
         if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME)))
@@ -130,8 +132,10 @@ public class UiManager : MonoBehaviour
             SavedDateTime = DateTime.Parse(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME));
             Debug.Log("Date = " + SavedDateTime);
         }
-        //SavedDateTime = DateTime.Parse("7 / 19 / 2017 12:00:00 AM");    //TODO: remove later
-        if (SavedDateTime < DateTime.Today)//if (SavedDateTime < DateTime.Parse("7 / 20 / 2017 12:00:00 AM"))                //
+        //SavedDateTime = DateTime.Parse("7 / 22 / 2017 12:00:00 AM");    //TODO: remove later
+        if (SavedDateTime < DateTime.Today)
+            //DateTime tempDateTime = DateTime.Parse("7 / 23 / 2017 12:00:00 AM");
+        //if (SavedDateTime < tempDateTime)
         {
             Debug.Log("Date changed. Updating timer.");
             SavedDateTime.AddDays(1);
@@ -173,14 +177,22 @@ public class UiManager : MonoBehaviour
             SwitchGameState(GameState.InGame);
         }
 
-        //if (days_DailyBonus >= 7)
-        //{
-        //    ToggleDailyBonusState(false);
-        //}
-        //else
-        //{
-        //    CheckDailyBonus();
-        //}
+        if (LocalizationText.GetLanguage().Equals(GameData.LANG_ENGLISH))
+        {
+            EnglishToggle.isOn = true;
+        }
+        else
+        {
+            HindiToggle.isOn = true;
+        }
+
+        GetAndDisplayLadddusAvailable();
+    }
+
+    public void GetAndDisplayLadddusAvailable()
+    {
+        int laddus = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
+        laddusAvailable.text = laddus.ToString();
     }
 
     public void OpenDailyBonusScreen(bool flag)
@@ -216,10 +228,10 @@ public class UiManager : MonoBehaviour
         IsTodaysBonusShown = true;
         int ladduCount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
 
-        for (int i = 0; i < LockObjs.Length; i++)
-        {
-            LockObjs[i].SetActive(true);
-        }
+        //for (int i = 0; i < LockObjs.Length; i++)
+        //{
+        //    LockObjs[i].SetActive(true);
+        //}
 
         for (int i = 0; i <= days_DailyBonus; i++)
         {
@@ -231,37 +243,43 @@ public class UiManager : MonoBehaviour
             case 1:
                 ladduCount += 5;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(5);
+                Debug.Log("Day = 1, Rewarding 5 laddus");
                 break;
 
             case 2:
                 ladduCount += 10;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(10);
+                Debug.Log("Day = 2, Rewarding 10 laddus");
                 break;
 
             case 3:
                 ladduCount += 30;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(30);
+                Debug.Log("Day = 3, Rewarding 30 laddus");
                 break;
 
             case 4:
                 ladduCount += 50;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(50);
+                Debug.Log("Day = 4, Rewarding 50 laddus");
                 break;
 
             case 5:
                 ladduCount += 70;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(70);
+                Debug.Log("Day = 5, Rewarding 70 laddus");
                 break;
 
             case 6:
                 ladduCount += 90;
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(90);
+                Debug.Log("Day = 6, Rewarding 90 laddus");
                 break;
 
             case 7:
-
                 _textElements.lbl_RewardsReceived.text = GetDailyBonusText(ladduCount);
                 PlayerPrefsStorage.SaveData(GameData.KEY_GADA_UNLOCKED, 1);
+                Debug.Log("Day = 7, Rewarding Gada");
                 break;
 
             default:
@@ -274,10 +292,6 @@ public class UiManager : MonoBehaviour
 
         PlayerPrefsStorage.SaveData(GameData.KEY_DAYS, days_DailyBonus);
 
-        if (days_DailyBonus == 7)
-        {
-            PlayerPrefsStorage.SaveData(GameData.KEY_GADA_UNLOCKED, 1);
-        }
     }
 
     public void DoLanguageToggle()
@@ -290,7 +304,7 @@ public class UiManager : MonoBehaviour
         else
         {
             LocalizationText.SetLanguage(GameData.LANG_HINDI);
-            PlayerPrefsStorage.SaveData(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH);
+            PlayerPrefsStorage.SaveData(GameData.KEY_LANGUAGE, GameData.LANG_HINDI);
         }
         Debug.Log("Active language = " + LocalizationText.GetLanguage());
         _textElements.UpdateLanguage();
@@ -314,6 +328,7 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
+        _DateTimeStr = SavedDateTime.ToString();
         if (gameState == GameState.MainMenu && Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Application quit!");
@@ -589,6 +604,7 @@ public class UiManager : MonoBehaviour
         {
             MainMenuScreen.SetActive(true);
             gameState = GameState.MainMenu;
+            GetAndDisplayLadddusAvailable();
         }
 
         if (state == GameState.GameOver)
@@ -609,18 +625,6 @@ public class UiManager : MonoBehaviour
         {
             PauseScreen.SetActive(true);
         }
-    }
-
-
-    public void SelectLevel(int num)
-    {
-
-        PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, num - 1);
-        if (num == 2)
-        {
-          
-        }
-        StartGame();
     }
 
     public void CloseLevelSelection()

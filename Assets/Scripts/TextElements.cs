@@ -41,24 +41,42 @@ public class TextElements : MonoBehaviour
     public Text btn_PurchasedSilver;
     public Text btn_PurchasedGold;
     public string txt_FbShareInGame;
+    public Text[] lbl_NoLaddu;
+    public Text[] lbl_Message;
+    public Text[] lbl_Selected;
+
+    void Awake()
+    {
+        UpdateLanguage();
+    }
+
+    private void Start()
+    {
+        
+    }
 
     public void UpdateLanguage()
     {
-        //LocalizationText.SetLanguage(PlayerPrefs.GetString(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH));
-
+        string _lang = (PlayerPrefs.GetString(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH));
+        Debug.Log("Current language = " + _lang);
+        LocalizationText.SetLanguage(_lang);
+        SetDaysText();
         if (LocalizationText.GetLanguage() != _language)
         {
             _language = LocalizationText.GetLanguage();
-            //SetTextsLanguage();
+            
+            Debug.Log("Changed language to " + _language);
         }
-        
-        Debug.Log("Changed language to " + _language);
+
         TextComponents = CanvasRootTransform.GetComponentsInChildren<Text>(true);
         foreach (Text item in TextComponents)
         {
             if (_language == GameData.LANG_ENGLISH)
             {
-                item.font = EnglishFont;
+                if (item.name != "Text")
+                {
+                    item.font = EnglishFont;
+                }
             }
             else if (_language == GameData.LANG_HINDI)
             {
@@ -70,20 +88,17 @@ public class TextElements : MonoBehaviour
 
             SetComponent(item);
         }
+
+        SetTextsLanguage();
     }
 
-    void Awake()
-    {
-        UpdateLanguage();
-        //SetTextsLanguage();
-        SetDaysText();
-    }
+
 
     void SetTextsLanguage()
     {
         lbl_SelectLanguage.text = LocalizationText.GetText("lblSelectLanguage");
         //btn_English.text = LocalizationText.GetText("btnEnglish");
-        btn_Hindi.text = LocalizationText.GetText("btnHindi");
+        //btn_Hindi.text = LocalizationText.GetText("btnHindi");
         btn_TapToFly.text = LocalizationText.GetText("btnTapToFly");
         //lbl_Reward.text = LocalizationText.GetText("lblReward");
         lbl_Paused.text = LocalizationText.GetText("lblPaused");
@@ -108,6 +123,9 @@ public class TextElements : MonoBehaviour
         lbl_FbShareSettings.text = LocalizationText.GetText("lblFbShareSettings");
         btn_PurchasedSilver.text = LocalizationText.GetText("btnPurchased");
         btn_PurchasedGold.text = LocalizationText.GetText("btnPurchased");
+        //btn_Select.text = LocalizationText.GetText("btnSelect");
+        //btn_Selected.text = LocalizationText.GetText("btnSelected");
+        //lbl_NoLaddu.text = LocalizationText.GetText("lblNoLaddu");
         //txt_FbShareInGame = LocalizationText.GetText("txtFbShare");
     }
 
@@ -117,94 +135,203 @@ public class TextElements : MonoBehaviour
         {
             UiManager.instance.DaysButtons[i].text = string.Format("{0} {1}", LocalizationText.GetText("btnDay"), i);
         }
+
+        for (int i = 0; i < lbl_NoLaddu.Length; i++)
+        {
+            lbl_NoLaddu[i].text = LocalizationText.GetText("lblNoLaddu");
+        }
+
+        for (int i = 0; i < lbl_Message.Length; i++)
+        {
+            lbl_Message[i].text = LocalizationText.GetText("lblMessage");
+        }
+
+        for (int i = 0; i < lbl_Selected.Length; i++)
+        {
+            //lbl_Selected[i].text = LocalizationText.GetText("lblSelected");
+        }
     }
 
     private void SetComponent(Text item)
     {
-        SetDaysText();
-
         if (item.name == "lbl_SelectLanguage")
+        {
             lbl_SelectLanguage = item;
+            return;
+        }
 
         if (item.name == "btn_English")
+        {
             btn_English = item;
+            return;
+        }
 
         if (item.name == "btn_Hindi")
+        {
             btn_Hindi = item;
+            return;
+        }
 
         if (item.name == "btn_TapToFly")
+        {
             btn_TapToFly = item;
+            return;
+        }
 
         if (item.name == "lbl_Reward")
+        {
             lbl_Reward = item;
+            return;
+        }
 
         if (item.name == "lbl_Paused")
+        {
             lbl_Paused = item;
+            return;
+        }
 
         if (item.name == "lbl_Score")
+        {
             lbl_Score = item;
+            return;
+        }
 
         if (item.name == "lbl_HighScore")
+        {
             lbl_HighScore = item;
+            return;
+        }
 
         if (item.name == "lbl_NewBest")
+        {
             lbl_NewBest = item;
+            return;
+        }
 
         if (item.name == "lbl_ScoreShareGameOver")
+        {
             lbl_Sharegame = item;
+            return;
+        }
 
         if (item.name == "lbl_Settings")
+        {
             lbl_Settings = item;
+            return;
+        }
 
         if (item.name == "lbl_DailyBonus")
+        {
             lbl_DailyBonus = item;
+            return;
+        }
 
         if (item.name == "lbl_RewardsHeader")
+        {
             lbl_RewardsHeader = item;
+            return;
+        }
 
         if (item.name == "lbl_RewardsDescription")
+        {
             lbl_RewardsDescription = item;
+            return;
+        }
 
         if (item.name == "lbl_RewardsReceived")
+        {
             lbl_RewardsReceived = item;
+            return;
+        }
 
         if (item.name == "btn_Day")
+        {
             btn_Day = item;
+            return;
+        }
 
         if (item.name == "lbl_Levels")
+        {
             lbl_Levels = item;
+            return;
+        }
 
         if (item.name == "btn_Forest")
+        {
             btn_Forest = item;
+            return;
+        }
 
         if (item.name == "btn_Snow")
+        {
             btn_Snow = item;
+            return;
+        }
 
         if (item.name == "btn_Lava")
+        {
             btn_Lava = item;
+            return;
+        }
 
         if (item.name == "lbl_Store")
+        {
             lbl_Store = item;
+            return;
+        }
 
         if (item.name == "btn_GoldArmor")
+        {
             btn_GoldArmor = item;
+            return;
+        }
 
         if (item.name == "btn_SilverArmor")
+        {
             btn_SilverArmor = item;
+            return;
+        }
 
         if (item.name == "btn_NoArmor")
+        {
             btn_NoArmor = item;
+            return;
+        }
 
         if (item.name == "lbl_FbShareGameOver")
+        {
             lbl_FbShareGameOver = item;
+            return;
+        }
 
         if (item.name == "lbl_FbShareSettings")
+        {
             lbl_FbShareSettings = item;
+            return;
+        }
 
         if (item.name == "btn_PurchasedSilver")
+        {
             btn_PurchasedSilver = item;
+            return;
+        }
 
         if (item.name == "btn_PurchasedGold")
+        {
             btn_PurchasedGold = item;
+            return;
+        }
+
+        //if (item.name == "btn_Selected")
+        //{
+        //    btn_Selected[1] = item;
+        //    return;
+        //}
+
+        //if (item.name == "lbl_NoLaddu")
+        //{
+        //    lbl_NoLaddu = item;
+        //    return;
+        //}
     }
 }

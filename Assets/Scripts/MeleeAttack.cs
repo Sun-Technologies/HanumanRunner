@@ -8,7 +8,6 @@ public class MeleeAttack : MonoBehaviour
     AnimatorStateInfo animStateInfo;
     void Start()
     {
-        Debug.Log("Layer count = " + _hanumanAnimator.layerCount);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -17,19 +16,13 @@ public class MeleeAttack : MonoBehaviour
         {
             Debug.Log("Hit Enemy.");
             animStateInfo = _hanumanAnimator.GetCurrentAnimatorStateInfo(0);
-            Debug.Log("Current state tag = " + animStateInfo.tagHash);
-            if (animStateInfo.IsName("run"))
-            {
-                Debug.Break();
-            } 
-            if (animStateInfo.IsTag("Attack"))
+        
+            if (AttackBehaviour.inRunAttackState)
             {
                 collider.gameObject.GetComponent<SpawnsAction>().KillEnemy();
             }
-            //if (GetComponentInParent<HanumanController>().CanKillEnemies)
-            //{
-                
-            //}
+
+            AttackBehaviour.inRunAttackState = false;
         }
     }
 }

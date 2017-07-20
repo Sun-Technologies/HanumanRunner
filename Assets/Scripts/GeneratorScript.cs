@@ -131,7 +131,14 @@ public class GeneratorScript : MonoBehaviour
         }
         else
         {
-            randomIndex = Random.Range(0, availableObjects.Length);
+            if (HanumanGearInfo.levelIndex >= 1)    //temp hack to not span gada in default character
+            {
+                randomIndex = Random.Range(0, availableObjects.Length);
+            }
+            else
+            {
+                randomIndex = Random.Range(0, availableObjects.Length - 1);
+            }
         }
 
         //2
