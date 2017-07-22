@@ -23,7 +23,7 @@ public class HanumanGearInfo : MonoBehaviour
 {
     public string currentHanumanGear = string.Empty;
     public bool gadaUnlocked = false;
-    public GearType _gearType;
+    public static GearType _gearType = GearType.Default;
     public LevelType _levelType;
     public HanumanController _HanumanController;
     public Animator HanumanAnimator;
@@ -58,6 +58,7 @@ public class HanumanGearInfo : MonoBehaviour
     public void SetAnimController(GearType gearType)
     {
         Debug.Log("Gear type = " + gearType);
+        _gearType = gearType;
         HanumanAnimator.runtimeAnimatorController = AnimControllersList[(int)gearType];
     }
 }   

@@ -19,8 +19,8 @@ public class BirdsAnimation : MonoBehaviour
 
     void DoVerticalAnimation(Transform obj)
     {
-        Vector3 minPos = new Vector3(obj.position.x, objectsMinY, 11);
-        Vector3 maxPos = new Vector3(obj.position.x, objectsMaxY, 11);
+        Vector3 minPos = new Vector3(obj.position.x, objectsMinY, 41);
+        Vector3 maxPos = new Vector3(obj.position.x, objectsMaxY, 41);
         obj.transform.position = Vector3.Lerp(minPos, maxPos,
                                                    Mathf.SmoothStep(0f, 1f,
                                                    Mathf.PingPong(Time.time / secondsForOneLength, 1f)

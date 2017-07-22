@@ -110,7 +110,7 @@ public class TextElements : MonoBehaviour
         lbl_DailyBonus.text = LocalizationText.GetText("lblDailyBonus");
         lbl_RewardsHeader.text = LocalizationText.GetText("lblRewardsHeader");
         lbl_RewardsDescription.text = LocalizationText.GetText("lblRewardsDescription");
-        lbl_RewardsReceived.text = LocalizationText.GetText("lblRewardsReceived");
+        //lbl_RewardsReceived.text = LocalizationText.GetText("lblRewardsReceived");
         lbl_Levels.text = LocalizationText.GetText("lblLevels");
         btn_Forest.text = LocalizationText.GetText("btnForest");
         btn_Snow.text = LocalizationText.GetText("btnSnow");
@@ -133,7 +133,7 @@ public class TextElements : MonoBehaviour
     {
         for (int i = 0; i < UiManager.instance.DaysButtons.Length; i++)
         {
-            UiManager.instance.DaysButtons[i].text = string.Format("{0} {1}", LocalizationText.GetText("btnDay"), i);
+            UiManager.instance.DaysButtons[i].text = string.Format("{0} {1}", LocalizationText.GetText("btnDay"), i+1);
         }
 
         for (int i = 0; i < lbl_NoLaddu.Length; i++)

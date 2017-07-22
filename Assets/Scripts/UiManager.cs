@@ -109,7 +109,6 @@ public class UiManager : MonoBehaviour
             instance = this;
         }
 
-        //Debug.Log("State = " + gameState);
         SetInit();
         DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
         _textElements = GetComponent<TextElements>();
@@ -120,7 +119,6 @@ public class UiManager : MonoBehaviour
         Debug.Log(SavedDateTime);
         AvGameServices.Init();
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
-        //PlayerPrefsStorage.SaveData(LivesKey, 1);
 
         if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME)))
         {
@@ -133,9 +131,9 @@ public class UiManager : MonoBehaviour
             Debug.Log("Date = " + SavedDateTime);
         }
         //SavedDateTime = DateTime.Parse("7 / 22 / 2017 12:00:00 AM");    //TODO: remove later
+        //if (SavedDateTime < DateTime.Today)
+        //DateTime tempDateTime = DateTime.Parse("7 / 23 / 2017 12:00:00 AM");
         if (SavedDateTime < DateTime.Today)
-            //DateTime tempDateTime = DateTime.Parse("7 / 23 / 2017 12:00:00 AM");
-        //if (SavedDateTime < tempDateTime)
         {
             Debug.Log("Date changed. Updating timer.");
             SavedDateTime.AddDays(1);
@@ -146,13 +144,13 @@ public class UiManager : MonoBehaviour
             if (days_DailyBonus <= 7)
             {
                 ToggleDailyBonusState(IsTodaysBonusShown);
-                if (days_DailyBonus <= 1)
+                if (days_DailyBonus <= 4)
                 {
                     bonusScroll.value = 0;
                 }
-                else if (days_DailyBonus > 1 && days_DailyBonus < 4)
+                else if (days_DailyBonus > 4 && days_DailyBonus <= 7)
                 {
-                    bonusScroll.value = 0.66f;
+                    bonusScroll.value = 1;
                 }
                 else
                 {
@@ -212,14 +210,26 @@ public class UiManager : MonoBehaviour
     string GetDailyBonusText(int ladduCount)
     {
         string str = string.Empty;
-        if (days_DailyBonus < 7)
+        if (days_DailyBonus <= 6)
         {
-            str = string.Format("You have received {0} laddus", ladduCount);
+            str = ReplaceXwithValue(LocalizationText.GetText(GameData.STR_REWARDS_RECEIVED), ladduCount);
         }
         else
         {
-            str = "You have unlocked Gada!";
+            str = LocalizationText.GetText(GameData.STR_GADA_UNLOCKED);
         }
+        return str;
+    }
+
+    string ReplaceXwithValue(string stringToReplace, int valueToInsert)
+    {
+        string str = string.Empty;
+
+        if (!string.IsNullOrEmpty(stringToReplace))
+        {
+            str = stringToReplace.Replace("x", valueToInsert.ToString());
+        }
+
         return str;
     }
 
@@ -233,9 +243,10 @@ public class UiManager : MonoBehaviour
         //    LockObjs[i].SetActive(true);
         //}
 
-        for (int i = 0; i <= days_DailyBonus; i++)
+        for (int i = 1; i <= days_DailyBonus; i++)
         {
-            LockObjs[i].SetActive(false);
+            Debug.Log("day num = " + days_DailyBonus);
+            LockObjs[i - 1].SetActive(false);
         }
 
         switch (days_DailyBonus)

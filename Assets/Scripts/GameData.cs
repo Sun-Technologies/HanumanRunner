@@ -28,5 +28,7 @@ public class GameData : MonoBehaviour
     public const string STR_SELECT                  = "btnSelect";
     public const string STR_SELECTED                = "btnSelected";
     public const string STR_BUY_CONFIRMATION        = "Are you sure you want to buy this?";
-    public const string STR_INSUFFICIENT_COINS      = "lblNoLaddu";
+    public const string STR_INSUFFICIENT_COINS      = "lblNoLaddu"; 
+    public const string STR_GADA_UNLOCKED           = "lblGadaUnlocked";
+    public const string STR_REWARDS_RECEIVED        = "lblRewardsReceived";
 }

@@ -58,8 +58,8 @@
 			<HI>vf/kdRe cksul izkIr djus ds fy, lkr fnu yxkrkj [ksysa</HI>
 		</TextKey>
 		<TextKey name="lblRewardsReceived">
-			<EN>You have received 5 laddus.</EN>
-			<HI>vkius yM`Mw izkIr fd, gSa</HI>
+			<EN>You have received x laddus.</EN>
+			<HI>vkius x yM`Mw izkIr fd, gSa</HI>
 		</TextKey>
 		<TextKey name="btnDay">
 			<EN>Day</EN>
@@ -123,6 +123,10 @@
 		</TextKey>
     <TextKey name="lblMessage">
       <EN>Message</EN>
+      <HI>lwpuk</HI>
+    </TextKey>
+    <TextKey name="lblGadaUnlocked">
+      <EN>You have unlocked Gada!</EN>
       <HI>lwpuk</HI>
     </TextKey>
 	</Section>

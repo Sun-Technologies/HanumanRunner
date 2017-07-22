@@ -125,9 +125,9 @@ public class GeneratorScript : MonoBehaviour
     void AddObject(float lastObjectX)
     {
         int randomIndex;
-        if (GetComponent<HanumanController>().hasEquippedGada || GetComponent<HanumanController>().isTempGadaOn )  //Temp hack to spawn gada only when it's not equipped
+        if (GetComponent<HanumanController>().hasEquippedGada || GetComponent<HanumanController>().isTempGadaOn)  //Temp hack to spawn gada only when it's not equipped
         {
-            randomIndex = Random.Range(0, availableObjects.Length-1);
+            randomIndex = Random.Range(0, availableObjects.Length - 1);
         }
         else
         {
@@ -160,9 +160,14 @@ public class GeneratorScript : MonoBehaviour
             obj.transform.position = new Vector3(objectPositionX, -1.3f, 0);
         }
 
-        if (obj.name.Equals("Rakshas_Ground(Clone)") || obj.name.Equals("Demon_Ground(Clone)") || obj.name.Equals("Boulder(Clone)") || obj.name.Equals("Snake(Clone)") || obj.name.Equals("LavaPatch(Clone)"))
+        if (obj.name.Equals("Rakshas_Ground(Clone)") || obj.name.Equals("Boulder(Clone)") || obj.name.Equals("Snake(Clone)") || obj.name.Equals("LavaPatch(Clone)"))
         {
             obj.transform.position = new Vector3(objectPositionX, -1.96f, 0);
+        }
+
+        if (obj.name.Equals("Demon_Ground(Clone)"))
+        {
+            obj.transform.position = new Vector3(objectPositionX, -1.35f, 0);
         }
 
         if (obj.name.Equals("LavaPatch(Clone)"))

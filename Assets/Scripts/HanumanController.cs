@@ -58,6 +58,8 @@ public class HanumanController : MonoBehaviour
 
     public int levelType;
 
+
+
     private void Awake()
     {
         if (Application.isEditor)
@@ -99,7 +101,8 @@ public class HanumanController : MonoBehaviour
         CanKillEnemies = hasEquippedGada;
 
         CheckForKillingAbility();
-        Debug.Log("Gear type = " + _hanumanGearInfo._gearType);
+        Debug.Log("Gear type = " + HanumanGearInfo._gearType);
+        _hanumanGearInfo.SetAnimController(HanumanGearInfo._gearType);
     }
 
     void FixedUpdate()
@@ -144,8 +147,14 @@ public class HanumanController : MonoBehaviour
         {
             PlayerPrefsStorage.ClearLocalStorageData(true);
         }
-
-        gadaButton.SetActive(CanKillEnemies);
+        if (HanumanGearInfo._gearType == GearType.Default)
+        {
+            gadaButton.SetActive(false);
+        }
+        else
+        {
+            gadaButton.SetActive(CanKillEnemies);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -182,6 +191,7 @@ public class HanumanController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log("Hit by collider: " + collider.gameObject.name);
         if (collider.gameObject.CompareTag("Coins"))
         {
             StartCoroutine(CollectCoin(collider));
@@ -192,7 +202,15 @@ public class HanumanController : MonoBehaviour
         }
         else
         {
-            HitByObstacle(collider);
+            if (collider.gameObject.name != "GadaCollider")
+            {
+                HitByObstacle(collider);
+            }
+            else
+            {
+                Debug.Log("Hit by gada collider. Dafuq brah?");
+                Debug.Break();
+            }
         }
 
         if (collider.gameObject.name.Contains("Fireball"))
@@ -269,13 +287,13 @@ public class HanumanController : MonoBehaviour
 
     void CheckForKillingAbility()
     {
-        Debug.Log("Gear type = " + _hanumanGearInfo._gearType);
+        Debug.Log("Gear type = " + HanumanGearInfo._gearType);
         if (hasEquippedGada)
         {
             CanKillEnemies = true;
             return;
         }
-        switch (_hanumanGearInfo._gearType)
+        switch (HanumanGearInfo._gearType)
         {
             case GearType.Default:
                 Debug.Log("No armor available, can't do shit with Gada brah");

@@ -78,11 +78,6 @@ public class SpawnsAction : MonoBehaviour
     void ToggleStunObject(bool value)
     {
         Transform _stunTransform = transform.Find("Impact");
-        SpriteRenderer StunObj = GetComponentInChildren<SpriteRenderer>();
-        //if (StunObj != null)
-        //{
-        //    StunObj.enabled = value;
-        //}
 
         if (_stunTransform != null)
         {
