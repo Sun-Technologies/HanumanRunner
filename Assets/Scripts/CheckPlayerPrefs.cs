@@ -27,18 +27,18 @@ public class CheckPlayerPrefs : MonoBehaviour
 
     void GetPrefs()
     {
-        KEY_LEVEL_TYPE = PlayerPrefs.GetInt(GameData.KEY_LEVEL_TYPE, 0);
-        KEY_GEAR_TYPE = PlayerPrefs.GetInt(GameData.KEY_GEAR_TYPE, 0);
-        KEY_LANGUAGE = PlayerPrefs.GetString(GameData.KEY_LANGUAGE);
-        KEY_HIGHSCORE = PlayerPrefs.GetInt(GameData.KEY_HIGHSCORE, 0);
-        KEY_DATETIME = PlayerPrefs.GetString(GameData.KEY_DATETIME, "");
-        KEY_ENEMY_KILLS = PlayerPrefs.GetInt(GameData.KEY_ENEMY_KILLS, 0);
-        KEY_DAYS = PlayerPrefs.GetInt(GameData.KEY_DAYS, 0);
-        KEY_LADDUS_COLLECTED_COUNT = PlayerPrefs.GetInt(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
-        KEY_MAPS_UNLOCKED = PlayerPrefs.GetInt(GameData.KEY_MAPS_UNLOCKED, 0);
-        KEY_SILVER_UNLOCKED = PlayerPrefs.GetInt(GameData.KEY_SILVER_UNLOCKED, 0);
-        KEY_GOLD_UNLOCKED = PlayerPrefs.GetInt(GameData.KEY_GOLD_UNLOCKED, 0);
-        KEY_GADA_UNLOCKED = PlayerPrefs.GetInt(GameData.KEY_GADA_UNLOCKED, 0);
+        KEY_LEVEL_TYPE = PlayerPrefsStorage.GetIntData(GameData.KEY_LEVEL_TYPE, 0);
+        KEY_GEAR_TYPE = PlayerPrefsStorage.GetIntData(GameData.KEY_GEAR_TYPE, 0);
+        KEY_LANGUAGE = PlayerPrefsStorage.GetStringData(GameData.KEY_LANGUAGE);
+        KEY_HIGHSCORE = PlayerPrefsStorage.GetIntData(GameData.KEY_HIGHSCORE, 0);
+        KEY_DATETIME = PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME);
+        KEY_ENEMY_KILLS = PlayerPrefsStorage.GetIntData(GameData.KEY_ENEMY_KILLS, 0);
+        KEY_DAYS = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
+        KEY_LADDUS_COLLECTED_COUNT = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
+        KEY_MAPS_UNLOCKED = PlayerPrefsStorage.GetIntData(GameData.KEY_MAPS_UNLOCKED, 0);
+        KEY_SILVER_UNLOCKED = PlayerPrefsStorage.GetIntData(GameData.KEY_SILVER_UNLOCKED, 0);
+        KEY_GOLD_UNLOCKED = PlayerPrefsStorage.GetIntData(GameData.KEY_GOLD_UNLOCKED, 0);
+        KEY_GADA_UNLOCKED = PlayerPrefsStorage.GetIntData(GameData.KEY_GADA_UNLOCKED, 0);
     }
 
     void Update()

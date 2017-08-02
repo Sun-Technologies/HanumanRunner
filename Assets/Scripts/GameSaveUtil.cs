@@ -1,4 +1,4 @@
-﻿//#define USE_CLOUD_SAVE
+﻿#define USE_CLOUD_SAVE
 
 using UnityEngine;
 using System.Collections;
@@ -10,58 +10,79 @@ using System.IO;
 public class GameSaveUtil
 {
 	private const string META_DATA_KEY = "TOTAL_PLAY_TIME";
-	private static Dictionary<string, object> mDataDictionary = new Dictionary<string, object>();
+    private static string SaveFolderPath = Application.persistentDataPath + "/gamedata";
+	private static Hashtable mDataHashtable = new Hashtable();
 
-	public static void SetValue(string key, object value)
+    public static void SetValue(string key, object value)
 	{
-		if(mDataDictionary.ContainsKey(key))
-			mDataDictionary[key] = value;
+		if(mDataHashtable.ContainsKey(key))
+			mDataHashtable[key] = value;
 		else
-			mDataDictionary.Add(key, value);
+			mDataHashtable.Add(key, value);
 	}
 
-	public static void SetValueAndSave(string key, object value)
+	public static void SetValueAndSave(string id, string key, object value)
 	{
 		SetValue(key, value);
-		Save();
+		Save(id);
 	}
 
 	public static object GetValue(string key)
 	{
-		if(mDataDictionary.ContainsKey(key))
-			return mDataDictionary[key];
+		if(mDataHashtable.ContainsKey(key))
+			return mDataHashtable[key];
 
 		return null;
 	}
 
-	public static void Save()
+	public static void Save(string id)
 	{
-		if(mDataDictionary.ContainsKey(META_DATA_KEY))
+        if (string.IsNullOrEmpty(id))
+        {
+            id = "offline";
+        }
+		if(mDataHashtable.ContainsKey(META_DATA_KEY))
 		{
-			float totalPlayTime = (float)mDataDictionary[META_DATA_KEY];
+			float totalPlayTime = (float)mDataHashtable[META_DATA_KEY];
 			totalPlayTime += Time.realtimeSinceStartup;
-			mDataDictionary[META_DATA_KEY] = totalPlayTime;
+			mDataHashtable[META_DATA_KEY] = totalPlayTime;
 		}
 		else
-			mDataDictionary.Add(META_DATA_KEY, Time.realtimeSinceStartup);
+			mDataHashtable.Add(META_DATA_KEY, Time.realtimeSinceStartup);
 
 		BinaryFormatter bf = new BinaryFormatter();
-		string filePath = Application.persistentDataPath + "/gamedata.dat";
-		FileStream file = File.Open(filePath, FileMode.OpenOrCreate);
-		bf.Serialize(file, mDataDictionary);
-		file.Close();
+        if (!Directory.Exists(SaveFolderPath))
+        {
+            Directory.CreateDirectory(SaveFolderPath);
+        }
+        string filePath = SaveFolderPath + "/" + id + ".dat";
+        Debug.Log("Filepath: " + filePath);
+        FileStream file = File.Open(filePath, FileMode.OpenOrCreate);
+        try
+        {
+            bf.Serialize(file, mDataHashtable);
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("Sad dude :( " + ex.Message);
+        }
+        file.Close();
 
 #if USE_CLOUD_SAVE
 		MemoryStream stream = new MemoryStream();
-		bf.Serialize(stream, mDataDictionary);
+		bf.Serialize(stream, mDataHashtable);
 		AvGameServices.SaveData(stream.ToArray());
 #endif
-	}
+    }
 
-	public static void Load()
+	public static void Load(string id)
 	{
-		Dictionary<string, object> cloudSave = null;
-		Dictionary<string, object> localSave = null;
+        if (string.IsNullOrEmpty(id))
+        {
+            id = "offline";
+        }
+        Hashtable cloudSave = null;
+		Hashtable localSave = null;
 		BinaryFormatter bf = new BinaryFormatter();
 #if USE_CLOUD_SAVE
 		byte[] savedData = AvGameServices.GetSavedData();
@@ -70,23 +91,30 @@ public class GameSaveUtil
 			MemoryStream stream = new MemoryStream();
 			stream.Write(savedData, 0, savedData.Length);
 			stream.Seek(0, SeekOrigin.Begin);
-			cloudSave = (Dictionary<string, object>)bf.Deserialize(stream);
+			cloudSave = (Hashtable)bf.Deserialize(stream);
 		}
 #endif
-		string filePath = Application.persistentDataPath + "/gamedata.dat";
-		if(System.IO.File.Exists(filePath))
-		{
-			FileStream file = File.Open(filePath, FileMode.Open);
-			localSave = (Dictionary<string, object>)bf.Deserialize(file);
-			file.Close();
-		}
+        if (!Directory.Exists(SaveFolderPath))
+        {
+            Directory.CreateDirectory(SaveFolderPath);
+        }
+		string filePath = SaveFolderPath + "/" + id + ".dat";
 
-		mDataDictionary = ResolveConflict(cloudSave, localSave);
-	}
+        Debug.Log("____Filepath = " + filePath);
+        if (System.IO.File.Exists(filePath))
+        {
+            FileStream file = File.Open(filePath, FileMode.Open);
+            localSave = (Hashtable)bf.Deserialize(file);
 
-	private static Dictionary<string, object> ResolveConflict(Dictionary<string, object> cloudSave, Dictionary<string, object> localSave)
+            file.Close();
+        }
+
+        mDataHashtable = ResolveConflict(cloudSave, localSave);
+    }
+    
+	private static Hashtable ResolveConflict(Hashtable cloudSave, Hashtable localSave)
 	{
-		Dictionary<string, object> resolvedSaveData = null;
+        Hashtable resolvedSaveData = null;
 
 		float cloudSavePlayTime = 0;
 		if(cloudSave != null && cloudSave.ContainsKey(META_DATA_KEY))
@@ -101,16 +129,16 @@ public class GameSaveUtil
 
 		if (resolvedSaveData == null)
 		{
-			resolvedSaveData = new Dictionary<string, object> ();
+			resolvedSaveData = new Hashtable ();
 
-			AvDebug.Log ("No save found");
+			Debug.Log ("No save found");
 		}
 		else
 		{
 			if (resolvedSaveData == localSave)
-				AvDebug.Log ("Using local save");
+				Debug.Log ("Using local save");
 			else
-				AvDebug.Log ("Using cloud save");
+				Debug.Log ("Using cloud save");
 		}
 #endif
 		return resolvedSaveData;

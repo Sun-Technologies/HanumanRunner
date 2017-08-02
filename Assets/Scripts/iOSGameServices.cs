@@ -2,12 +2,14 @@
 using UnityEngine.SocialPlatforms;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_IOS
 using UnityEngine.SocialPlatforms.GameCenter;
+#endif
 
 public class iOSGameServices
 {
 #region Variables
-    private const string				LEADERBOARD_ID = "Jallikattu_Leaderboard";
+    private const string				LEADERBOARD_ID = "Hanuman_Leaderboard";
 #if ENABLE_CLOUD_SAVE
 	private const string				ICLOUD_SAVEDATA_KEY = "iCloud_Save_Data";
 #endif
@@ -30,7 +32,9 @@ public class iOSGameServices
 		mCallback = callback;
     	mAchievementsList = new List<IAchievement>();
         Login();
-		GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+#if UNITY_IOS
+        GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+#endif
     }
 
     private static void Login()

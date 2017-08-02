@@ -17,7 +17,7 @@ public class GooglePlayServices
     private static InitCompleteCallback	mCallback;
 
 #if ENABLE_CLOUD_SAVE
-	private const string				SAVE_FILE_NAME = "Jallikattu_SaveGame";
+	private const string				SAVE_FILE_NAME = "Hanuman_SaveGame";
     private static ISavedGameMetadata	mSavedGameMetadata;
     private static byte[]				mSavedGameData;
 #endif

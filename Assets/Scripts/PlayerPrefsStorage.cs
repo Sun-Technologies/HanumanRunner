@@ -3,69 +3,31 @@ using System;
 
 public class PlayerPrefsStorage : MonoBehaviour
 {
+    public static string UserId = string.Empty;
     public static string GetStringData(string key)
     {
-        if (PlayerPrefs.HasKey(key))
+        //return PlayerPrefs.GetString(key);
+        string str = string.Empty;
+        try
         {
-            return PlayerPrefs.GetString(key);
+            str = GameSaveUtil.GetValue(key).ToString();
         }
-        else
+        catch (Exception ex)
         {
-            StorageLog(string.Format("THE QUERIED KEY {0} DOES NOT EXIST!", key));
-            return null;
+            Debug.Log("Exception: " + ex.Message);
         }
+        return str;
     }
 
     public static int GetIntData(string key, int defaultValue)
     {
-        if (PlayerPrefs.HasKey(key))
-        {
-            return PlayerPrefs.GetInt(key, defaultValue);
-        }
-        else
-        {
-            StorageLog(string.Format("THE QUERIED KEY {0} DOES NOT EXIST!", key));
-            return 0;
-        }
+        //return PlayerPrefs.GetInt(key, defaultValue);
+        return Convert.ToInt32(GameSaveUtil.GetValue(key));
     }
 
-    public static void SaveData(string key, string data)
+    public static void SaveData(string key, object data)
     {
-        try
-        {
-            PlayerPrefs.SetString(key, data);
-            PlayerPrefs.Save();
-        }
-        catch (Exception ex)
-        {
-            StorageLog(ex.Message);
-        }
-    }
-
-    public static void SaveData(string key, int data)
-    {
-        try
-        {
-            PlayerPrefs.SetInt(key, data);
-            PlayerPrefs.Save();
-        }
-        catch (Exception ex)
-        {
-            StorageLog(ex.Message);
-        }
-    }
-
-    public static void SaveData(string key, float data)
-    {
-        try
-        {
-            PlayerPrefs.SetFloat(key, data);
-            PlayerPrefs.Save();
-        }
-        catch (Exception ex)
-        {
-            StorageLog(ex.Message);
-        }
+        GameSaveUtil.SetValueAndSave(UserId, key, data);
     }
 
     public static void ClearLocalStorageData(bool ClearAllData)

@@ -44,21 +44,21 @@ public class TextElements : MonoBehaviour
     public Text[] lbl_NoLaddu;
     public Text[] lbl_Message;
     public Text[] lbl_Selected;
+    public Text[] btn_Ok;
 
     void Awake()
     {
         UpdateLanguage();
     }
 
-    private void Start()
-    {
-        
-    }
-
     public void UpdateLanguage()
     {
-        string _lang = (PlayerPrefs.GetString(GameData.KEY_LANGUAGE, GameData.LANG_ENGLISH));
+        string _lang = (PlayerPrefsStorage.GetStringData(GameData.KEY_LANGUAGE));
         Debug.Log("Current language = " + _lang);
+        if (string.IsNullOrEmpty(_lang))
+        {
+            _lang = LocalizationText.GetLanguage();
+        }
         LocalizationText.SetLanguage(_lang);
         SetDaysText();
         if (LocalizationText.GetLanguage() != _language)
@@ -91,8 +91,6 @@ public class TextElements : MonoBehaviour
 
         SetTextsLanguage();
     }
-
-
 
     void SetTextsLanguage()
     {
@@ -148,7 +146,12 @@ public class TextElements : MonoBehaviour
 
         for (int i = 0; i < lbl_Selected.Length; i++)
         {
-            //lbl_Selected[i].text = LocalizationText.GetText("lblSelected");
+            lbl_Selected[i].text = LocalizationText.GetText("lblSelected");
+        }
+
+        for (int i = 0; i < btn_Ok.Length; i++)
+        {
+            btn_Ok[i].text = LocalizationText.GetText("btnOk");
         }
     }
 

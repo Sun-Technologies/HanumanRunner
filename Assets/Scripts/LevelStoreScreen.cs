@@ -37,33 +37,21 @@ public class LevelStoreScreen : MonoBehaviour
         ladduCount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
     }
 
-    void SelectButton(int index)
+    void SelectButtonText()
     {
         string str = LocalizationText.GetText(GameData.STR_SELECT);
         for (int i = 0; i < PurchasedButtons.Length; i++)
         {
             PurchasedButtons[i].transform.GetComponentInChildren<Text>().text = str;
-            //if (i == index)
-            //{
-            //    PurchasedButtons[i].transform.GetComponentInChildren<Text>().text = LocalizationText.GetText(GameData.STR_SELECTED);
-            //}
-            //else
-            //{
-            //    PurchasedButtons[i].transform.GetComponentInChildren<Text>().text = LocalizationText.GetText(GameData.STR_SELECT);
-            //}
         }
     }
 
-    void SetButtonsContent()
+    public void SetButtonsContent()
     {
+        SelectButtonText();
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAPS_UNLOCKED, 0) == 0)
         {
-            CostButtons[0].SetActive(true);
-            PurchasedButtons[0].SetActive(false);
-            if (savedLevelsType == 2)
-            {
-                SelectButton(0);
-            }
+            PurchasedButtons[0].SetActive(true);
         }
 
 
@@ -76,11 +64,6 @@ public class LevelStoreScreen : MonoBehaviour
         {
             CostButtons[1].SetActive(false);
             PurchasedButtons[1].SetActive(true);
-
-            if (savedLevelsType == 2)
-            {
-                SelectButton(1);
-            }
         }
 
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_LAVA_UNLOCKED, 0) == 0)  //Lava
@@ -92,12 +75,6 @@ public class LevelStoreScreen : MonoBehaviour
         {
             CostButtons[2].SetActive(false);
             PurchasedButtons[2].SetActive(true);
-
-            if (savedLevelsType == 3)
-            {
-                SelectButton(2);
-
-            }
         }
     }
 

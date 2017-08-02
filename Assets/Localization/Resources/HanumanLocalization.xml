@@ -127,7 +127,11 @@
     </TextKey>
     <TextKey name="lblGadaUnlocked">
       <EN>You have unlocked Gada!</EN>
-      <HI>lwpuk</HI>
+      <HI>vkidks xnk izIr gqvk gS</HI>
+    </TextKey>
+  <TextKey name="btnOk">
+      <EN>Ok</EN>
+      <HI>vkSdkS</HI>
     </TextKey>
 	</Section>
 </Localization>

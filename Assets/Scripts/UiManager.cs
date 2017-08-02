@@ -9,9 +9,10 @@ using UnityEngine.Analytics;
 using UnityEngine.Advertisements;
 #endif
 
-public enum GameState { MainMenu, InGame, GameOver, Pause, Info };
+public enum GameState { MainMenu, InGame, GameOver, Pause, Info, Settings, Store };
 public class UiManager : MonoBehaviour
 {
+    public bool UnlimitedCoins = false;
     public static UiManager instance = null;
     public static GameState gameState = GameState.MainMenu;
 
@@ -103,7 +104,15 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-        //PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
+#if UNITY_EDITOR
+        GameSaveUtil.Load("");
+#endif
+        if (UnlimitedCoins)
+        {
+            //PlayerPrefs.DeleteAll();
+            PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
+        }
+
         if (instance == null)
         {
             instance = this;
@@ -117,12 +126,28 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         Debug.Log(SavedDateTime);
+
+
+
         AvGameServices.Init();
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
 
+        //string _dateTime = string.Empty;
+        //try
+        //{
+        //    _dateTime = PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME);
+        //}
+        //catch (Exception ex)
+        //{
+        //    Debug.Log("Sad dude: " + ex.Message);
+        //    PlayerPrefsStorage.SaveData(GameData.KEY_DATETIME, SavedDateTime);
+        //    ToggleDailyBonusState(true);
+        //}
+
         if (string.IsNullOrEmpty(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME)))
         {
-            PlayerPrefsStorage.SaveData(GameData.KEY_DATETIME, SavedDateTime.ToString());
+            //PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
+            PlayerPrefsStorage.SaveData(GameData.KEY_DATETIME, SavedDateTime);
             ToggleDailyBonusState(true);
         }
         else
@@ -130,7 +155,7 @@ public class UiManager : MonoBehaviour
             SavedDateTime = DateTime.Parse(PlayerPrefsStorage.GetStringData(GameData.KEY_DATETIME));
             Debug.Log("Date = " + SavedDateTime);
         }
-        //SavedDateTime = DateTime.Parse("7 / 22 / 2017 12:00:00 AM");    //TODO: remove later
+        //SavedDateTime = DateTime.Parse("8 / 1 / 2017 12:00:00 AM");    //TODO: remove later
         //if (SavedDateTime < DateTime.Today)
         //DateTime tempDateTime = DateTime.Parse("7 / 23 / 2017 12:00:00 AM");
         if (SavedDateTime < DateTime.Today)
@@ -175,16 +200,37 @@ public class UiManager : MonoBehaviour
             SwitchGameState(GameState.InGame);
         }
 
-        if (LocalizationText.GetLanguage().Equals(GameData.LANG_ENGLISH))
+        CheckAndSelectLanguage();
+
+        GetAndDisplayLadddusAvailable();
+    }
+
+    private void CheckAndSelectLanguage()
+    {
+        string _lang = (PlayerPrefsStorage.GetStringData(GameData.KEY_LANGUAGE));
+
+        if (string.IsNullOrEmpty(_lang))
         {
-            EnglishToggle.isOn = true;
+            if (LocalizationText.GetLanguage().Equals(GameData.LANG_ENGLISH))
+            {
+                EnglishToggle.isOn = true;
+            }
+            else
+            {
+                HindiToggle.isOn = true;
+            }
         }
         else
         {
-            HindiToggle.isOn = true;
+            if (_lang == GameData.LANG_ENGLISH)
+            {
+                EnglishToggle.isOn = true;
+            }
+            else
+            {
+                HindiToggle.isOn = true;
+            }
         }
-
-        GetAndDisplayLadddusAvailable();
     }
 
     public void GetAndDisplayLadddusAvailable()
@@ -339,7 +385,7 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        _DateTimeStr = SavedDateTime.ToString();
+        //_DateTimeStr = SavedDateTime.ToString();
         if (gameState == GameState.MainMenu && Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Application quit!");
@@ -469,6 +515,7 @@ public class UiManager : MonoBehaviour
 
     public void OnSelectLevel()
     {
+        GetComponent<LevelStoreScreen>().SetButtonsContent();
         LevelsScreen.SetActive(true);
     }
 
@@ -523,10 +570,12 @@ public class UiManager : MonoBehaviour
     {
         if (value)
         {
+            gameState = GameState.Settings;
             SettingsScreen.SetActive(true);
         }
         else
         {
+            gameState = GameState.MainMenu;
             SettingsScreen.SetActive(false);
         }
 
@@ -559,10 +608,13 @@ public class UiManager : MonoBehaviour
     {
         if (value)
         {
+            GetComponent<CharacterStoreScreen>().SetSkinFromSavedData();
+            gameState = GameState.Store;
             StoreScreen.SetActive(true);
         }
         else
         {
+            gameState = GameState.MainMenu;
             StoreScreen.SetActive(false);
         }
 
@@ -605,6 +657,7 @@ public class UiManager : MonoBehaviour
 
     public void SwitchGameState(GameState state)
     {
+        GetAndDisplayLadddusAvailable();
         MainMenuScreen.SetActive(false);
         GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);
@@ -615,7 +668,6 @@ public class UiManager : MonoBehaviour
         {
             MainMenuScreen.SetActive(true);
             gameState = GameState.MainMenu;
-            GetAndDisplayLadddusAvailable();
         }
 
         if (state == GameState.GameOver)
@@ -698,9 +750,9 @@ public class UiManager : MonoBehaviour
 
         HighScore_Text.text = HighScore.ToString();
         Score_Text.text = HanumanController.currentScore.ToString();
-
+        
         AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
-
+        
         if (lives > 0)
         {
             lives--;

@@ -45,11 +45,13 @@ public class AchievementsScript : MonoBehaviour
         int _laddus = LaddusCount + laddus;
         int _maps = MapsCount + maps;
         int _enemiesKilled = EnemiesKilledCount + enemiesKilled;
+        int _silver = SilverUnlocked + silver;
+        int _gold = GoldUnlocked + gold;
 
         PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, _laddus);
         PlayerPrefsStorage.SaveData(GameData.KEY_MAPS_UNLOCKED, _maps);
-        PlayerPrefsStorage.SaveData(GameData.KEY_SILVER_UNLOCKED, silver);
-        PlayerPrefsStorage.SaveData(GameData.KEY_GOLD_UNLOCKED, gold);
+        PlayerPrefsStorage.SaveData(GameData.KEY_SILVER_UNLOCKED, _silver);
+        PlayerPrefsStorage.SaveData(GameData.KEY_GOLD_UNLOCKED, _gold);
         PlayerPrefsStorage.SaveData(GameData.KEY_ENEMY_KILLS, _enemiesKilled);
         UnlockAchievements();
     }

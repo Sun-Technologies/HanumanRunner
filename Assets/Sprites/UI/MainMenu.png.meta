@@ -73,6 +73,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -88,10 +90,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -166,6 +171,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Achievements_Icon_Up
@@ -179,6 +185,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: BonusItem_Bg
@@ -192,6 +199,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5081967}
       border: {x: 234, y: 46, z: 233, w: 124}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base
@@ -205,6 +213,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base_Crack1
@@ -218,6 +227,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base_Crack2
@@ -231,6 +241,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base_Crack3
@@ -244,6 +255,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Base_Crack4
@@ -257,6 +269,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Btn_Border
@@ -270,6 +283,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 255, y: 266, z: 255, w: 267}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: check_down
@@ -283,6 +297,7 @@ TextureImporter:
       pivot: {x: 0.4891775, y: 0.51269037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: check_up
@@ -296,6 +311,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.50627613}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Close_Bg
@@ -309,6 +325,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Close_Icon_Down
@@ -322,6 +339,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Close_Icon_Up
@@ -335,6 +353,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Daily_Bonus_Bg
@@ -348,6 +367,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5081967}
       border: {x: 45, y: 43, z: 43, w: 46}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Daily_Bonus_Bg_Patches
@@ -361,6 +381,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: DailyBonus_Text
@@ -374,6 +395,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day1_Bonus
@@ -387,6 +409,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6166667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day2_Bonus
@@ -400,6 +423,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.49775785}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day3_Bonus
@@ -413,6 +437,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5235849}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day4_Bonus
@@ -426,6 +451,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.46835443}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day5_Bonus
@@ -439,6 +465,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Day6_Bonus
@@ -452,6 +479,7 @@ TextureImporter:
       pivot: {x: 0.50396824, y: 0.57591623}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Diamondgada_Icon
@@ -465,6 +493,7 @@ TextureImporter:
       pivot: {x: 0.44827586, y: 0.5121951}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: EndScreen_Chain
@@ -478,6 +507,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Facebook_Btn_Down
@@ -491,6 +521,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Facebook_Btn_Up
@@ -504,6 +535,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Hanuman
@@ -517,6 +549,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Hanuman_Life
@@ -530,6 +563,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5022831}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Hanuman_Life_Empty
@@ -543,6 +577,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5022831}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Home_Icon_Down
@@ -556,6 +591,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Home_Icon_Up
@@ -569,6 +605,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Info_Icon_Down
@@ -582,6 +619,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Info_Icon_Up
@@ -595,6 +633,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Ladoo_Icon
@@ -608,6 +647,7 @@ TextureImporter:
       pivot: {x: 0.49579832, y: 0.5042017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Language_Icon_Down
@@ -621,6 +661,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Language_Icon_Up
@@ -634,6 +675,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Leaderboard_Icon_Down
@@ -647,6 +689,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Leaderboard_Icon_Up
@@ -660,6 +703,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Level_Btn
@@ -673,6 +717,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Level_Forest
@@ -686,6 +731,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Level_Lava
@@ -699,6 +745,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Level_Snow
@@ -712,6 +759,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Lock_Icon
@@ -725,6 +773,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Pause_Icon_Down
@@ -738,6 +787,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Pause_Icon_Up
@@ -751,6 +801,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Play_Icon_Down
@@ -764,6 +815,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Play_Icon_Up
@@ -777,6 +829,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Retry_Icon_Down
@@ -790,6 +843,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Retry_Icon_Up
@@ -803,6 +857,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Settings_Icon_Down
@@ -816,6 +871,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Settings_Icon_Up
@@ -829,6 +885,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Shop_Icon_Down
@@ -842,6 +899,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Shop_Icon_Up
@@ -855,6 +913,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Sound_Icon_Down
@@ -868,6 +927,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Sound_Icon_Up
@@ -881,6 +941,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Thumbnail_Bg1
@@ -894,6 +955,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Thumbnail_Bg2
@@ -907,6 +969,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: Thumbnail_Bg3
@@ -920,8 +983,10 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -47,6 +47,12 @@ public class AvGameServices
 
     private static void OnInitComplete()
     {
+        if (Social.localUser.authenticated)
+        {
+            Debug.Log("UserId = " + Social.localUser.id);
+            PlayerPrefsStorage.UserId = Social.localUser.id;
+            GameSaveUtil.Load(Social.localUser.id);
+        }
     }
 
     public static void SubmitScore(int score)
