@@ -57,7 +57,8 @@ public class SpawnsAction : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 3));
         if (FireballObj != null)
         {
-            Instantiate(FireballObj, transform.position, Quaternion.identity);
+            Transform fireOrigin = transform.Find("FireOrigin");
+            Instantiate(FireballObj, fireOrigin.position, Quaternion.identity);
         }
         else
         {

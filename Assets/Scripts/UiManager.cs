@@ -31,6 +31,7 @@ public class UiManager : MonoBehaviour
     DateTime SavedDateTime = DateTime.Today;
     public string _DateTimeStr;
     bool isMainMenuScreen = false;
+    static bool isMusicOn = true;
 
     public TextElements _textElements;
 
@@ -129,7 +130,7 @@ public class UiManager : MonoBehaviour
 
 
 
-        AvGameServices.Init();
+        
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
 
         //string _dateTime = string.Empty;
@@ -568,6 +569,7 @@ public class UiManager : MonoBehaviour
 
     public void OpenSettingsScreen(bool value)
     {
+        MusicToggle_MainMenu.isOn = isMusicOn;
         if (value)
         {
             gameState = GameState.Settings;
@@ -625,10 +627,12 @@ public class UiManager : MonoBehaviour
         if (MusicToggle_MainMenu.isOn)
         {
             AudioListener.volume = 1;
+            isMusicOn = true;
         }
         else
         {
             AudioListener.volume = 0;
+            isMusicOn = false;
         }
     }
 
@@ -637,10 +641,12 @@ public class UiManager : MonoBehaviour
         if (MusicToggle_PauseMenu.isOn)
         {
             AudioListener.volume = 1;
+            isMusicOn = true;
         }
         else
         {
             AudioListener.volume = 0;
+            isMusicOn = false;
         }
     }
 
@@ -687,6 +693,8 @@ public class UiManager : MonoBehaviour
         if (state == GameState.Pause)
         {
             PauseScreen.SetActive(true);
+            MusicToggle_PauseMenu.isOn = isMusicOn;
+            AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
         }
     }
 
