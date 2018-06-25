@@ -7,7 +7,7 @@ public class LevelStoreScreen : MonoBehaviour
 {
     const int SNOW_COST = 1500;
     const int LAVA_COST = 2000;
-
+    const int BEACH_COST = 3000;
     public UiManager _UiManager;
     public HanumanGearInfo _HanumanGearInfo;
 
@@ -60,6 +60,8 @@ public class LevelStoreScreen : MonoBehaviour
             CostButtons[1].SetActive(true);
             PurchasedButtons[1].SetActive(false);
         }
+        
+      
         else
         {
             CostButtons[1].SetActive(false);
@@ -75,6 +77,16 @@ public class LevelStoreScreen : MonoBehaviour
         {
             CostButtons[2].SetActive(false);
             PurchasedButtons[2].SetActive(true);
+        }
+        if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_BEACH_UNLOCKED, 0) == 0)  //BEACH
+        {
+            CostButtons[3].SetActive(true);
+            PurchasedButtons[3].SetActive(false);
+        }
+        else
+        {
+            CostButtons[3].SetActive(false);
+            PurchasedButtons[3].SetActive(true);
         }
     }
 
@@ -128,6 +140,33 @@ public class LevelStoreScreen : MonoBehaviour
         }
     }
 
+    void SelectBeachLevel()
+    {
+        if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_BEACH_UNLOCKED, 0) == 0)  //Not bought
+        {
+            
+            if (ladduCount >= BEACH_COST)
+            {
+                ladduCount -= BEACH_COST;
+                 PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
+                PlayerPrefsStorage.SaveData(GameData.KEY_MAP_BEACH_UNLOCKED, 1);
+                PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 4);
+                AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
+                SetButtonsContent();
+                _HanumanGearInfo.SetLevelType(LevelType.Beach);
+            }
+            else
+            {
+                ShowBrokeMessage(true);
+            }
+        }
+        else
+        {
+            _HanumanGearInfo.SetLevelType(LevelType.Beach);  //bought
+        }
+    }
+
+
     public void SelectLevel(int index)
     {
         switch (index)
@@ -145,6 +184,10 @@ public class LevelStoreScreen : MonoBehaviour
             case 3:
                 PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 2);
                 SelectLavaLevel();
+                break;
+          case 4:
+                PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 3);
+                SelectBeachLevel();
                 break;
         }
     }

@@ -16,7 +16,8 @@ public enum LevelType
 {
     Forest,
     Snow,
-    Lava
+    Lava,
+    Beach
 }
 
 public class HanumanGearInfo : MonoBehaviour

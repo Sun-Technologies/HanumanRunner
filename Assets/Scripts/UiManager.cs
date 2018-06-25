@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
 #if UNITY_ANDROID || UNITY_IOS
 using UnityEngine.Advertisements;
+
 #endif
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info, Settings, Store };
@@ -15,7 +16,9 @@ public class UiManager : MonoBehaviour
     public bool UnlimitedCoins = false;
     public static UiManager instance = null;
     public static GameState gameState = GameState.MainMenu;
+    private GeoData m_geoDataScript;
 
+    public PokktTestVideo pokkttestvideo;
     public List<UiPanels> UipanelsList;
 
     public GameObject TapToPlayObj;
@@ -127,10 +130,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         Debug.Log(SavedDateTime);
-
-
-
-        
+        m_geoDataScript = GetComponent<GeoData>();
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
 
         //string _dateTime = string.Empty;
@@ -525,6 +525,7 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameState = GameState.InGame;
         SwitchGameState(GameState.InGame);
+       // pokkttestvideo.VideocacheAdd();
     }
 
     public void OnTapToPlay()
@@ -687,6 +688,7 @@ public class UiManager : MonoBehaviour
             HUDScreen.SetActive(true);
             ToggleGamePauseState(false);
             DisplayInGameItems();
+          //  pokkttestvideo.VideocacheAdd();
 
         }
 
@@ -733,14 +735,30 @@ public class UiManager : MonoBehaviour
     {
         Analytics.CustomEvent("Game over");
 #if UNITY_ANDROID || UNITY_IOS
-        if (Advertisement.IsReady())
+
+       if (m_geoDataScript.GetUserCountryCode() != "IN")
+        {
+       
+            if (Advertisement.IsReady())
+            {
+               int random = UnityEngine.Random.Range(1, 4);
+               if (random == 3)
+                {
+                    Debug.Log("Showing ad");
+                  
+                        Advertisement.Show();
+                    
+                }
+           }
+        }
+        else
         {
             int random = UnityEngine.Random.Range(1, 4);
             if (random == 3)
             {
-                Debug.Log("Showing ad");
-                Advertisement.Show();
+                pokkttestvideo.VideoAd();
             }
+
         }
 #endif
         if (HanumanController.currentScore > HighScore)     //New high score
@@ -777,6 +795,7 @@ public class UiManager : MonoBehaviour
             Lives_Text.text = lives.ToString();
             Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
         }
+      
     }
 
     [System.Serializable]
@@ -786,3 +805,4 @@ public class UiManager : MonoBehaviour
         public GameObject ObjectReference;
     }
 }
+

@@ -17,6 +17,7 @@ public class GameData : MonoBehaviour
     public const string KEY_LADDUS_COLLECTED_COUNT  = "KeyLaddusCount";
     public const string KEY_MAP_SNOW_UNLOCKED       = "KeySnowMapUnlocked";
     public const string KEY_MAP_LAVA_UNLOCKED       = "KeyLavaMapUnlocked";
+    public const string KEY_MAP_BEACH_UNLOCKED = "KeyBEACHMapUnlocked";
     public const string KEY_MAPS_UNLOCKED           = "KeyMapsUnlocked";
     public const string KEY_SILVER_UNLOCKED         = "KeySilverUnlocked";
     public const string KEY_GOLD_UNLOCKED           = "KeyGoldUnlocked";

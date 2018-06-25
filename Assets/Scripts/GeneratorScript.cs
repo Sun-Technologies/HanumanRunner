@@ -174,6 +174,17 @@ public class GeneratorScript : MonoBehaviour
         {
             obj.transform.position = new Vector3(objectPositionX, -2.32f, 0);
         }
+        if (obj.name.Equals("Croc(Clone)"))
+        {
+            obj.transform.position = new Vector3(objectPositionX, -1.85f, 0);
+            obj.transform.rotation = Quaternion.identity;
+        }
+        if (obj.name.Equals("OctoCrab(Clone)"))
+        {
+            obj.transform.position = new Vector3(objectPositionX, -1.85f, 0);
+            obj.transform.rotation = Quaternion.identity;
+        }
+       
 
         objects.Add(obj);
     }

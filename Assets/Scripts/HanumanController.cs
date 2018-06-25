@@ -103,8 +103,9 @@ public class HanumanController : MonoBehaviour
         CheckForKillingAbility();
         Debug.Log("Gear type = " + HanumanGearInfo._gearType);
         _hanumanGearInfo.SetAnimController(HanumanGearInfo._gearType);
+        
     }
-
+    
     void FixedUpdate()
     {
         bool canFly = Input.GetButton("Fire1");
@@ -140,8 +141,8 @@ public class HanumanController : MonoBehaviour
 
         UpdateGroundedStatus();
         
-        ParallaxObjects[HanumanGearInfo.levelIndex].offsetX = transform.position.x;
-        //parallax.offsetY = transform.position.y;
+       ParallaxObjects[HanumanGearInfo.levelIndex].offsetX = transform.position.x;
+       //parallax.offsetY = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.D))
         {

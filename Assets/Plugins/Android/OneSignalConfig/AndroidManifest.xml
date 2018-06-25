@@ -10,6 +10,7 @@
     
     <permission android:name="com.aavega.hanumantherunhd.permission.C2D_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="com.aavega.hanumantherunhd.permission.C2D_MESSAGE" />
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
     <application>
       <receiver
             android:name="com.onesignal.GcmBroadcastReceiver"

@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: 6a84aa15fd420004fad3318f7f97fa22
+timeCreated: 1527651872
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: OctoCrab Attack_Spritesheet5x5_0
+    21300002: OctoCrab Attack_Spritesheet5x5_1
+    21300004: OctoCrab Attack_Spritesheet5x5_2
+    21300006: OctoCrab Attack_Spritesheet5x5_3
+    21300008: OctoCrab Attack_Spritesheet5x5_4
+    21300010: OctoCrab Attack_Spritesheet5x5_5
+    21300012: OctoCrab Attack_Spritesheet5x5_6
+    21300014: OctoCrab Attack_Spritesheet5x5_7
+    21300016: OctoCrab Attack_Spritesheet5x5_8
+    21300018: OctoCrab Attack_Spritesheet5x5_9
+    21300020: OctoCrab Attack_Spritesheet5x5_10
+    21300022: OctoCrab Attack_Spritesheet5x5_11
+    21300024: OctoCrab Attack_Spritesheet5x5_12
+    21300026: OctoCrab Attack_Spritesheet5x5_13
+    21300028: OctoCrab Attack_Spritesheet5x5_14
+    21300030: OctoCrab Attack_Spritesheet5x5_15
+    21300032: OctoCrab Attack_Spritesheet5x5_16
+    21300034: OctoCrab Attack_Spritesheet5x5_17
+    21300036: OctoCrab Attack_Spritesheet5x5_18
+    21300038: OctoCrab Attack_Spritesheet5x5_19
+    21300040: OctoCrab Attack_Spritesheet5x5_20
+    21300042: OctoCrab Attack_Spritesheet5x5_21
+    21300044: OctoCrab Attack_Spritesheet5x5_22
+    21300046: OctoCrab Attack_Spritesheet5x5_23
+    21300048: OctoCrab Attack_Spritesheet5x5_24
+    21300050: OctoCrab Attack_Spritesheet5x5_25
+    21300052: OctoCrab Attack_Spritesheet5x5_26
+    21300054: OctoCrab Attack_Spritesheet5x5_27
+    21300056: OctoCrab Attack_Spritesheet5x5_28
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1652
+        width: 301
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_1
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1654
+        width: 274
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_2
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 1656
+        width: 259
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_3
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1658
+        width: 232
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_4
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 1659
+        width: 216
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1347
+        width: 190
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_6
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1400
+        width: 219
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_7
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1439
+        width: 238
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_8
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1458
+        width: 249
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_9
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1464
+        width: 254
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_10
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1250
+        width: 202
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_11
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1251
+        width: 191
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_12
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1252
+        width: 182
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_13
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 1252
+        width: 178
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_14
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1252
+        width: 176
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1048
+        width: 249
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_16
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1028
+        width: 237
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_17
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 992
+        width: 220
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_18
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 936
+        width: 189
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_19
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 840
+        width: 215
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_20
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 842
+        width: 177
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_21
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 842
+        width: 182
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_22
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 842
+        width: 187
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_23
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 841
+        width: 197
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_24
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 429
+        width: 233
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_25
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 429
+        width: 254
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_26
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 427
+        width: 261
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_27
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 425
+        width: 278
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: OctoCrab Attack_Spritesheet5x5_28
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 423
+        width: 301
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

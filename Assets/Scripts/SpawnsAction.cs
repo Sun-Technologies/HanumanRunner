@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public enum SpawnsType
@@ -11,7 +12,10 @@ public enum SpawnsType
     Snake,
     FlyingBeast,
     Boulder,
-    Lava
+    Lava,
+  Crac_Attack,
+  OctoCrab_Attack
+        
 };
 
 public class SpawnsAction : MonoBehaviour
