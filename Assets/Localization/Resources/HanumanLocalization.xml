@@ -81,6 +81,10 @@
 			<EN>Lava</EN>
 			<HI>ykok</HI>
 		</TextKey>
+    <TextKey name="btnBeach">
+      <EN>Beach</EN>
+      <HI>rV</HI>
+    </TextKey>
 		<TextKey name="lblStore">
 			<EN>Store</EN>
 			<HI>nqdku</HI>

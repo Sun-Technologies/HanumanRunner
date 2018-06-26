@@ -25,6 +25,7 @@ public class PokktTestVideo : MonoBehaviour {
         consentInfo.GDPRConsentAvailable = true;
         //true if user has given consent to use personal details for ad targeting.
         PokktAds.SetDataAccessConsent(consentInfo);
+        VideCacheRewarded();
     }
 
     // Update is called once per frame
@@ -33,10 +34,19 @@ public class PokktTestVideo : MonoBehaviour {
     
     public void VideocacheAdd()
     {
-      //  PokktAds.VideoAd.CacheRewarded("RewardAd");
+      // PokktAds.VideoAd.CacheRewarded("RewardAd");
     }
     public void VideoAd()
     {
-        PokktAds.VideoAd.ShowRewarded("RewardAd");
+        if (PokktAds.VideoAd.IsAdCached("RewardedAd", true))
+            {
+            PokktAds.VideoAd.ShowNonRewarded("RewardAd");
+            }
     }
+
+    public void VideCacheRewarded()
+    {
+        PokktAds.VideoAd.CacheNonRewarded("RewardedAd");
+    }
+
 }

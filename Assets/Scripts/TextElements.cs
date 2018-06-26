@@ -32,6 +32,7 @@ public class TextElements : MonoBehaviour
     public Text btn_Forest;
     public Text btn_Snow;
     public Text btn_Lava;
+    public Text btn_Beach;
     public Text lbl_Store;
     public Text btn_GoldArmor;
     public Text btn_SilverArmor;
@@ -113,6 +114,7 @@ public class TextElements : MonoBehaviour
         btn_Forest.text = LocalizationText.GetText("btnForest");
         btn_Snow.text = LocalizationText.GetText("btnSnow");
         btn_Lava.text = LocalizationText.GetText("btnLava");
+        btn_Beach.text = LocalizationText.GetText("btnBeach");
         lbl_Store.text = LocalizationText.GetText("lblStore");
         //btn_GoldArmor.text = LocalizationText.GetText("btnGoldArmor");
         //btn_SilverArmor.text = LocalizationText.GetText("btnSilverArmor");
@@ -274,6 +276,12 @@ public class TextElements : MonoBehaviour
         if (item.name == "btn_Lava")
         {
             btn_Lava = item;
+            return;
+        }
+
+        if (item.name == "btn_Beach")
+        {
+            btn_Beach = item;
             return;
         }
 

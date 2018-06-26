@@ -129,6 +129,7 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
+       
         Debug.Log(SavedDateTime);
         m_geoDataScript = GetComponent<GeoData>();
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
@@ -525,7 +526,7 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameState = GameState.InGame;
         SwitchGameState(GameState.InGame);
-       // pokkttestvideo.VideocacheAdd();
+        // pokkttestvideo.VideocacheAdd();
     }
 
     public void OnTapToPlay()
@@ -688,7 +689,7 @@ public class UiManager : MonoBehaviour
             HUDScreen.SetActive(true);
             ToggleGamePauseState(false);
             DisplayInGameItems();
-          //  pokkttestvideo.VideocacheAdd();
+            //  pokkttestvideo.VideocacheAdd();
 
         }
 
@@ -736,20 +737,19 @@ public class UiManager : MonoBehaviour
         Analytics.CustomEvent("Game over");
 #if UNITY_ANDROID || UNITY_IOS
 
-       if (m_geoDataScript.GetUserCountryCode() != "IN")
+        if (m_geoDataScript.GetUserCountryCode()!= "IN")
         {
-       
+
             if (Advertisement.IsReady())
             {
-               int random = UnityEngine.Random.Range(1, 4);
-               if (random == 3)
+                int random = UnityEngine.Random.Range(1, 4);
+                if (random == 3)
                 {
                     Debug.Log("Showing ad");
-                  
-                        Advertisement.Show();
-                    
+
+                    Advertisement.Show();
                 }
-           }
+            }
         }
         else
         {
@@ -757,8 +757,9 @@ public class UiManager : MonoBehaviour
             if (random == 3)
             {
                 pokkttestvideo.VideoAd();
+                pokkttestvideo.VideCacheRewarded();
             }
-
+           
         }
 #endif
         if (HanumanController.currentScore > HighScore)     //New high score
@@ -776,9 +777,9 @@ public class UiManager : MonoBehaviour
 
         HighScore_Text.text = HighScore.ToString();
         Score_Text.text = HanumanController.currentScore.ToString();
-        
+
         AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
-        
+
         if (lives > 0)
         {
             lives--;
@@ -795,7 +796,7 @@ public class UiManager : MonoBehaviour
             Lives_Text.text = lives.ToString();
             Lives_Text.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
         }
-      
+
     }
 
     [System.Serializable]

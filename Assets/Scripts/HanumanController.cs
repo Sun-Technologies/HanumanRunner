@@ -103,6 +103,7 @@ public class HanumanController : MonoBehaviour
         CheckForKillingAbility();
         Debug.Log("Gear type = " + HanumanGearInfo._gearType);
         _hanumanGearInfo.SetAnimController(HanumanGearInfo._gearType);
+
         
     }
     
