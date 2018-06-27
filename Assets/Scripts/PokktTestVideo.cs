@@ -5,8 +5,8 @@ using Pokkt;
 using UnityEngine.UI;
 
 public class PokktTestVideo : MonoBehaviour {
-    string appId ="14a3f7b59b47db5d8ab89404cf21c3fd";
-    string securityKey ="8c6afcb30b8ac14ef14d64f4c5002db0";
+    string appId ="8bbeca57cc4c46b84fad1618cbb013b8";
+    string securityKey ="348662285aa5b039a6ea2cd0e108a4dd";
   //  public Button btn;
     
 	// Use this for initialization
@@ -40,7 +40,7 @@ public class PokktTestVideo : MonoBehaviour {
     {
         if (PokktAds.VideoAd.IsAdCached("RewardedAd", true))
             {
-            PokktAds.VideoAd.ShowNonRewarded("RewardAd");
+            PokktAds.VideoAd.ShowNonRewarded("RewardedAd");
             }
     }
 
