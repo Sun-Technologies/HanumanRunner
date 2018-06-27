@@ -122,12 +122,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 1652
-        width: 301
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_1
       rect:
         serializedVersion: 2
-        x: 476
-        y: 1654
-        width: 274
-        height: 173
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_2
       rect:
         serializedVersion: 2
-        x: 890
-        y: 1656
-        width: 259
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_3
       rect:
         serializedVersion: 2
-        x: 1316
-        y: 1658
-        width: 232
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_4
       rect:
         serializedVersion: 2
-        x: 1734
-        y: 1659
-        width: 216
-        height: 265
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_5
       rect:
         serializedVersion: 2
-        x: 105
-        y: 1347
-        width: 190
-        height: 204
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_6
       rect:
         serializedVersion: 2
-        x: 499
-        y: 1400
-        width: 219
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,12 +220,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_7
       rect:
         serializedVersion: 2
-        x: 898
-        y: 1439
-        width: 238
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_8
       rect:
         serializedVersion: 2
-        x: 1302
-        y: 1458
-        width: 249
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_9
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 1464
-        width: 254
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_10
       rect:
         serializedVersion: 2
-        x: 102
-        y: 1250
-        width: 202
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_11
       rect:
         serializedVersion: 2
-        x: 518
-        y: 1251
-        width: 191
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_12
       rect:
         serializedVersion: 2
-        x: 932
-        y: 1252
-        width: 182
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,12 +304,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_13
       rect:
         serializedVersion: 2
-        x: 1343
-        y: 1252
-        width: 178
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -318,12 +318,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_14
       rect:
         serializedVersion: 2
-        x: 1754
-        y: 1252
-        width: 176
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_15
       rect:
         serializedVersion: 2
-        x: 73
-        y: 1048
-        width: 249
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_16
       rect:
         serializedVersion: 2
-        x: 489
-        y: 1028
-        width: 237
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,12 +360,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_17
       rect:
         serializedVersion: 2
-        x: 908
-        y: 992
-        width: 220
-        height: 211
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,12 +374,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_18
       rect:
         serializedVersion: 2
-        x: 1332
-        y: 936
-        width: 189
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,138 +388,12 @@ TextureImporter:
       name: OctoCrab Attack_Spritesheet5x5_19
       rect:
         serializedVersion: 2
-        x: 1731
-        y: 840
-        width: 215
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_20
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 842
-        width: 177
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_21
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 842
-        width: 182
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_22
-      rect:
-        serializedVersion: 2
-        x: 929
-        y: 842
-        width: 187
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_23
-      rect:
-        serializedVersion: 2
-        x: 1334
-        y: 841
-        width: 197
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_24
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 429
-        width: 233
-        height: 204
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_25
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 429
-        width: 254
-        height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_26
-      rect:
-        serializedVersion: 2
-        x: 890
-        y: 427
-        width: 261
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_27
-      rect:
-        serializedVersion: 2
-        x: 1293
-        y: 425
-        width: 278
-        height: 173
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: OctoCrab Attack_Spritesheet5x5_28
-      rect:
-        serializedVersion: 2
-        x: 1692
-        y: 423
-        width: 301
-        height: 195
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

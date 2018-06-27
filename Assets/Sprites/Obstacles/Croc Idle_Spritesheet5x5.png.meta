@@ -113,12 +113,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1663
-        width: 336
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -127,12 +127,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_1
       rect:
         serializedVersion: 2
-        x: 474
-        y: 1663
-        width: 335
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_2
       rect:
         serializedVersion: 2
-        x: 884
-        y: 1663
-        width: 334
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_3
       rect:
         serializedVersion: 2
-        x: 1294
-        y: 1663
-        width: 334
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_4
       rect:
         serializedVersion: 2
-        x: 1703
-        y: 1663
-        width: 335
-        height: 236
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 1638.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_5
       rect:
         serializedVersion: 2
-        x: 65
-        y: 1253
-        width: 334
-        height: 236
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_6
       rect:
         serializedVersion: 2
-        x: 475
-        y: 1253
-        width: 334
-        height: 236
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_7
       rect:
         serializedVersion: 2
-        x: 885
-        y: 1253
-        width: 333
-        height: 235
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_8
       rect:
         serializedVersion: 2
-        x: 1295
-        y: 1253
-        width: 333
-        height: 235
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_9
       rect:
         serializedVersion: 2
-        x: 1704
-        y: 1253
-        width: 334
-        height: 235
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 1229.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_10
       rect:
         serializedVersion: 2
-        x: 66
-        y: 843
-        width: 333
-        height: 235
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_11
       rect:
         serializedVersion: 2
-        x: 475
-        y: 843
-        width: 334
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_12
       rect:
         serializedVersion: 2
-        x: 885
-        y: 843
-        width: 333
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_13
       rect:
         serializedVersion: 2
-        x: 1294
-        y: 843
-        width: 334
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_14
       rect:
         serializedVersion: 2
-        x: 1704
-        y: 843
-        width: 334
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 820.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_15
       rect:
         serializedVersion: 2
-        x: 65
-        y: 434
-        width: 334
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_16
       rect:
         serializedVersion: 2
-        x: 474
-        y: 434
-        width: 335
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_17
       rect:
         serializedVersion: 2
-        x: 884
-        y: 434
-        width: 334
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_18
       rect:
         serializedVersion: 2
-        x: 1293
-        y: 434
-        width: 335
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1227
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,12 +379,12 @@ TextureImporter:
       name: Croc Idle_Spritesheet5x5_19
       rect:
         serializedVersion: 2
-        x: 1702
-        y: 434
-        width: 336
-        height: 239
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1636
+        y: 411.4
+        width: 409.6
+        height: 409.6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

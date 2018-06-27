@@ -108,6 +108,7 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
+        PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
 #if UNITY_EDITOR
         GameSaveUtil.Load("");
 #endif
@@ -708,6 +709,7 @@ public class UiManager : MonoBehaviour
 
     void DisplayInGameItems()
     {
+        pokkttestvideo.VideCacheRewarded();
         if (TapToPlayCount == 0)
         {
             TapToPlayObj.SetActive(true);
@@ -753,12 +755,12 @@ public class UiManager : MonoBehaviour
         }
         else
         {
-            int random = UnityEngine.Random.Range(1, 4);
-            if (random == 3)
-            {
-                pokkttestvideo.VideoAd();
-                pokkttestvideo.VideCacheRewarded();
-            }
+            pokkttestvideo.VideoAd();
+            //int random = UnityEngine.Random.Range(1, 4);
+            //if (random == 3)
+            //{
+            //    pokkttestvideo.VideoAd();
+            //}
            
         }
 #endif
