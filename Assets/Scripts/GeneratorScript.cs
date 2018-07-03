@@ -25,7 +25,7 @@ public class GeneratorScript : MonoBehaviour
 
     private Vector3 laserPos = new Vector3(0, -0.99f, 0);
     HanumanGearInfo _hanumanGearInfo;
-
+    public GameObject BeachObj;
     // Use this for initialization
     void Start()
     {
@@ -37,7 +37,7 @@ public class GeneratorScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        GenerateRoomIfRequred();
+        GenerateRoomIfRequired();
 
         GenerateObjectsIfRequired();
     }
@@ -64,7 +64,7 @@ public class GeneratorScript : MonoBehaviour
         currentRooms.Add(room);
     }
 
-    void GenerateRoomIfRequred()
+    void GenerateRoomIfRequired()
     {
         //1
         List<GameObject> roomsToRemove = new List<GameObject>();
@@ -125,29 +125,33 @@ public class GeneratorScript : MonoBehaviour
     void AddObject(float lastObjectX)
     {
         int randomIndex;
-        if (GetComponent<HanumanController>().hasEquippedGada || GetComponent<HanumanController>().isTempGadaOn)  //Temp hack to spawn gada only when it's not equipped
+        if (BeachObj.activeInHierarchy) 
         {
-            randomIndex = Random.Range(0, availableObjects.Length - 1);
+            randomIndex = Random.Range(7, availableObjects.Length); //Temp hack to spawn only the required objects in beach level
         }
         else
         {
-            if (HanumanGearInfo.levelIndex >= 1)    //temp hack to not span gada in default character
-            {
-                randomIndex = Random.Range(0, availableObjects.Length);
-            }
-            else
-            {
-                randomIndex = Random.Range(0, availableObjects.Length - 1);
-            }
+            randomIndex = Random.Range(0, availableObjects.Length - 2);
         }
 
         //2
+        if (!GetComponent<HanumanController>().hasEquippedGada || !GetComponent<HanumanController>().isTempGadaOn || HanumanGearInfo.levelIndex == 1)  //Temp hack to spawn gada only when it's not equipped
+        {
+            if (availableObjects[randomIndex].gameObject.name.Contains("GadaPickUp"))
+            {
+                randomIndex--;
+            }
+        }
+
         GameObject obj = (GameObject)Instantiate(availableObjects[randomIndex]);
 
         //3
         float objectPositionX = lastObjectX + Random.Range(objectsMinDistance, objectsMaxDistance);
         float rotation = Random.Range(objectsMinRotation, objectsMaxRotation);
-
+        if (obj == null)
+        {
+            return;
+        }
         float randomY = Random.Range(objectsMinY, objectsMaxY);
         obj.transform.position = new Vector3(objectPositionX, randomY, 0);
         if (!obj.name.Equals("Lightning(Clone)") && !obj.name.Equals("SpikeWall(Clone)") && !obj.name.Equals("Rakshas_Ground(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)") && !obj.name.Equals("Demon_Ground(Clone)") && !obj.name.Equals("Flying_Beast(Clone)") && !obj.name.Equals("Winged_Rakshas(Clone)") && !obj.name.Equals("Boulder(Clone)") && !obj.name.Equals("Snake(Clone)") && !obj.name.Equals("LavaPatch(Clone)"))
@@ -176,15 +180,15 @@ public class GeneratorScript : MonoBehaviour
         }
         if (obj.name.Equals("Croc(Clone)"))
         {
-            obj.transform.position = new Vector3(objectPositionX, -1.85f, 0);
+            obj.transform.position = new Vector3(objectPositionX, -2.58f, 0);
             obj.transform.rotation = Quaternion.identity;
         }
         if (obj.name.Equals("OctoCrab(Clone)"))
         {
-            obj.transform.position = new Vector3(objectPositionX, -1.85f, 0);
+            obj.transform.position = new Vector3(objectPositionX, -2.6f, 0);
             obj.transform.rotation = Quaternion.identity;
         }
-       
+
 
         objects.Add(obj);
     }
@@ -202,6 +206,10 @@ public class GeneratorScript : MonoBehaviour
 
         foreach (var obj in objects)
         {
+            if (obj == null)
+            {
+                return;
+            }
             //3
             float objX = obj.transform.position.x;
 

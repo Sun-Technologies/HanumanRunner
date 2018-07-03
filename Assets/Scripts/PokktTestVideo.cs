@@ -4,17 +4,19 @@ using UnityEngine;
 using Pokkt;
 using UnityEngine.UI;
 
-public class PokktTestVideo : MonoBehaviour {
-    string appId ="8bbeca57cc4c46b84fad1618cbb013b8";
-    string securityKey ="348662285aa5b039a6ea2cd0e108a4dd";
-  //  public Button btn;
-    
-	// Use this for initialization
-	void Start () {
+public class PokktTestVideo : MonoBehaviour
+{
+    string appId = "8bbeca57cc4c46b84fad1618cbb013b8";
+    string securityKey = "348662285aa5b039a6ea2cd0e108a4dd";
+    //  public Button btn;
+
+    // Use this for initialization
+    void Start()
+    {
         PokktAds.SetPokktConfig(
             appId,
-            securityKey, 
-            Pokkt.Extensions.PokktExtensionProvider.GetExtension(), 
+            securityKey,
+            Pokkt.Extensions.PokktExtensionProvider.GetExtension(),
             true);
         //PokktAds.Debugging.ShouldDebug( true );
 
@@ -29,19 +31,20 @@ public class PokktTestVideo : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
     }
-    
+
     public void VideocacheAdd()
     {
-      // PokktAds.VideoAd.CacheRewarded("RewardAd");
+        // PokktAds.VideoAd.CacheRewarded("RewardAd");
     }
     public void VideoAd()
     {
         if (PokktAds.VideoAd.IsAdCached("RewardedAd", true))
-            {
+        {
             PokktAds.VideoAd.ShowNonRewarded("RewardedAd");
-            }
+        }
     }
 
     public void VideCacheRewarded()

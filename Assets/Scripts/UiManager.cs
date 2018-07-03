@@ -108,7 +108,6 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-        PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, 15000); //TODO: remove
 #if UNITY_EDITOR
         GameSaveUtil.Load("");
 #endif

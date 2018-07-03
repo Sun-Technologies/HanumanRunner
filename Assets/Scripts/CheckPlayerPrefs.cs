@@ -22,7 +22,7 @@ public class CheckPlayerPrefs : MonoBehaviour
 
     void Start()
     {
-        GetPrefs();
+        //GetPrefs();
     }
 
     void GetPrefs()

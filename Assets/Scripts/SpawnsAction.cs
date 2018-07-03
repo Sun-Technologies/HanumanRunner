@@ -13,9 +13,8 @@ public enum SpawnsType
     FlyingBeast,
     Boulder,
     Lava,
-  Crac_Attack,
-  OctoCrab_Attack
-        
+    Crac_Attack,
+    OctoCrab_Attack
 };
 
 public class SpawnsAction : MonoBehaviour
@@ -44,6 +43,7 @@ public class SpawnsAction : MonoBehaviour
 
     void Start()
     {
+    
         _hanumanController = Transform.FindObjectOfType<HanumanController>();
         timeUntilNextToggle = interval;
         if (spawnsType == SpawnsType.FlyingRakhshas)
