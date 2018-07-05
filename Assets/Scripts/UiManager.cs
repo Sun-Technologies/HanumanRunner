@@ -754,12 +754,12 @@ public class UiManager : MonoBehaviour
         }
         else
         {
-            pokkttestvideo.VideoAd();
-            //int random = UnityEngine.Random.Range(1, 4);
-            //if (random == 3)
-            //{
-            //    pokkttestvideo.VideoAd();
-            //}
+            
+            int random = UnityEngine.Random.Range(1, 4);
+            if (random == 3)
+            {
+                pokkttestvideo.VideoAd();
+            }
            
         }
 #endif
