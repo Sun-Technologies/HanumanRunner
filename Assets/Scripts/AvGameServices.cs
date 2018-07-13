@@ -4,6 +4,7 @@ using UnityEngine.SocialPlatforms;
 using System.Collections;
 using System.Collections.Generic;
 
+
 #pragma warning disable 0162
 
 public delegate void RewardedAdResult(bool shown);
@@ -16,7 +17,7 @@ public class AvGameServices
     #endregion
 
     #region Properties
-    public static bool pIsReady
+  /*  public static bool pIsReady
     {
         get
         {
@@ -30,7 +31,7 @@ public class AvGameServices
 #endif
 #endif
         }
-    }
+    }*/
     #endregion
 
     #region class specific funtions
@@ -185,23 +186,23 @@ public class AvGameServices
 //#endif
     }
 
-    private static void HandleRewardedAdResult(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Finished:
-                if (mRewardedAdCallback != null)
-                    mRewardedAdCallback(true);
-                break;
-            case ShowResult.Skipped:
-            case ShowResult.Failed:
-                if (mRewardedAdCallback != null)
-                    mRewardedAdCallback(false);
-                break;
-        }
+   // private static void HandleRewardedAdResult(ShowResult result)
+   // {
+        //switch (result)
+        //{
+        //    case ShowResult.Finished:
+        //        if (mRewardedAdCallback != null)
+        //            mRewardedAdCallback(true);
+        //        break;
+        //    case ShowResult.Skipped:
+        //    case ShowResult.Failed:
+        //        if (mRewardedAdCallback != null)
+        //            mRewardedAdCallback(false);
+        //        break;
+        //}
 
-        mRewardedAdCallback = null;
-    }
+        //mRewardedAdCallback = null;
+   // }
 
     private static void OnNoAdsFound()
     {

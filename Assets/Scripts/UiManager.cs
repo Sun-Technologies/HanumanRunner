@@ -754,13 +754,18 @@ public class UiManager : MonoBehaviour
         }
         else
         {
-            
             int random = UnityEngine.Random.Range(1, 4);
             if (random == 3)
             {
-                pokkttestvideo.VideoAd();
+                if (pokkttestvideo.VideoAd()) { }
+                else
+                {
+                    if (Advertisement.IsReady())
+                    {
+                        Advertisement.Show();
+                    }
+                }
             }
-           
         }
 #endif
         if (HanumanController.currentScore > HighScore)     //New high score

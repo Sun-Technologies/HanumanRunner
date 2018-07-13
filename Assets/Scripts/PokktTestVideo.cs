@@ -39,14 +39,14 @@ public class PokktTestVideo : MonoBehaviour
     {
         // PokktAds.VideoAd.CacheRewarded("RewardAd");
     }
-    public void VideoAd()
+    public bool VideoAd()
     {
-      
         if (PokktAds.VideoAd.IsAdCached("RewardedAd",false))
         {
             PokktAds.VideoAd.ShowNonRewarded("RewardedAd");
-            Debug.Log("DisplayAd");
+            return true;
         }
+        return false;
     }
 
     public void VideCacheRewarded()
