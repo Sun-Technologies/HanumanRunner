@@ -23,15 +23,18 @@ public class AchievementsScript : MonoBehaviour
     public const string STR_UNLOCK_ALL_MAPS = "Unlock all maps";
     public const string STR_UNLOCK_SILVER_ARMOR = "Unlock Silver Arrmor";
     public const string STR_UNLOCK_GOLD_ARMOR = "Unlock Gold Armor";
-    public const string STR_KILL_10_ENEMIES = "Kill 10 enemies";
-    public const string STR_KILL_50_ENEMIES = "Kill 50 enemies";
-    public const string STR_KILL_100_ENEMIES = "Kill 100 enemies";
+    public const string STR_UNLOCK_SNOW = "Unlock Snow Level";
+    public const string STR_UNLOCK_LAVA = "Unlock Lava Level";
+    public const string STR_UNLOCK_BEACH = "Unlock Beach Level";
 
     static int LaddusCount = 0;
     static int MapsCount = 0;
     static int SilverUnlocked = 0;
     static int GoldUnlocked = 0;
     static int EnemiesKilledCount = 0;
+    static int SnowUnlocked = 0;
+    static int LavaUnlocked = 0;
+    static int BeachUnlocked = 0;
 
     void Start()
     {
@@ -63,6 +66,10 @@ public class AchievementsScript : MonoBehaviour
         SilverUnlocked = PlayerPrefsStorage.GetIntData(GameData.KEY_SILVER_UNLOCKED, 0);
         GoldUnlocked = PlayerPrefsStorage.GetIntData(GameData.KEY_GOLD_UNLOCKED, 0);
         EnemiesKilledCount = PlayerPrefsStorage.GetIntData(GameData.KEY_ENEMY_KILLS, 0);
+
+        SnowUnlocked = PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_SNOW_UNLOCKED, 0);
+        LavaUnlocked = PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_LAVA_UNLOCKED, 0);
+        BeachUnlocked = PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_BEACH_UNLOCKED, 0);
     }
 
     public static void UnlockAchievements()
@@ -130,34 +137,64 @@ public class AchievementsScript : MonoBehaviour
             }
         }
 
-        if (EnemiesKilledCount >= 10)
+        if (SnowUnlocked == 1)
         {
-            if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL10ENEMIES))
+            if (!AvGameServices.IsAchievementUnlocked(STR_UNLOCK_SNOW))
             {
-                AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL10ENEMIES);
-                Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_10_ENEMIES);
-                Debug.Log("Unlocked achievement: " + STR_KILL_10_ENEMIES);
+                AvGameServices.UnlockAchievement(STR_UNLOCK_SNOW);
+                Analytics.CustomEvent("Unlocked achievement: " + STR_UNLOCK_SNOW);
+                Debug.Log("Unlocked achievement: " + STR_UNLOCK_SNOW);
             }
         }
 
-        if (EnemiesKilledCount >= 50)
+        if (LavaUnlocked == 1)
         {
-            if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL50ENEMIES))
+            if (!AvGameServices.IsAchievementUnlocked(STR_UNLOCK_LAVA))
             {
-                AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL50ENEMIES);
-                Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_50_ENEMIES);
-                Debug.Log("Unlocked achievement: " + STR_KILL_50_ENEMIES);
+                AvGameServices.UnlockAchievement(STR_UNLOCK_LAVA);
+                Analytics.CustomEvent("Unlocked achievement: " + STR_UNLOCK_LAVA);
+                Debug.Log("Unlocked achievement: " + STR_UNLOCK_LAVA);
             }
         }
 
-        if (EnemiesKilledCount >= 100)
+        if (BeachUnlocked == 1)
         {
-            if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL100ENEMIES))
+            if (!AvGameServices.IsAchievementUnlocked(STR_UNLOCK_BEACH))
             {
-                AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL100ENEMIES);
-                Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_100_ENEMIES);
-                Debug.Log("Unlocked achievement: " + STR_KILL_100_ENEMIES);
+                AvGameServices.UnlockAchievement(STR_UNLOCK_BEACH);
+                Analytics.CustomEvent("Unlocked achievement: " + STR_UNLOCK_BEACH);
+                Debug.Log("Unlocked achievement: " + STR_UNLOCK_BEACH);
             }
         }
+
+        //if (EnemiesKilledCount >= 10)
+        //{
+        //    if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL10ENEMIES))
+        //    {
+        //        AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL10ENEMIES);
+        //        Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_10_ENEMIES);
+        //        Debug.Log("Unlocked achievement: " + STR_KILL_10_ENEMIES);
+        //    }
+        //}
+
+        //if (EnemiesKilledCount >= 50)
+        //{
+        //    if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL50ENEMIES))
+        //    {
+        //        AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL50ENEMIES);
+        //        Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_50_ENEMIES);
+        //        Debug.Log("Unlocked achievement: " + STR_KILL_50_ENEMIES);
+        //    }
+        //}
+
+        //if (EnemiesKilledCount >= 100)
+        //{
+        //    if (!AvGameServices.IsAchievementUnlocked(ACHIEVEMENT_KILL100ENEMIES))
+        //    {
+        //        AvGameServices.UnlockAchievement(ACHIEVEMENT_KILL100ENEMIES);
+        //        Analytics.CustomEvent("Unlocked achievement: " + STR_KILL_100_ENEMIES);
+        //        Debug.Log("Unlocked achievement: " + STR_KILL_100_ENEMIES);
+        //    }
+        //}
     }
 }

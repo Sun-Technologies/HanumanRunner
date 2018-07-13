@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class LevelStoreScreen : MonoBehaviour
 {
-    const int SNOW_COST = 1500;
-    const int LAVA_COST = 2000;
-    const int BEACH_COST = 3000;
+    const int SNOW_COST = 200;
+    const int LAVA_COST = 1000;
+    const int BEACH_COST = 1500;
     public UiManager _UiManager;
     public HanumanGearInfo _HanumanGearInfo;
 
@@ -34,6 +34,11 @@ public class LevelStoreScreen : MonoBehaviour
         _HanumanGearInfo = FindObjectOfType<HanumanGearInfo>();
         SetButtonsContent();
         Debug.Log("Laddu count = " + PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0));
+        ladduCount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
+    }
+
+    private void RefreshLaddusCount()
+    {
         ladduCount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
     }
 
@@ -92,6 +97,7 @@ public class LevelStoreScreen : MonoBehaviour
 
     void SelectSnowLevel()
     {
+        RefreshLaddusCount();
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_SNOW_UNLOCKED, 0) == 0)    //not bought
         {
             if (ladduCount >= SNOW_COST)
@@ -117,6 +123,7 @@ public class LevelStoreScreen : MonoBehaviour
 
     void SelectLavaLevel()
     {
+        RefreshLaddusCount();
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_LAVA_UNLOCKED, 0) == 0)  //Not bought
         {
             if (ladduCount >= LAVA_COST)
@@ -142,6 +149,7 @@ public class LevelStoreScreen : MonoBehaviour
 
     void SelectBeachLevel()
     {
+        RefreshLaddusCount();
         if (PlayerPrefsStorage.GetIntData(GameData.KEY_MAP_BEACH_UNLOCKED, 0) == 0)  //Not bought
         {
             

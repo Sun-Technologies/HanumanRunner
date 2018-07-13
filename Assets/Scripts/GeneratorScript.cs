@@ -127,7 +127,7 @@ public class GeneratorScript : MonoBehaviour
         int randomIndex;
         if (BeachObj.activeInHierarchy) 
         {
-            randomIndex = Random.Range(7, availableObjects.Length); //Temp hack to spawn only the required objects in beach level
+            randomIndex = Random.Range(13, availableObjects.Length); //Temp hack to spawn only the required objects in beach level
         }
         else
         {

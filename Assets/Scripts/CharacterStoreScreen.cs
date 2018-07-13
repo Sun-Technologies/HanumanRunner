@@ -19,8 +19,8 @@ public enum ButtonState
 
 public class CharacterStoreScreen : MonoBehaviour
 {
-    const int SILVER_HANUMAN_COST = 2000;
-    const int GOLD_HANUMAN_COST = 5000;
+    const int SILVER_HANUMAN_COST = 1000;
+    const int GOLD_HANUMAN_COST = 2000;
 
     SelectedSkin _selectedSkin;
     ButtonState _buttonState;

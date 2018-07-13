@@ -24,16 +24,16 @@
 
 public static class GPGSIds
 {
-        public const string achievement_kill_10_enemies = "CgkImt_Vrr0QEAIQCA"; // <GPGSID>
+        public const string achievement_unlock_beach_level = "CgkImt_Vrr0QEAIQCg"; // <GPGSID>
+        public const string achievement_unlock_silver_armor = "CgkImt_Vrr0QEAIQBg"; // <GPGSID>
         public const string achievement_unlock_gold_armor = "CgkImt_Vrr0QEAIQBw"; // <GPGSID>
         public const string achievement_collect_500_laddus = "CgkImt_Vrr0QEAIQAw"; // <GPGSID>
         public const string achievement_unlock_all_maps = "CgkImt_Vrr0QEAIQBQ"; // <GPGSID>
-        public const string achievement_collect_100_laddus = "CgkImt_Vrr0QEAIQAg"; // <GPGSID>
         public const string leaderboard_hanumanrun_leaderboard = "CgkImt_Vrr0QEAIQAQ"; // <GPGSID>
-        public const string achievement_kill_50_enemies = "CgkImt_Vrr0QEAIQCQ"; // <GPGSID>
-        public const string achievement_kill_100_enemies = "CgkImt_Vrr0QEAIQCg"; // <GPGSID>
+        public const string achievement_unlock_lava_level = "CgkImt_Vrr0QEAIQCQ"; // <GPGSID>
+        public const string achievement_collect_100_laddus = "CgkImt_Vrr0QEAIQAg"; // <GPGSID>
         public const string achievement_collect_1000_laddus = "CgkImt_Vrr0QEAIQBA"; // <GPGSID>
-        public const string achievement_unlock_silver_armor = "CgkImt_Vrr0QEAIQBg"; // <GPGSID>
+        public const string achievement_unlock_snow_level = "CgkImt_Vrr0QEAIQCA"; // <GPGSID>
 
 }
 
