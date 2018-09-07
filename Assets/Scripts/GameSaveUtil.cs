@@ -25,13 +25,14 @@ public class GameSaveUtil
 	{
 		SetValue(key, value);
 		Save(id);
+      
 	}
 
 	public static object GetValue(string key)
 	{
 		if(mDataHashtable.ContainsKey(key))
 			return mDataHashtable[key];
-
+        Debug.Log("data keys" + mDataHashtable);
 		return null;
 	}
 
@@ -46,15 +47,18 @@ public class GameSaveUtil
 			float totalPlayTime = (float)mDataHashtable[META_DATA_KEY];
 			totalPlayTime += Time.realtimeSinceStartup;
 			mDataHashtable[META_DATA_KEY] = totalPlayTime;
+            Debug.Log("total playtime" + mDataHashtable);
 		}
 		else
 			mDataHashtable.Add(META_DATA_KEY, Time.realtimeSinceStartup);
+        Debug.Log("real time" + mDataHashtable);
 
 		BinaryFormatter bf = new BinaryFormatter();
         if (!Directory.Exists(SaveFolderPath))
         {
             Directory.CreateDirectory(SaveFolderPath);
         }
+
         string filePath = SaveFolderPath + "/" + id + ".dat";
         Debug.Log("Filepath: " + filePath);
         FileStream file = File.Open(filePath, FileMode.OpenOrCreate);
@@ -69,13 +73,13 @@ public class GameSaveUtil
         file.Close();
 
 #if USE_CLOUD_SAVE
-		MemoryStream stream = new MemoryStream();
+        MemoryStream stream = new MemoryStream();
 		bf.Serialize(stream, mDataHashtable);
 		AvGameServices.SaveData(stream.ToArray());
 #endif
     }
 
-	public static void Load(string id)
+    public static void Load(string id)
 	{
         if (string.IsNullOrEmpty(id))
         {
@@ -96,23 +100,29 @@ public class GameSaveUtil
 #endif
         if (!Directory.Exists(SaveFolderPath))
         {
+            Debug.Log("file not found");
             Directory.CreateDirectory(SaveFolderPath);
         }
-		string filePath = SaveFolderPath + "/" + id + ".dat";
+
+
+        string filePath = SaveFolderPath + "/" + id + ".dat";
 
         Debug.Log("____Filepath = " + filePath);
         if (System.IO.File.Exists(filePath))
         {
+            Debug.Log("file found");
             FileStream file = File.Open(filePath, FileMode.Open);
             localSave = (Hashtable)bf.Deserialize(file);
 
+            Debug.Log("localdata" + localSave);
             file.Close();
-        }
 
-        mDataHashtable = ResolveConflict(cloudSave, localSave);
+        }
+            mDataHashtable = ResolveConflict(cloudSave, localSave);
+            Debug.Log("data save in local" + mDataHashtable);
+        
     }
-    
-	private static Hashtable ResolveConflict(Hashtable cloudSave, Hashtable localSave)
+    private static Hashtable ResolveConflict(Hashtable cloudSave, Hashtable localSave)
 	{
         Hashtable resolvedSaveData = null;
 

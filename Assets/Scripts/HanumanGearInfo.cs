@@ -49,7 +49,7 @@ public class HanumanGearInfo : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
-        
+
         UiManager.instance.StartGame();
         Debug.Log("Level type = " + levelType);
         _levelType = levelType;

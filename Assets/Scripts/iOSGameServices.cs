@@ -109,9 +109,9 @@ public class iOSGameServices
 
 		return 0;
 	}
-
+#if UNITY_IOS
 #if ENABLE_CLOUD_SAVE
-	public static byte[] GetSavedData()
+    public static byte[] GetSavedData()
     {
 		if (Application.platform == RuntimePlatform.IPhonePlayer)// && iCloudWrapper.IsICloudAvailable()) 
 		{
@@ -133,6 +133,6 @@ public class iOSGameServices
 		}
     }
 #endif //ENABLE_CLOUD_SAVE
-   
+#endif  
 #endregion
 }

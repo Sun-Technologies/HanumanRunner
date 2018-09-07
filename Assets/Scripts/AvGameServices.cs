@@ -53,13 +53,18 @@ public class AvGameServices
             Debug.Log("UserId = " + Social.localUser.id);
             PlayerPrefsStorage.UserId = Social.localUser.id;
             GameSaveUtil.Load(Social.localUser.id);
+           // GameSaveUtil.Load("");
         }
+       else
+            
+            GameSaveUtil.Load("");
     }
 
     public static void SubmitScore(int score)
     {
 #if UNITY_ANDROID
         GooglePlayServices.ReportScore(score);
+
 #elif UNITY_IOS
 		iOSGameServices.ReportScore(score);
 #endif
@@ -76,6 +81,7 @@ public class AvGameServices
 #endif
         }
         else
+
             Init();
     }
 

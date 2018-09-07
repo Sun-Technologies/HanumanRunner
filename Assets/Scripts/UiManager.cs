@@ -5,6 +5,8 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using System.Net;
+using System.IO;
 #if UNITY_ANDROID || UNITY_IOS
 using UnityEngine.Advertisements;
 
@@ -35,9 +37,9 @@ public class UiManager : MonoBehaviour
     public string _DateTimeStr;
     bool isMainMenuScreen = false;
     static bool isMusicOn = true;
-
+    public string HtmlText;
     public TextElements _textElements;
-
+    public bool checkinternet;
     #region UI Screens
 
     public GameObject MainMenuScreen;
@@ -108,7 +110,11 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
+       
 #if UNITY_EDITOR
+        GameSaveUtil.Load("");
+#endif
+#if UNITY_ANDROID
         GameSaveUtil.Load("");
 #endif
         if (UnlimitedCoins)
@@ -126,12 +132,44 @@ public class UiManager : MonoBehaviour
         DaysButtons = DaysButtonHolder.GetComponentsInChildren<Text>(true);
         _textElements = GetComponent<TextElements>();
     }
-
+    public string GetHtmlFromUri(string resource)
+    {
+        string html = string.Empty;
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(resource);
+        try
+        {
+            using (HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
+            {
+                bool isSuccess = (int)resp.StatusCode < 299 && (int)resp.StatusCode >= 200;
+                if (isSuccess)
+                {
+                    using (StreamReader reader = new StreamReader(resp.GetResponseStream()))
+                    {
+                        //We are limiting the array to 80 so we don't have
+                        //to parse the entire html document feel free to 
+                        //adjust (probably stay under 300)
+                        char[] cs = new char[80];
+                        reader.Read(cs, 0, cs.Length);
+                        foreach (char ch in cs)
+                        {
+                            html += ch;
+                        }
+                    }
+                }
+            }
+        }
+        catch
+        {
+            return "";
+        }
+        return html;
+    }
     void Start()
     {
-       
+        checkinternet = false;
+      //  HtmlText = GetHtmlFromUri("http://google.com");
         Debug.Log(SavedDateTime);
-        m_geoDataScript = GetComponent<GeoData>();
+      //  m_geoDataScript = GetComponent<GeoData>();
         days_DailyBonus = PlayerPrefsStorage.GetIntData(GameData.KEY_DAYS, 0);
 
         //string _dateTime = string.Empty;
@@ -680,6 +718,9 @@ public class UiManager : MonoBehaviour
 
         if (state == GameState.GameOver)
         {
+            HtmlText = GetHtmlFromUri("http://google.com");
+            Debug.Log(SavedDateTime);
+            m_geoDataScript = GetComponent<GeoData>();
             GameOverScreen.SetActive(true);
             DisplayGameOverItems();
         }
@@ -737,22 +778,24 @@ public class UiManager : MonoBehaviour
     {
         Analytics.CustomEvent("Game over");
 #if UNITY_ANDROID || UNITY_IOS
-
-        if (m_geoDataScript.GetUserCountryCode()!= "IN")
+        if (checkinternet==true&&!HtmlText.Contains("schema.org/WebPage"))
         {
-
-            if (Advertisement.IsReady())
+            if (m_geoDataScript.GetUserCountryCode() != "IN")
             {
-                int random = UnityEngine.Random.Range(1, 4);
-                if (random == 3)
-                {
-                    Debug.Log("Showing ad");
 
-                    Advertisement.Show();
+                if (Advertisement.IsReady())
+                {
+                    int random = UnityEngine.Random.Range(1, 4);
+                    if (random == 3)
+                    {
+                        Debug.Log("Showing ad");
+
+                        Advertisement.Show();
+                    }
                 }
             }
         }
-        else
+        else if(HtmlText == "")
         {
             int random = UnityEngine.Random.Range(1, 4);
             if (random == 3)
@@ -766,11 +809,13 @@ public class UiManager : MonoBehaviour
                     }
                 }
             }
+            checkinternet = false;
         }
 #endif
         if (HanumanController.currentScore > HighScore)     //New high score
         {
             HighScore = HanumanController.currentScore;
+
             PlayerPrefsStorage.SaveData(GameData.KEY_HIGHSCORE, HighScore);
             NewBest_TextObj.SetActive(true);
             Analytics.CustomEvent("Highscore: " + HighScore.ToString());
@@ -780,9 +825,11 @@ public class UiManager : MonoBehaviour
         {
             NewBest_TextObj.SetActive(false);
         }
-
+      
         HighScore_Text.text = HighScore.ToString();
+        Debug.Log("HighScoreof game" +HighScore);
         Score_Text.text = HanumanController.currentScore.ToString();
+        Debug.Log(HanumanController.currentScore);
 
         AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
 

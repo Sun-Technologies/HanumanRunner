@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 81fd555750839ae42a8f84e2326e122b
-timeCreated: 1497852170
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Achievements_Icon_Down
@@ -94,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
