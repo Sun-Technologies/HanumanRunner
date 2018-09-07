@@ -267,6 +267,7 @@ public class HanumanController : MonoBehaviour
             Destroy(coinCollider.gameObject);
         }
     }
+
     public bool isTempGadaOn = false;
     IEnumerator EquipGada(Collider2D gadaCollider)
     {
