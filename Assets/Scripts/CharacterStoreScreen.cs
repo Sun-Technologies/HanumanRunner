@@ -171,7 +171,7 @@ public class CharacterStoreScreen : MonoBehaviour
                     isPurchaseSuccessful = true;
                     PlayerPrefsStorage.SaveData(GameData.KEY_SILVER_UNLOCKED, 1);
                     PlayerPrefsStorage.SaveData(GameData.KEY_GEAR_TYPE, 1);
-                    AchievementsScript.SaveDataAndUnlockAchievements(0, 0, 1, 0, 0);
+                    //AchievementsScript.SaveDataAndUnlockAchievements(0, 0, 1, 0, 0);
                 }
                 break;
             case SelectedSkin.Gold:
@@ -181,7 +181,7 @@ public class CharacterStoreScreen : MonoBehaviour
                     isPurchaseSuccessful = true;
                     PlayerPrefsStorage.SaveData(GameData.KEY_GOLD_UNLOCKED, 1);
                     PlayerPrefsStorage.SaveData(GameData.KEY_GEAR_TYPE, 3);
-                    AchievementsScript.SaveDataAndUnlockAchievements(0, 0, 0, 1, 0);
+                    //AchievementsScript.SaveDataAndUnlockAchievements(0, 0, 0, 1, 0);
                 }
                 break;
         }

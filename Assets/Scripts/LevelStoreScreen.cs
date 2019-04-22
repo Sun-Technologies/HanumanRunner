@@ -106,7 +106,7 @@ public class LevelStoreScreen : MonoBehaviour
                 PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
                 PlayerPrefsStorage.SaveData(GameData.KEY_MAP_SNOW_UNLOCKED, 1);
                 PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 2);
-                AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
+                //AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
                 SetButtonsContent();
                 _HanumanGearInfo.SetLevelType(LevelType.Snow);
             }
@@ -132,7 +132,7 @@ public class LevelStoreScreen : MonoBehaviour
                 PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
                 PlayerPrefsStorage.SaveData(GameData.KEY_MAP_LAVA_UNLOCKED, 1);
                 PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 3);
-                AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
+                //AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
                 SetButtonsContent();
                 _HanumanGearInfo.SetLevelType(LevelType.Lava);
             }
@@ -159,7 +159,7 @@ public class LevelStoreScreen : MonoBehaviour
                  PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladduCount);
                 PlayerPrefsStorage.SaveData(GameData.KEY_MAP_BEACH_UNLOCKED, 1);
                 PlayerPrefsStorage.SaveData(GameData.KEY_LEVEL_TYPE, 4);
-                AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
+                //AchievementsScript.SaveDataAndUnlockAchievements(0, 1, 0, 0, 0);
                 SetButtonsContent();
                 _HanumanGearInfo.SetLevelType(LevelType.Beach);
             }

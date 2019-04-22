@@ -1,16 +1,16 @@
-﻿using Facebook.Unity;
+﻿//using Facebook.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Analytics;
+//using UnityEngine.Analytics;
 using System.Net;
 using System.IO;
-#if UNITY_ANDROID || UNITY_IOS
-using UnityEngine.Advertisements;
+//#if UNITY_ANDROID || UNITY_IOS
+//using UnityEngine.Advertisements;
 
-#endif
+//#endif
 
 public enum GameState { MainMenu, InGame, GameOver, Pause, Info, Settings, Store };
 public class UiManager : MonoBehaviour
@@ -443,29 +443,29 @@ public class UiManager : MonoBehaviour
         {
             isMainMenuScreen = false;
         }
-        if (FB.IsInitialized)
-        {
-            if (!FB.IsLoggedIn)
-            {
-                FB.LogInWithPublishPermissions(new List<string>() { "publish_actions" }, HandleResult);
-            }
-            else
-            {
-                FB.ShareLink(
-                    new Uri(OpenGameLink()),
-                    shareTitle,
-                    string.Format("I have collected {0} Laddus. Can you beat my score?", HighScore),
-                    new Uri(shareImage),
-                    HandleResult);
-            }
-        }
-        else
-        {
-            FacebookLog("initialize facebook first!");
-        }
+        //if (FB.IsInitialized)
+        //{
+        //    if (!FB.IsLoggedIn)
+        //    {
+        //        FB.LogInWithPublishPermissions(new List<string>() { "publish_actions" }, HandleResult);
+        //    }
+        //    else
+        //    {
+        //        FB.ShareLink(
+        //            new Uri(OpenGameLink()),
+        //            shareTitle,
+        //            string.Format("I have collected {0} Laddus. Can you beat my score?", HighScore),
+        //            new Uri(shareImage),
+        //            HandleResult);
+        //    }
+        //}
+        //else
+        //{
+        //    FacebookLog("initialize facebook first!");
+        //}
     }
 
-    private void HandleResult(IResult result)
+    /*private void HandleResult(IResult result)
     {
         if (result == null)
         {
@@ -503,36 +503,36 @@ public class UiManager : MonoBehaviour
         {
             FacebookLog("Empty Response\n");
         }
-    }
+    }*/
 
     private void SetInit()
     {
-        FacebookLog("SetInit");
-        if (!FB.IsInitialized)
-        {
-            FB.Init(OnInitComplete, OnHideUnity);
-        }
+        //FacebookLog("SetInit");
+        //if (!FB.IsInitialized)
+        //{
+        //    FB.Init(OnInitComplete, OnHideUnity);
+        //}
 
-        FacebookLog("FB.Init() called with " + FB.AppId);
-        if (FB.IsLoggedIn)
-        {
-            FacebookLog("Already logged in");
-        }
+        //FacebookLog("FB.Init() called with " + FB.AppId);
+        //if (FB.IsLoggedIn)
+        //{
+        //    FacebookLog("Already logged in");
+        //}
     }
 
     private void OnInitComplete()
     {
-        FacebookLog("Success - Check log for details");
-        FacebookLog("Success Response: OnInitComplete Called\n");
-        string logMessage = string.Format(
-            "OnInitCompleteCalled IsLoggedIn='{0}' IsInitialized='{1}'",
-            FB.IsLoggedIn,
-            FB.IsInitialized);
-        FacebookLog(logMessage);
-        if (AccessToken.CurrentAccessToken != null)
-        {
-            FacebookLog(AccessToken.CurrentAccessToken.ToString());
-        }
+        //FacebookLog("Success - Check log for details");
+        //FacebookLog("Success Response: OnInitComplete Called\n");
+        //string logMessage = string.Format(
+        //    "OnInitCompleteCalled IsLoggedIn='{0}' IsInitialized='{1}'",
+            //FB.IsLoggedIn,
+            //FB.IsInitialized);
+        //FacebookLog(logMessage);
+        //if (AccessToken.CurrentAccessToken != null)
+        //{
+        //    FacebookLog(AccessToken.CurrentAccessToken.ToString());
+        //}
     }
 
     private void OnHideUnity(bool isGameShown)
@@ -693,7 +693,7 @@ public class UiManager : MonoBehaviour
     public void InfoScreen_Button()
     {
         InfoScreen.SetActive(true);
-        Analytics.CustomEvent("Checked credits!");
+        //Analytics.CustomEvent("Checked credits!");
     }
 
     public void CloseInfoScreen()
@@ -738,7 +738,7 @@ public class UiManager : MonoBehaviour
         {
             PauseScreen.SetActive(true);
             MusicToggle_PauseMenu.isOn = isMusicOn;
-            AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
+            //AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
         }
     }
 
@@ -776,49 +776,49 @@ public class UiManager : MonoBehaviour
 
     void DisplayGameOverItems()
     {
-        Analytics.CustomEvent("Game over");
-#if UNITY_ANDROID || UNITY_IOS
-        if (checkinternet==true&&!HtmlText.Contains("schema.org/WebPage"))
-        {
-            if (m_geoDataScript.GetUserCountryCode() != "IN")
-            {
+        //Analytics.CustomEvent("Game over");
+//#if UNITY_ANDROID || UNITY_IOS
+//        if (checkinternet==true&&!HtmlText.Contains("schema.org/WebPage"))
+//        {
+//            if (m_geoDataScript.GetUserCountryCode() != "IN")
+//            {
 
-                if (Advertisement.IsReady())
-                {
-                    int random = UnityEngine.Random.Range(1, 4);
-                    if (random == 3)
-                    {
-                        Debug.Log("Showing ad");
+//                if (Advertisement.IsReady())
+//                {
+//                    int random = UnityEngine.Random.Range(1, 4);
+//                    if (random == 3)
+//                    {
+//                        Debug.Log("Showing ad");
 
-                        Advertisement.Show();
-                    }
-                }
-            }
-        }
-        else if(HtmlText == "")
-        {
-            int random = UnityEngine.Random.Range(1, 4);
-            if (random == 3)
-            {
-                if (pokkttestvideo.VideoAd()) { }
-                else
-                {
-                    if (Advertisement.IsReady())
-                    {
-                        Advertisement.Show();
-                    }
-                }
-            }
-            checkinternet = false;
-        }
-#endif
+//                        Advertisement.Show();
+//                    }
+//                }
+//            }
+//        }
+//        else if(HtmlText == "")
+//        {
+//            int random = UnityEngine.Random.Range(1, 4);
+//            if (random == 3)
+//            {
+//                if (pokkttestvideo.VideoAd()) { }
+//                else
+//                {
+//                    if (Advertisement.IsReady())
+//                    {
+//                        Advertisement.Show();
+//                    }
+//                }
+//            }
+//            checkinternet = false;
+//        }
+//#endif
         if (HanumanController.currentScore > HighScore)     //New high score
         {
             HighScore = HanumanController.currentScore;
 
             PlayerPrefsStorage.SaveData(GameData.KEY_HIGHSCORE, HighScore);
             NewBest_TextObj.SetActive(true);
-            Analytics.CustomEvent("Highscore: " + HighScore.ToString());
+            //Analytics.CustomEvent("Highscore: " + HighScore.ToString());
             AvGameServices.SubmitScore(HighScore);
         }
         else
@@ -831,7 +831,7 @@ public class UiManager : MonoBehaviour
         Score_Text.text = HanumanController.currentScore.ToString();
         Debug.Log(HanumanController.currentScore);
 
-        AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
+        //AchievementsScript.SaveDataAndUnlockAchievements(HanumanController.currentScore, 0, 0, 0, HanumanController.enemiesKilled);
 
         if (lives > 0)
         {

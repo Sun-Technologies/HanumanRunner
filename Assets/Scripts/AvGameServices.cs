@@ -38,11 +38,11 @@ public class AvGameServices
     public static void Init()
     {
 #if !UNITY_EDITOR
-#if UNITY_ANDROID
-		GooglePlayServices.Init(OnInitComplete);
-#elif UNITY_IOS
-		iOSGameServices.Init(OnInitComplete);
-#endif
+//#if UNITY_ANDROID
+//		GooglePlayServices.Init(OnInitComplete);
+//#elif UNITY_IOS
+//		iOSGameServices.Init(OnInitComplete);
+//#endif
 #endif
     }
 
@@ -62,28 +62,28 @@ public class AvGameServices
 
     public static void SubmitScore(int score)
     {
-#if UNITY_ANDROID
-        GooglePlayServices.ReportScore(score);
+        //#if UNITY_ANDROID
+        //        GooglePlayServices.ReportScore(score);
 
-#elif UNITY_IOS
-		iOSGameServices.ReportScore(score);
-#endif
+        //#elif UNITY_IOS
+        //		iOSGameServices.ReportScore(score);
+        //#endif
     }
 
-    public static void ShowLeaderBoard()
+public static void ShowLeaderBoard()
     {
-        if (Social.localUser.authenticated)
-        {
-#if UNITY_ANDROID
-            GooglePlayServices.ShowLeaderboard();
-#elif UNITY_IOS
-			iOSGameServices.ShowLeaderboard ();
-#endif
-        }
-        else
+//        if (Social.localUser.authenticated)
+//        {
+//#if UNITY_ANDROID
+//            GooglePlayServices.ShowLeaderboard();
+//#elif UNITY_IOS
+//			iOSGameServices.ShowLeaderboard ();
+//#endif
+//        }
+//        else
 
-            Init();
-    }
+//            Init();
+   }
 
     public static void ShowAchievements()
     {
@@ -101,21 +101,21 @@ public class AvGameServices
 
     public static void IncrementAchievement(string achievementID, int steps, double progress)
     {
-#if UNITY_ANDROID
-        GooglePlayServices.IncrementAchievement(achievementID, steps);
-#elif UNITY_IOS
-		iOSGameServices.UnlockAchievement(achievementID, progress);
-#endif
+//#if UNITY_ANDROID
+//        GooglePlayServices.IncrementAchievement(achievementID, steps);
+//#elif UNITY_IOS
+//		iOSGameServices.UnlockAchievement(achievementID, progress);
+//#endif
     }
 
     public static bool IsIncrementalAchievement(string achievementID)
     {
-#if UNITY_ANDROID
-        //		return true;
-        return GooglePlayServices.IsIncrementalAchievement(achievementID);
-#elif UNITY_IOS
-		return false;
-#endif
+//#if UNITY_ANDROID
+//        //		return true;
+//        return GooglePlayServices.IsIncrementalAchievement(achievementID);
+//#elif UNITY_IOS
+//		return false;
+//#endif
         return false;
     }
 
@@ -130,45 +130,45 @@ public class AvGameServices
 
     public static bool IsAchievementUnlocked(string achievementID)
     {
-#if UNITY_ANDROID
-        return GooglePlayServices.IsAchievementUnlocked(achievementID);
-#elif UNITY_IOS
-		return iOSGameServices.IsAchievementUnlocked(achievementID);
-#endif
+//#if UNITY_ANDROID
+//        return GooglePlayServices.IsAchievementUnlocked(achievementID);
+//#elif UNITY_IOS
+//		return iOSGameServices.IsAchievementUnlocked(achievementID);
+//#endif
         return false;
     }
 
     public static double GetAchievementProgress(string achievementID)
     {
-#if UNITY_ANDROID
-        return GooglePlayServices.GetAchievementProgress(achievementID);
-#elif UNITY_IOS
-		return iOSGameServices.GetAchievementProgress(achievementID);
-#endif
+//#if UNITY_ANDROID
+//        return GooglePlayServices.GetAchievementProgress(achievementID);
+//#elif UNITY_IOS
+//		return iOSGameServices.GetAchievementProgress(achievementID);
+//#endif
         return 0;
     }
 
     public static byte[] GetSavedData()
     {
-#if ENABLE_CLOUD_SAVE
-#if UNITY_ANDROID
-		return GooglePlayServices.GetSavedData();
-#elif UNITY_IOS
-		return iOSGameServices.GetSavedData();
-#endif
-#endif
+//#if ENABLE_CLOUD_SAVE
+//#if UNITY_ANDROID
+//		return GooglePlayServices.GetSavedData();
+//#elif UNITY_IOS
+//		return iOSGameServices.GetSavedData();
+//#endif
+//#endif
         return null;
     }
 
     public static void SaveData(byte[] saveData)
     {
-#if ENABLE_CLOUD_SAVE
-#if UNITY_ANDROID
-		GooglePlayServices.SaveGameData(saveData);
-#elif UNITY_IOS
-		iOSGameServices.SaveGameData(saveData);
-#endif
-#endif
+//#if ENABLE_CLOUD_SAVE
+//#if UNITY_ANDROID
+//		GooglePlayServices.SaveGameData(saveData);
+//#elif UNITY_IOS
+//		iOSGameServices.SaveGameData(saveData);
+//#endif
+//#endif
     }
 
     //Watch video Ad to continue the game
