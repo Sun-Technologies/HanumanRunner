@@ -18,6 +18,8 @@ public class HanumanController : MonoBehaviour
 
     public LayerMask groundCheckLayerMask;
 
+    public int ladducount = 0;
+
     public Animator animator;
 
     private bool dead = false;
@@ -245,7 +247,17 @@ public class HanumanController : MonoBehaviour
 
     IEnumerator ShowGameOver()
     {
-        yield return new WaitForSeconds(1.5f);
+        try
+        {
+            ladducount = PlayerPrefsStorage.GetIntData(GameData.KEY_LADDUS_COLLECTED_COUNT, 0);
+            ladducount = ladducount + currentScore;
+            PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, ladducount);
+        }
+        catch
+        {
+            PlayerPrefsStorage.SaveData(GameData.KEY_LADDUS_COLLECTED_COUNT, currentScore);
+        }
+        yield return new WaitForSeconds(0.5f);
         UiManager.instance.SwitchGameState(GameState.GameOver);
     }
 

@@ -134,7 +134,7 @@ public class GameSaveUtil
 		if(localSave!= null && localSave.ContainsKey(META_DATA_KEY))
 			localSavePlayTime = (float)localSave[META_DATA_KEY];
 
-		resolvedSaveData = (cloudSavePlayTime > localSavePlayTime) ? cloudSave : localSave;
+		resolvedSaveData = localSave;
 #if USE_CLOUD_SAVE
 
 		if (resolvedSaveData == null)
